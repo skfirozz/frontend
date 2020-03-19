@@ -1,0 +1,30 @@
+<mat-card class="card">
+    <h1>
+        <span class="purple">F</span>
+        <span class="red">U</span>
+        <span class="blue">N</span>
+        <span class="purple">D</span>
+        <span class="red">O</span>
+        <span class="green">O</span>
+    </h1>
+    <h2><span class="green">Forgot Password</span></h2>
+    <form class="example-form">
+
+        <mat-form-field class="example-full-width" appearance="outline" class="line">
+            <mat-label class="labelColor">Email</mat-label>
+            <input matInput [formControl]="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="onForgot()">Forgot</button>
+        </div>
+    </form>
+    <div class="link">
+        <span>Have an account? <a href="login">Login</a></span>
+    </div>
+</mat-card>

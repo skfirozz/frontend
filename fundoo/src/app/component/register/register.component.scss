@@ -1,0 +1,86 @@
+.card {
+    background-color: rgb(228, 235, 217);
+    height: 50%;
+    width: 35%;
+    margin: 0 auto;
+}
+
+.purple {
+    color: purple;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.green {
+    color: green;
+}
+
+h2 {
+    text-align: center;
+    color: green;
+}
+
+h1 {
+    text-align: center;
+}
+
+.labelColor {
+    color: black;
+}
+
+.password {
+    color: red;
+    width: 50%;
+}
+
+.line {
+    width: 95%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.name-width {
+    width: 95%;
+    margin: 0 10px;
+}
+
+.name-width-small {
+    width: 45%;
+    margin: 0 10px;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-button-row {
+    text-align: center;
+}
+
+.link {
+    text-align: center;
+}
+
+.facebook {
+    // text-align: center;
+    background-color: darkblue;
+    color: white;
+    align-items: center;
+    margin: 0 30px;
+}
+
+.google {
+    text-align: right;
+    background-color: darkblue;
+    color: white;
+}

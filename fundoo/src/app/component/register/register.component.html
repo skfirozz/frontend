@@ -1,0 +1,97 @@
+<mat-card class="card">
+    <h1>
+        <span class="purple">F</span>
+        <span class="red">U</span>
+        <span class="blue">N</span>
+        <span class="purple">D</span>
+        <span class="red">O</span>
+        <span class="green">O</span>
+    </h1>
+    <h2><span class="green">Registration</span></h2>
+    <form class="example-form">
+        <!-- [formGroup]="registerForm" (ngSubmit)="onRegistrationForm(registerForm.value)" -->
+        <mat-form-field class="name-width" appearance="outline" class="name-width-small">
+            <mat-label class="labelColor">First Name</mat-label>
+            <input matInput [formControl]="firstName" placeholder="">
+            <mat-error *ngIf="firstName.hasError('required')">
+                First Name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="firstName.hasError('minlength')">
+                Minimum Name <strong>length</strong> is 4 char
+            </mat-error>
+            <mat-error *ngIf="firstName.hasError('pattern') && !firstName.hasError('minlength')">
+                Name must in<strong> characters</strong>
+            </mat-error>
+        </mat-form-field>
+
+
+        <mat-form-field class="name-width" appearance="outline" class="name-width-small">
+            <mat-label class="labelColor">Last Name</mat-label>
+            <input matInput [formControl]="lastName" placeholder="">
+            <mat-error *ngIf="lastName.hasError('required')">
+                Last Name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="lastName.hasError('minlength')">
+                Minimum Name <strong>length</strong> is 4 char
+            </mat-error>
+            <mat-error *ngIf="lastName.hasError('pattern') && !lastName.hasError('minlength')">
+                Name must in<strong> characters</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width" appearance="outline" class="line">
+            <mat-label class="labelColor">Email</mat-label>
+            <input matInput [formControl]="email" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <br>
+
+
+
+        <mat-form-field class="name-width" appearance="outline" class="name-width-small">
+            <mat-label class="labelColor">Password</mat-label>
+            <input matInput [formControl]="password" placeholder="" type="password">
+            <mat-error *ngIf="password.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="password.hasError('minlength')">
+                Minimum <strong>length</strong> is 6
+            </mat-error>
+        </mat-form-field>
+
+
+
+        <mat-form-field class="name-width" appearance="outline" class="name-width-small">
+            <mat-label class="labelColor">Confrim password</mat-label>
+            <input matInput [formControl]="confirmPassword" placeholder="" type="password">
+            <mat-error *ngIf="confirmPassword.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="confirmPassword.hasError('minlength')">
+                Minimum <strong>length</strong> is 6
+            </mat-error>
+            <mat-error *ngIf="">
+                PASSWORD NOT MATCHED
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="onRegistrationForm()">Register</button>
+        </div>
+    </form>
+
+    <br>
+    <div class="link">
+        <span>Have an account? <a href="login">Login</a></span>
+    </div>
+
+    <button class="facebook" mat-fab color="primary">FB</button>
+    <button class="facebook" mat-fab color="primary">G+</button>
+
+</mat-card>
