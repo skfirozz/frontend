@@ -6,8 +6,8 @@
     <span class="red">O</span>
     <span class="green">O</span>
 </h1>
-</mat-card>
-<p>hi</p>
+</mat-card> -->
+<!-- <p>hi</p>
     <input matInput   placeholder="SEARCH HERE" type="text"> -->
 <!-- <mat-drawer-container class="example-container">
         <mat-drawer mode="side" opened>Drawer content</mat-drawer>
@@ -15,10 +15,10 @@
       </mat-drawer-container> -->
 
 <mat-drawer-container [class.drawer-opened]="drawer.opened" class="example-container">
-    
-    <mat-drawer #drawer class="drawer" mode="side" opened="true">
+
+    <mat-drawer #drawer class="drawer" mode="side" opened="false">
         <mat-toolbar class="header">
-            <div>Logo</div>
+            <div></div>
             <mat-icon class="close" (click)="drawer.close()">close</mat-icon>
         </mat-toolbar>
         <div class="contents">
@@ -39,12 +39,16 @@
                 <span class="green">O</span>
             </h1>
         </div>
+        <div>
+            
+            <mat-card>
+                <mat-icon>search</mat-icon>
+            </mat-card>
+        </div>
     </mat-toolbar>
     <h1>hi</h1>
 
     <div class="main contents">
-        drawer opened: {{drawer.opened}}
-        <div>Contents xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxxx xxxxxx xxxxxx</div>
-        <div style="height: 1000px">&nbsp;</div>
+        {{drawer.opened}}
     </div>
 </mat-drawer-container>
