@@ -22,7 +22,7 @@
 .drawer {
     position: fixed;
     height: 100vh;
-    min-width: 25%;
+    min-width: 18%;
     border-right: 1px solid #ccc;
   }
   .drawer .header {
@@ -62,4 +62,15 @@
     background-position : right;
   }
   
+  .takenote {
+    background-color: grey;
+    width: 50%;
+    height:30px;
+    text-align: left;
+    color: white;
+    margin: 0 auto;
+  }
+  .search {
+    background-color: lightyellow;
+  }
   

@@ -14,34 +14,57 @@
         <mat-drawer-content>Main content</mat-drawer-content>
       </mat-drawer-container> -->
 
-      <mat-drawer-container [class.drawer-opened]="drawer.opened" class="example-container">
-    
-        <mat-drawer #drawer class="drawer" mode="side" opened="true">
-            <mat-toolbar class="header">
-                <mat-icon class="close" (click)="drawer.close()">menu</mat-icon>
-            </mat-toolbar>
-            <div class="contents">
-                <mat-icon>menu</mat-icon>
-            </div>
-        </mat-drawer>
-    
-        <mat-toolbar class="main header">
-            <mat-icon  (click)="drawer.toggle()">
-                menu
-            </mat-icon>
-            <div>
-                <h1><span class="purple">F</span>
-                    <span class="red">U</span>
-                    <span class="blue">N</span>
-                    <span class="purple">D</span>
-                    <span class="red">O</span>
-                    <span class="green">O</span>
-                </h1>
-            </div>
-        </mat-toolbar>
-        <h1>hi</h1>
-    
-        <div class="main contents">
-            drawer opened: {{drawer.opened}}
+<mat-drawer-container [class.drawer-opened]="drawer.opened" class="example-container">
+
+    <mat-drawer #drawer class="drawer" mode="side" opened="true">
+        <div class="contents">
         </div>
-    </mat-drawer-container>
+        <div class="contents">
+            <mat-icon>
+                notes
+            </mat-icon>
+            Notes
+        </div>
+        <div class="contents">
+            <mat-icon>
+                notifications
+            </mat-icon>
+            Reminder
+        </div>
+        <div class="contents">
+            <mat-icon>
+                archive
+            </mat-icon>
+            Archive
+        </div>
+        <div class="contents">
+            <mat-icon>
+                restore_from_trash
+            </mat-icon>
+            Trash
+        </div>
+    </mat-drawer>
+
+    <mat-toolbar class="main header">
+        <mat-icon (click)="drawer.toggle()">
+            menu
+        </mat-icon>
+        <div>
+
+            <h1><span class="purple">F</span>
+                <span class="red">U</span>
+                <span class="blue">N</span>
+                <span class="purple">D</span>
+                <span class="red">O</span>
+                <span class="green">O</span>
+            </h1>
+        </div>
+        <mat-card class="search">
+            <mat-icon>search</mat-icon>
+        </mat-card>
+    </mat-toolbar>
+    <div class="main contents">
+        drawer opened: {{drawer.opened}}
+        <mat-card class="takenote">take a note</mat-card>
+    </div>
+</mat-drawer-container>
