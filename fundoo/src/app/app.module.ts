@@ -21,6 +21,9 @@ import { ForgotComponent } from './component/forgot/forgot.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
 
 
 @NgModule({
@@ -49,6 +52,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatDividerModule,
+    MatButtonToggleModule,
     RouterModule.forRoot([])
 
   ],
