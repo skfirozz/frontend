@@ -1,31 +1,39 @@
 <mat-drawer-container [class.drawer-opened]="drawer.opened" class="example-container">
 
-    <mat-drawer #drawer class="drawer" mode="side" opened="false">
+    <mat-drawer #drawer class="drawer" mode="side" opened="true">
         <div class="contents">
         </div>
         <div class="contents">
-            <mat-icon>
-                notes
-            </mat-icon>
-            Notes
+            <button mat-button color="primary">
+                <mat-icon>
+                    notes
+                </mat-icon>
+                Primary
+            </button>
         </div>
         <div class="contents">
-            <mat-icon>
-                notifications
-            </mat-icon>
-            Reminder
+            <button mat-button color="primary">
+                <mat-icon>
+                    notifications
+                </mat-icon>
+                Primary
+            </button>
         </div>
         <div class="contents">
-            <mat-icon>
-                archive
-            </mat-icon>
-            Archive
+            <button mat-button color="primary">
+                <mat-icon>
+                    archive
+                </mat-icon>
+                Primary
+            </button>
         </div>
         <div class="contents">
-            <mat-icon>
-                restore_from_trash
-            </mat-icon>
-            Trash
+            <button mat-button color="primary">
+                <mat-icon>
+                    restore_from_trash
+                </mat-icon>
+                Primary
+            </button>
         </div>
     </mat-drawer>
 
@@ -45,7 +53,7 @@
         </div>
         <mat-card class="search">
             <mat-icon class="searchicon">search</mat-icon>
-            <input matInput  placeholder="search here">
+            <input matInput placeholder="search here">
         </mat-card>
     </mat-toolbar>
     <div class="main contents">
