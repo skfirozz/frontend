@@ -22,7 +22,8 @@
 .drawer {
     position: fixed;
     height: 100vh;
-    min-width: 18%;
+    min-width: 15%;
+    background-color: rgb(84, 224, 194);
     border-right: 1px solid #ccc;
   }
   .drawer .header {
@@ -77,4 +78,7 @@
   .searchicon{
     size:90%;
   }
-  
+  .divider {
+    background-color: red;
+    height: 1px;
+  }

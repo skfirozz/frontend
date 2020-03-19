@@ -23,7 +23,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
+import { MatListModule } from '@angular/material/list';
 
 
 @NgModule({
@@ -54,6 +54,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatToolbarModule,
     MatDividerModule,
     MatButtonToggleModule,
+    MatListModule,
     RouterModule.forRoot([])
 
   ],

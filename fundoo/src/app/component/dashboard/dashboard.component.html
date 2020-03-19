@@ -4,37 +4,62 @@
         <div class="contents">
         </div>
         <div class="contents">
-            <button mat-button color="primary">
-                <mat-icon>
-                    notes
-                </mat-icon>
-                Notes
-            </button>
         </div>
-        <div class="contents">
-            <button mat-button color="primary">
-                <mat-icon>
-                    notifications
-                </mat-icon>
-                Reminder
-            </button>
-        </div>
-        <div class="contents">
-            <button mat-button color="primary">
-                <mat-icon>
-                    archive
-                </mat-icon>
-                Archive
-            </button>
-        </div>
-        <div class="contents">
-            <button mat-button color="primary">
-                <mat-icon>
-                    restore_from_trash
-                </mat-icon>
-                Trash
-            </button>
-        </div>
+        <mat-list>
+            <mat-list-item>
+                <div class="contents">
+                    <button mat-button color="primary">
+                        <mat-icon>
+                            notes
+                        </mat-icon>
+                        Notes
+                    </button>
+                </div>
+            </mat-list-item>
+    
+            <mat-list-item>
+                <div class="contents">
+                    <button mat-button color="primary">
+                        <mat-icon>
+                            notifications
+                        </mat-icon>
+                        Reminder
+                    </button>
+                </div>
+            </mat-list-item>
+            <mat-divider class="divider"></mat-divider>
+            <mat-list-item>
+                <div class="contents">
+                    <button mat-button color="primary">
+                        <mat-icon>
+                            edit
+                        </mat-icon>
+                        Edit labels
+                    </button>
+                </div>        
+            </mat-list-item>
+            <mat-divider class="divider"></mat-divider>
+            <mat-list-item>
+                <div class="contents">
+                    <button mat-button color="primary">
+                        <mat-icon>
+                            archive
+                        </mat-icon>
+                        Archive
+                    </button>
+                </div>        
+            </mat-list-item>
+            <mat-list-item>
+                <div class="contents">
+                    <button mat-button color="primary">
+                        <mat-icon>
+                            restore_from_trash
+                        </mat-icon>
+                        Trash
+                    </button>
+                </div>        
+            </mat-list-item>
+        </mat-list>
     </mat-drawer>
 
     <mat-toolbar class="main header">
@@ -59,5 +84,13 @@
     <div class="main contents">
         drawer opened: {{drawer.opened}}
         <mat-card class="takenote">take a note</mat-card>
+        <mat-list>
+            <mat-list-item>Item 1</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Item 2</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>Item 3</mat-list-item>
+        </mat-list>
+
     </div>
 </mat-drawer-container>
