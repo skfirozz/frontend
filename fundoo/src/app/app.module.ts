@@ -51,3 +51,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatToolbarModule,
     RouterModule.forRoot([])
 
+  ],
+  providers: [FundooAccountServiceService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

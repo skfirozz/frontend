@@ -8,4 +8,43 @@
 </h1>
 </mat-card>
 <p>hi</p>
-    <input matInput   placeholder="SEARCH HERE" type="tex
+    <input matInput   placeholder="SEARCH HERE" type="text"> -->
+<!-- <mat-drawer-container class="example-container">
+        <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+        <mat-drawer-content>Main content</mat-drawer-content>
+      </mat-drawer-container> -->
+
+<mat-drawer-container [class.drawer-opened]="drawer.opened" class="example-container">
+    
+    <mat-drawer #drawer class="drawer" mode="side" opened="true">
+        <mat-toolbar class="header">
+            <div>Logo</div>
+            <mat-icon class="close" (click)="drawer.close()">close</mat-icon>
+        </mat-toolbar>
+        <div class="contents">
+            Drawer
+        </div>
+    </mat-drawer>
+
+    <mat-toolbar class="main header">
+        <mat-icon *ngIf="!drawer.opened" (click)="drawer.toggle()">
+            menu
+        </mat-icon>
+        <div>
+            <h1><span class="purple">F</span>
+                <span class="red">U</span>
+                <span class="blue">N</span>
+                <span class="purple">D</span>
+                <span class="red">O</span>
+                <span class="green">O</span>
+            </h1>
+        </div>
+    </mat-toolbar>
+    <h1>hi</h1>
+
+    <div class="main contents">
+        drawer opened: {{drawer.opened}}
+        <div>Contents xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxxx xxxxxx xxxxxx</div>
+        <div style="height: 1000px">&nbsp;</div>
+    </div>
+</mat-drawer-container>
