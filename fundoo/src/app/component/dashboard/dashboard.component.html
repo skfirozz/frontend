@@ -83,8 +83,19 @@
     </mat-toolbar>
     <div class="main contents">
         drawer opened: {{drawer.opened}}
-        <mat-card class="takenote">take a note</mat-card>
-       
+        <!-- <mat-card class="takenote">take a note</mat-card> -->
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Take a Note
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <input matInput type="text"  placeholder="title">
+              <br>
+                <input matInput type="text"  placeholder="description">
+            </mat-expansion-panel>
+          </mat-accordion>
 
     </div>
 </mat-drawer-container>

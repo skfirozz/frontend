@@ -24,6 +24,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 
 @NgModule({
@@ -55,6 +57,7 @@ import { MatListModule } from '@angular/material/list';
     MatDividerModule,
     MatButtonToggleModule,
     MatListModule,
+    MatExpansionModule,
     RouterModule.forRoot([])
 
   ],
