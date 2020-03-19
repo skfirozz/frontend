@@ -16,15 +16,14 @@
 .matcard {
     height: 60px;
 }
-.search {
-    width: 30%;
-}
 .drawer {
     position: fixed;
     height: 100vh;
     min-width: 15%;
     background-color: rgb(84, 224, 194);
     border-right: 1px solid #ccc;
+    background: linear-gradient(168deg, rgb(224, 189, 189) 62%, rgb(219, 142, 142) 62%, rgb(212, 133, 133) 32%, 
+  transparent 73%);
   }
   .drawer .header {
     position: absolute;
@@ -37,6 +36,8 @@
   
   .main {
     background-color: #fff;
+    margin-top: 10px;
+  
   }
   
   .main.header {
@@ -72,7 +73,10 @@
     margin: 0 auto;
   }
   .search {
-    background-color: lightyellow;
+    background-color:  rgb(233, 215, 215);
+  //   margin-top: 10px;
+  //   background: linear-gradient(168deg, rgb(233, 215, 215) 62%, rgb(231, 223, 223) 62%, rgb(231, 211, 211) 62%, 
+  // transparent 63%);
     // margin: auto
   }
   .searchicon{
