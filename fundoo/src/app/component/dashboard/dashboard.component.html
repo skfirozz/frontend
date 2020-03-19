@@ -1,22 +1,6 @@
-<!-- <mat-card>
-<h1><span class="purple">F</span>
-    <span class="red">U</span>
-    <span class="blue">N</span>
-    <span class="purple">D</span>
-    <span class="red">O</span>
-    <span class="green">O</span>
-</h1>
-</mat-card>
-<p>hi</p>
-    <input matInput   placeholder="SEARCH HERE" type="text"> -->
-<!-- <mat-drawer-container class="example-container">
-        <mat-drawer mode="side" opened>Drawer content</mat-drawer>
-        <mat-drawer-content>Main content</mat-drawer-content>
-      </mat-drawer-container> -->
-
 <mat-drawer-container [class.drawer-opened]="drawer.opened" class="example-container">
 
-    <mat-drawer #drawer class="drawer" mode="side" opened="true">
+    <mat-drawer #drawer class="drawer" mode="side" opened="false">
         <div class="contents">
         </div>
         <div class="contents">
@@ -60,7 +44,8 @@
             </h1>
         </div>
         <mat-card class="search">
-            <mat-icon>search</mat-icon>
+            <mat-icon class="searchicon">search</mat-icon>
+            <input matInput  placeholder="search here">
         </mat-card>
     </mat-toolbar>
     <div class="main contents">
