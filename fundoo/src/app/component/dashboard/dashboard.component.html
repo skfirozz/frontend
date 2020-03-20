@@ -38,7 +38,6 @@
             <mat-icon>menu</mat-icon>
         </button>
         <div>
-
             <h1><span class="purple">F</span>
                 <span class="red">U</span>
                 <span class="blue">N</span>
@@ -47,10 +46,10 @@
                 <span class="green">O</span>
             </h1>
         </div>
-        <button mat-icon-button matTooltip="Search" style="margin-left: 120px">
-            <mat-icon class="example-icon">search</mat-icon>
-        </button>
-
+         <mat-card class="search">
+            <mat-icon class="searchicon">search</mat-icon>
+            <input matInput placeholder="search here">
+        </mat-card>
         <div class="settings">
             <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="settings" style="margin-left: 620px">
                 <mat-icon>settings</mat-icon>

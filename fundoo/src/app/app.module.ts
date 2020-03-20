@@ -25,6 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ArchiveComponent } from './component/archive/archive.component';
 
 
 
@@ -35,6 +36,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     LoginComponent,
     ForgotComponent,
     DashboardComponent,
+    ArchiveComponent,
   ],
   imports: [
     BrowserModule,
