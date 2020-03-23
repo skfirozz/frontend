@@ -1,0 +1,87 @@
+<mat-toolbar class="docs-navbar-header">
+    <mat-toolbar-row>
+        <div class="Main">
+            <div class="sideNavIcon">
+                <div>
+                    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+                </div>
+                <div>Fundoo</div>
+            </div>
+            <div class="searchWhole">
+                <div class="searchbar">
+                    <div class="searchIcon">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </div>
+                    <div>
+                        <input class="input" matInput type="searchbar" placeholder=" Search"
+                            style="outline:none; color: darkgray;">
+                    </div>
+                </div>
+                <div class="appBarLastIcon">
+                    <div class="settings">
+                        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="settings">
+                            <mat-icon>settings</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu">
+                            <button mat-menu-item>Settings</button>
+                            <button mat-menu-item>Send feedback</button>
+                            <button mat-menu-item>Help</button>
+                            <button mat-menu-item>App downloads</button>
+                            <button mat-menu-item>Keyboard Shaortcuts</button>
+                        </mat-menu>
+                    </div>
+                    <div class="refresh">
+                        <button id="refreshbutton" mat-icon-button>
+                            <mat-icon>refresh</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon>reorder</mat-icon>
+                        </button>
+                    </div>
+                    <button mat-icon-button>
+                        <mat-icon>
+                            account_circle
+                        </mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
+<!-- side navigation bar -->
+
+<div class="sidenavdiv" style="background-color: cornsilk;">
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <mat-nav-list>
+                <a mat-list-item routerLink="">
+                   <mat-icon>lightbulb_outline</mat-icon>Notes
+                </a> <br>
+                <a mat-list-item routerLink="reminder">
+                    <mat-icon>notifications</mat-icon>Reminders
+                </a>
+
+                <mat-divider class="divider"></mat-divider>
+
+                <label>Labels</label><br>
+                <a mat-list-item routerLink="notes">
+                    <mat-icon>edit</mat-icon>Edit Labels
+                </a> <br>
+
+                <mat-divider class="divider"></mat-divider>
+
+                <a mat-list-item routerLink="archive">
+                    <mat-icon>archive</mat-icon>Archive
+                </a> <br>
+
+                <a mat-list-item routerLink="trash">
+                    <mat-icon>delete</mat-icon>Trash
+                </a> <br>
+
+            </mat-nav-list>
+        </mat-drawer>
+        <div>
+            <router-outlet></router-outlet>
+        </div>

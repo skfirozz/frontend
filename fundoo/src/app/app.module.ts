@@ -18,7 +18,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { FundooAccountServiceService } from './fundoo-account-service.service';
 import { MatInputModule } from '@angular/material/input';
 import { ForgotComponent } from './component/forgot/forgot.component';
-import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
@@ -26,6 +25,12 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ArchiveComponent } from './component/archive/archive.component';
+import { TestComponent } from './component/test/test.component';
+import { CreatenoteComponent } from './component/createnote/createnote.component';
+import { HomeComponent } from './component/home/home.component';
+import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
+import { NotesComponent } from './component/notes/notes.component';
+import { TrashComponent } from './component/trash/trash.component';
 
 
 
@@ -35,8 +40,13 @@ import { ArchiveComponent } from './component/archive/archive.component';
     RegisterComponent,
     LoginComponent,
     ForgotComponent,
-    DashboardComponent,
     ArchiveComponent,
+    TestComponent,
+    CreatenoteComponent,
+    HomeComponent,
+    DisplaynotesComponent,
+    NotesComponent,
+    TrashComponent,
   ],
   imports: [
     BrowserModule,
