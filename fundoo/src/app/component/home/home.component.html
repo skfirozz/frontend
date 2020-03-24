@@ -16,7 +16,11 @@
                         <input class="input" matInput type="searchbar" placeholder=" Search"
                             style="outline:none; color: darkgray;">
                     </div>
+                    <!-- <div class="example-button-row" (click)="search()">
+                       
+                    </div>  <button (click)="search()"></button> -->
                 </div>
+                
                 <div class="appBarLastIcon">
                     <div class="settings">
                         <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="settings">
@@ -56,27 +60,27 @@
     <mat-drawer-container class="example-container" autosize>
         <mat-drawer #drawer class="example-sidenav" mode="side">
             <mat-nav-list>
-                <a mat-list-item routerLink="">
-                   <mat-icon>lightbulb_outline</mat-icon>Notes
+                <a mat-list-item routerLink="" matTooltip="notes">
+                    <mat-icon>lightbulb_outline</mat-icon>Notes
                 </a> <br>
-                <a mat-list-item routerLink="reminder">
+                <a mat-list-item routerLink="reminder" (click)="showReminder()" matTooltip="reminder">
                     <mat-icon>notifications</mat-icon>Reminders
                 </a>
 
                 <mat-divider class="divider"></mat-divider>
 
                 <label>Labels</label><br>
-                <a mat-list-item routerLink="notes">
+                <a mat-list-item routerLink="notes" matTooltip="notes" (click)="editlabels()">
                     <mat-icon>edit</mat-icon>Edit Labels
                 </a> <br>
 
                 <mat-divider class="divider"></mat-divider>
 
-                <a mat-list-item routerLink="archive">
+                <a mat-list-item routerLink="archive" (click)="showArchive()" matTooltip="archive">
                     <mat-icon>archive</mat-icon>Archive
                 </a> <br>
 
-                <a mat-list-item routerLink="trash">
+                <a mat-list-item routerLink="trash" (click)="showTrash()" matTooltip="trash">
                     <mat-icon>delete</mat-icon>Trash
                 </a> <br>
 
@@ -85,3 +89,5 @@
         <div>
             <router-outlet></router-outlet>
         </div>
+    </mat-drawer-container>
+</div>

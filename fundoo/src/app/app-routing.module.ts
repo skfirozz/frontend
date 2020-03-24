@@ -8,6 +8,8 @@ import { CreatenoteComponent } from './component/createnote/createnote.component
 import { HomeComponent } from './component/home/home.component';
 import { NotesComponent } from './component/notes/notes.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
+import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 
 
 const routes: Routes = [
@@ -18,18 +20,12 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: '', component: HomeComponent,
     children: [
-      {
-        path: '',component: NotesComponent,
-      },
-      {
-        path: 'archive',component: ArchiveComponent,
-      },
-      {
-        path: 'trash',component: TrashComponent,
-      },
-      {
-        path: 'reminder',component: ArchiveComponent,
-      }
+      { path: '',component: NotesComponent },
+      { path: 'notes',component: NotesComponent },
+      { path: 'archive',component: ArchiveComponent},
+      { path: 'trash',component: TrashComponent },
+      { path: 'reminder',component: ReminderComponent },
+      { path: 'editlabels',component: EditlabelsComponent },
     ]
   }
 ]

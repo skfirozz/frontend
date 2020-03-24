@@ -21,4 +21,9 @@ export class FundooAccountServiceService {
   getForgotValue(arr) {
     return this.http.post(this.baseUrl + 'forgotPassword', arr);
   }
+
+  geSearchValue(arr) {
+
+    return this.http.post(this.baseUrl + 'search', arr);
+  }
 }

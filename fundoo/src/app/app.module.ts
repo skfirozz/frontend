@@ -31,6 +31,8 @@ import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { NotesComponent } from './component/notes/notes.component';
 import { TrashComponent } from './component/trash/trash.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
+import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 
 
 
@@ -47,6 +49,8 @@ import { TrashComponent } from './component/trash/trash.component';
     DisplaynotesComponent,
     NotesComponent,
     TrashComponent,
+    ReminderComponent,
+    EditlabelsComponent,
   ],
   imports: [
     BrowserModule,
