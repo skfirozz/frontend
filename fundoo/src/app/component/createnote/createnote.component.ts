@@ -11,6 +11,8 @@ export class CreatenoteComponent implements OnInit {
 
   popup:boolean=false;
   createNoteForm:FormGroup;
+  token: string = sessionStorage.getItem('token');
+  
   constructor(private formBuilder: FormBuilder,private router:Router) { }
 
   ngOnInit(){
