@@ -25,7 +25,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ArchiveComponent } from './component/archive/archive.component';
-import { TestComponent } from './component/test/test.component';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
 import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
@@ -33,6 +32,10 @@ import { NotesComponent } from './component/notes/notes.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
+import { HeaderComponent } from './component/header/header.component';
+import { HeadloginComponent } from './component/headlogin/headlogin.component';
+import { Test1Component } from './component/test1/test1.component';
+import { Test2Component } from './component/test2/test2.component';
 
 
 
@@ -43,7 +46,6 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
     LoginComponent,
     ForgotComponent,
     ArchiveComponent,
-    TestComponent,
     CreatenoteComponent,
     HomeComponent,
     DisplaynotesComponent,
@@ -51,6 +53,10 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
     TrashComponent,
     ReminderComponent,
     EditlabelsComponent,
+    HeaderComponent,
+    HeadloginComponent,
+    Test1Component,
+    Test2Component,
   ],
   imports: [
     BrowserModule,
