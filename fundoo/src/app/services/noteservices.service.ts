@@ -10,12 +10,25 @@ export class NoteservicesService {
 
   constructor(private httpclient: HttpClient) { }
 
-  createNote(arr) {
-    return this.httpclient.post(this.baseUrl + 'createNote', arr);
+  createNote(note: any) {
+    console.log(note.value);  
+    let noteId = 10;
+    console.log(this.baseUrl + 'deleteNote/' +  noteId  );
+
+    let token = sessionStorage.getItem('token');
+    return this.httpclient.post(this.baseUrl + 'createNote', note,{ headers: { Authorization: token } });
   }
 
   editNotes(arr) {
     return this.httpclient.post(this.baseUrl + 'editNotes', arr);
   }
+
+  deleteNote(noteId: number) {
+
+    console.log(this.baseUrl + 'deleteNote/' + { noteId } );
+
+    return this.httpclient.delete(this.baseUrl + 'deleteNote/' + { noteId } ) ; 
+  }
+
 
 }
