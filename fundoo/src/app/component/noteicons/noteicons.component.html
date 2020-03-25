@@ -1,0 +1,21 @@
+<div class="rupesh">
+    <a > <mat-icon matTooltip="Add Reminder"></mat-icon></a>
+</div>
+
+<div class="rupesh">
+    <a><mat-icon [matMenuTriggerFor]="colorlist" matTooltip="Add Color"></mat-icon></a>
+</div>
+
+<mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+    <ng-template matMenuContent>
+        <div>
+            <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
+                <div *ngFor="let color of colors">
+                    <button [ngStyle]="{ 'background-color': color.color }" (click)="setColor((color.color))"
+                        matTooltip="{{ color.name }}" mat-mini-fab></button>
+
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</mat-menu>
