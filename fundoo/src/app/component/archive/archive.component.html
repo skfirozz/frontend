@@ -1,20 +1,14 @@
-<app-createnote></app-createnote>
-<div class="main-div">
-    <div *ngFor="let notes of arrayOfColors">
-        <div *ngFor="let note of notes">
-            <mat-card fxLayout="row" class="displayNotesSize" [ngStyle]="{'background-color':note.color}">
-                <div id="matdiv">
-                    <div class="pindiv">
-                        <mat-icon>spa</mat-icon>
-                    </div>
-                    <mat-card-title>
-                        {{note.title}}
-                    </mat-card-title>
+<div style="flex-wrap: wrap;">
+    <div class="getAllNotes"  fxFlexOffset="15" style="flex-direction: row;
+     box-sizing: border-box; display: flex; margin-left: 5%;">
+        <div *ngFor="let notes of arrayOfColors">
+            <mat-card class="getNotesMat" *ngFor="let note of notes" fxLayout="row wrap" [ngStyle]="{'background-color':note.color}">
+                <div>
+                    {{note.title}}
+                </div>
 
-                    <mat-card-content>
-                        {{note.description}}
-                      <mat-icon>home</mat-icon>  
-                    </mat-card-content>
+                <div class="titles" style="padding: 0px;">
+                    {{note.description}}
                 </div>
             </mat-card>
         </div>
