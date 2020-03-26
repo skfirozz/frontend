@@ -12,20 +12,22 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { Test2Component } from './component/test2/test2.component';
 import { HeaderComponent } from './component/header/header.component';
+import { NotesComponent } from './component/notes/notes.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'head', component: HeaderComponent },
-  { path: 'test2', component: Test2Component },
+  // { path: 'test2', component: Test2Component },
   { path: 'register', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: 'note', component:  CreatenoteComponent},
   { path: 'home', component: HomeComponent},
+  { path: 's',component: CreatenoteComponent },
   { path: '', component: HomeComponent,
     children: [
       { path: '',component: DisplaynotesComponent },
-      // { path: 'notes',component: NotesComponent },
+      // { path: '',component: NotesComponent },
       { path: 'archive',component: ArchiveComponent},
       { path: 'trash',component: TrashComponent },
       { path: 'reminder',component: ReminderComponent },

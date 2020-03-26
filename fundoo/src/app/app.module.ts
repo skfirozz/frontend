@@ -37,6 +37,7 @@ import { HeadloginComponent } from './component/headlogin/headlogin.component';
 import { Test1Component } from './component/test1/test1.component';
 import { Test2Component } from './component/test2/test2.component';
 import { NoteiconsComponent } from './component/noteicons/noteicons.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -71,6 +72,7 @@ import { NoteiconsComponent } from './component/noteicons/noteicons.component';
     MatCardModule,
     HttpClientModule,
     MatIconModule,
+    MatTooltipModule,
     MatButtonModule,
     MatIconModule,
     MatInputModule,

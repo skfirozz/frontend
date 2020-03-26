@@ -1,1 +1,22 @@
-<p>archive works!</p>
+<app-createnote></app-createnote>
+<div class="main-div">
+    <div *ngFor="let notes of arrayOfColors">
+        <div *ngFor="let note of notes">
+            <mat-card fxLayout="row" class="displayNotesSize" [ngStyle]="{'background-color':note.color}">
+                <div id="matdiv">
+                    <div class="pindiv">
+                        <mat-icon>spa</mat-icon>
+                    </div>
+                    <mat-card-title>
+                        {{note.title}}
+                    </mat-card-title>
+
+                    <mat-card-content>
+                        {{note.description}}
+                      <mat-icon>home</mat-icon>  
+                    </mat-card-content>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

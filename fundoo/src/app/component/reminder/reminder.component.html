@@ -1,2 +1,18 @@
 <app-createnote></app-createnote>
-<p>reminder works!</p>
+<div class="main-div">
+    <div fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let notes of arrayOfColors">
+        <div *ngFor="let note of notes">
+            <mat-card class="displayNotesSize"  [ngStyle]="{'background-color':note.color}">
+                <div id="matdiv">
+                    <mat-card-title>
+                        {{note.title}}
+                    </mat-card-title>
+
+                    <mat-card-content>
+                        {{note.description}}
+                    </mat-card-content>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>

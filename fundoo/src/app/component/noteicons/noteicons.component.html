@@ -1,21 +1,28 @@
-<div class="rupesh">
-    <a > <mat-icon matTooltip="Add Reminder"></mat-icon></a>
-</div>
-
-<div class="rupesh">
-    <a><mat-icon [matMenuTriggerFor]="colorlist" matTooltip="Add Color"></mat-icon></a>
+<div class="colorlist">
+    <a>
+        <mat-icon  class="icon" matTooltip="Add alert">add_alert</mat-icon>
+        <mat-icon matTooltip="collaborator" class="icon">person_add</mat-icon>
+        <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette</mat-icon>
+        <mat-icon class="icon" matTooltip="Add image">image</mat-icon>        
+        <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
+    </a>
 </div>
 
 <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
     <ng-template matMenuContent>
         <div>
             <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let colors of arrayOfColors">
-                <div *ngFor="let color of colors">
-                    <button [ngStyle]="{ 'background-color': color.color }" (click)="setColor((color.color))"
-                        matTooltip="{{ color.name }}" mat-mini-fab></button>
-
-                </div>
+                    <div *ngFor="let color of colors">
+                        <button [ngStyle]="{ 'background-color': color.color }" mat-mini-fab ></button>
+                    </div>
+                <br>
             </div>
         </div>
     </ng-template>
+</mat-menu>
+
+<mat-menu #more="matMenu">
+    <button mat-menu-item >Delete Note</button>
+    <button mat-menu-item >Add Label</button>
+    <button mat-menu-item>Add Drawing</button>
 </mat-menu>
