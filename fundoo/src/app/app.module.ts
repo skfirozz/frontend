@@ -41,6 +41,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +85,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatButtonToggleModule,
     MatListModule,
     MatExpansionModule,
+    // Component,
     RouterModule.forRoot([])
 
   ],
