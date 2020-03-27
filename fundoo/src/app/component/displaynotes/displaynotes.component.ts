@@ -79,6 +79,9 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
+  setColor(){
+    
+  }
 
 
   notes = [
