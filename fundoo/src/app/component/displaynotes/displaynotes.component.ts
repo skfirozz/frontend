@@ -22,16 +22,8 @@ export class DisplaynotesComponent implements OnInit {
 
   allnotes() {
     this.noteservice.getnotes().subscribe(response => {
-      this.allNotes = response.token;
+    this.allNotes = response.token;
     })
-
-    this.noteservice.getPin().subscribe(response => {
-      this.pinNotes = response.token;
-    })
-
-    this.noteservice.getUnPin().subscribe(response => {
-      this.unPinNotes = response.token;
-    });
   }
 
   pin(noteId, notes) {
