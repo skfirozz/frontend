@@ -71,6 +71,12 @@ export class DisplaynotesComponent implements OnInit {
         console.log('trashed');
       })
     }
+    else {
+      notes.istrash = '0';
+      this.noteservice.updateTrash(noteId, notes).subscribe(response => {
+        console.log('untrashed');
+      })
+    }
   }
 
 
