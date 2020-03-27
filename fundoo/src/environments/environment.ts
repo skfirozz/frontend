@@ -27,5 +27,6 @@ export const environment = {
   unpinNotes : "unpinNotes/",
   archiveNotes : "archiveNotes/",
   unarchiveNotes: "unarchiveNotes/",
-  delete: "delete/"
+  delete: "delete/",
+  setcolor: "setColor/",
 };
