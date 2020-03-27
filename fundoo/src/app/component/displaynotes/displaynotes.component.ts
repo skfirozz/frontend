@@ -85,6 +85,7 @@ export class DisplaynotesComponent implements OnInit {
       console.log("color set");
     })
   }
+  
 
 
   notes = [
