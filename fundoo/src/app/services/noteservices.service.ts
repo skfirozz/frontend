@@ -7,11 +7,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class NoteservicesService {
-  baseUrl = 'http://127.0.0.1:8000/api/';
 
   constructor(private httpclient: HttpClient) { }
-
-
 
   createNote(arr) {
     let token = localStorage.getItem('token');
@@ -51,7 +48,6 @@ export class NoteservicesService {
     return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers:  localStorage.token } );
   }
   
-
   updatePin(noteId:number,notes){
     let token =localStorage.getItem('token');
     return this.httpclient.put<any>(environment.baseUrl + environment.updatePin + noteId, notes, { headers:  localStorage.token }  );
@@ -77,5 +73,4 @@ export class NoteservicesService {
     let token =localStorage.getItem('token');
     return this.httpclient.put<any>(environment.baseUrl + environment.delete , { headers:  localStorage.token }  );
   }
-
 }
