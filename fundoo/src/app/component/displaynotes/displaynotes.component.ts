@@ -21,55 +21,58 @@ export class DisplaynotesComponent implements OnInit {
   }
 
   allnotes() {
-    this.noteservice.getnotes().subscribe( response => {
-    this.allNotes = response.token;
-  })
-      
-  this.noteservice.getPin().subscribe( response => {
-    this.pinNotes = response.token;
-  })
-  
-  this.noteservice.getUnPin().subscribe( response => {
-    this.unPinNotes = response.token;
-  });
-}
+    this.noteservice.getnotes().subscribe(response => {
+      this.allNotes = response.token;
+    })
 
-pin(noteId, notes)
-{
-  if(notes.pinned == '0')
-  {
-    notes.pinned = '1';
-    this.noteservice.updatePin(noteId,notes).subscribe( response => {
-      console.log('pinned');
+    this.noteservice.getPin().subscribe(response => {
+      this.pinNotes = response.token;
     })
-  }
-  else{
-    notes.pinned = '1';
-    this.noteservice.updatePin(noteId,notes).subscribe( response => {
-      console.log('pinned');
-    })
-  }
-}
 
-archive(noteId,notes)
-{
-  if(notes.isarchive == "0"){
-    notes.isarchive ='1';
-    this.noteservice.updateArchive(noteId,notes).subscribe( response => {
-      console.log('archived');
-    })
+    this.noteservice.getUnPin().subscribe(response => {
+      this.unPinNotes = response.token;
+    });
   }
-  else{
-    notes.isarchive = '0';
-    this.noteservice.updateArchive(noteId,notes).subscribe( response => {
-      console.log('unarchived');
-    })
-  }
-}
 
-trash(noteId,note){
-  
-}
+  pin(noteId, notes) {
+    if (notes.pinned == '0') {
+      notes.pinned = '1';
+      this.noteservice.updatePin(noteId, notes).subscribe(response => {
+        console.log('pinned');
+      })
+    }
+    else {
+      notes.pinned = '1';
+      this.noteservice.updatePin(noteId, notes).subscribe(response => {
+        console.log('pinned');
+      })
+    }
+  }
+
+  archive(noteId, notes) {
+    if (notes.isarchive == "0") {
+      notes.isarchive = '1';
+      this.noteservice.updateArchive(noteId, notes).subscribe(response => {
+        console.log('archived');
+      })
+    }
+    else {
+      notes.isarchive = '0';
+      this.noteservice.updateArchive(noteId, notes).subscribe(response => {
+        console.log('unarchived');
+      })
+    }
+  }
+
+  trash(noteId, notes) {
+    if (notes.istrash == '0') {
+      notes.istrash = '1';
+      this.noteservice.updateTrash(noteId, notes).subscribe(response => {
+        console.log('trashed');
+      })
+    }
+  }
+
 
 
   notes = [
