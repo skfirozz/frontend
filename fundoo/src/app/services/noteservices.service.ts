@@ -19,9 +19,6 @@ export class NoteservicesService {
   createNote(note: any) {
     console.log(note.value);  
     let noteId = 10;
-    // console.log(this.baseUrl + 'deleteNote/' +  noteId  );
-
-    // let token = sessionStorage.getItem('token');
     return this.httpclient.post(this.baseUrl + 'createNote', note);//,{ headers: { Authorization: token } });
   }
 
