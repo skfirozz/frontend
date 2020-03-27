@@ -81,7 +81,7 @@ export class DisplaynotesComponent implements OnInit {
 
   setColor(color,noteId,notes){
     notes.color = color;
-     
+    this.noteservice.
 
   }
 
