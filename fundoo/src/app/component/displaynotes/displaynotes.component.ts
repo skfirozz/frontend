@@ -34,7 +34,7 @@ export class DisplaynotesComponent implements OnInit {
   });
 }
 
-archive(noteId, notes)
+pin(noteId, notes)
 {
   if(notes.pinned == '0')
   {
@@ -51,8 +51,19 @@ archive(noteId, notes)
   }
 }
 
-
-
+archive(noteId,notes)
+{
+  if(notes.isarchive == "0"){
+    notes.isarchive ='1';
+    this.noteservice.updateArchive(noteId,notes).subscribe( response => {
+      console.log('archived');
+    })
+  }
+  else{
+    notes.isarchive = '0';
+    this.
+  }
+}
 
 
   notes = [
