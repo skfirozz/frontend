@@ -34,6 +34,24 @@ export class DisplaynotesComponent implements OnInit {
   });
 }
 
+archive(noteId, notes)
+{
+  if(notes.pinned == '0')
+  {
+    notes.pinned = '1';
+    this.noteservice.updatePin(noteId,notes).subscribe( response => {
+      console.log('pinned');
+    })
+  }
+  else{
+    notes.pinned = '1';
+    this.noteservice.updatePin(noteId,notes).subscribe( response => {
+      console.log('pinned');
+    })
+  }
+}
+
+
 
 
 
