@@ -67,6 +67,10 @@ archive(noteId,notes)
   }
 }
 
+trash(noteId,note){
+  
+}
+
 
   notes = [
     { color: "rgb(255, 179, 255)", name: "pink", title: "firoz", description: "from karlapalem", isarchived: "1", istrash: "0" },
