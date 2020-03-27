@@ -38,6 +38,7 @@ import { Test1Component } from './component/test1/test1.component';
 import { Test2Component } from './component/test2/test2.component';
 import { NoteiconsComponent } from './component/noteicons/noteicons.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ShowComponent } from './component/show/show.component';
 
 
 
@@ -61,6 +62,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     Test1Component,
     Test2Component,
     NoteiconsComponent,
+    ShowComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<div style="padding-left: 255px;">
+    <h5>PINNED</h5>
+</div>
+<div style="flex-wrap: wrap;">
+    <div class="getAllNotes"  fxFlexOffset="15" style="flex-direction: row; box-sizing: border-box; display: flex; margin-left: 5%;">
+        <mat-card class="getNotesMat" *ngFor="let notes of arrayOfColors" [ngStyle]="{'background-color':notes.color}">
+            <div class="pinNotes">
+                    <mat-icon>home</mat-icon>
+                    <mat-icon>home</mat-icon>
+            </div>
+
+            <div>
+                {{notes.title}}
+            </div>
+
+            <div class="titles" style="padding: 0px;">
+                {{notes.description}}
+            </div>
+
+            <div style="padding-left: 100px;" fxLayout="row">
+
+                <mat-icon>palette</mat-icon>
+
+                
+                <mat-icon>archive</mat-icon>
+                <mat-icon>unarchive</mat-icon>
+                <mat-icon>more</mat-icon>
+
+            </div>
+        </mat-card>
+    </div>
+</div>

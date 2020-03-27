@@ -1,38 +1,25 @@
-<div style="flex-wrap: wrap;">
+
+
+
+
+
+
+
+
+
+<!-- <div style="flex-wrap: wrap;">
     <div class="getAllNotes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
-        <mat-card class="getNotesMat" *ngFor="let notes of arrayOfColors">
-            <div class="pinNotes">
-                <div class="title">
-                    <mat-icon>home</mat-icon>
-                    <mat-icon>home</mat-icon>
+        <div *ngFor="let notes of arrayOfColors">
+            <mat-card class="getNotesMat" [ngStyle]="{'background-color':notes.color}">
+                <div>
+                    {{notes.title}}
                 </div>
-            </div>
-            <div>
-                {{notes.title}}
-            </div>
 
-            <div class="titles" style="padding: 0px;">
-                {{notes.description}}
-            </div>
-
-            <div style="padding-left: 100px;" fxLayout="row">
-                <div fxLayout="row">
-                    <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
-                        <ng-template matMenuContent>
-                            <div>
-                                <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
-                                    *ngFor="let notes of arrayOfColors">
-                                    <div *ngFor="let color of notes">
-                                        <button [ngStyle]="{ 'background-color': color.color }"
-                                            matTooltip="{{ color.name }}" mat-mini-fab></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </ng-template>
-                    </mat-menu>
+                <div class="titles" style="padding: 0px;">
+                    {{notes.description}}
                 </div>
-            </div>
-        </mat-card>
+            </mat-card>
+        </div>
     </div>
-</div>
+</div> -->
