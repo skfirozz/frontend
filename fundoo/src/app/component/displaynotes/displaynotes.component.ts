@@ -61,7 +61,9 @@ archive(noteId,notes)
   }
   else{
     notes.isarchive = '0';
-    this.
+    this.noteservice.updateArchive(noteId,notes).subscribe( response => {
+      console.log('unarchived');
+    })
   }
 }
 
