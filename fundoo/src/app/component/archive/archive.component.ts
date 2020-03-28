@@ -11,6 +11,14 @@ export class ArchiveComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  allnotes() {
+    this.noteservice.getnotes().subscribe(response => {
+    this.allNotes = response.token;
+    })
+  }
+
+ 
   arrayOfColors = [
       { color: "rgb(255, 179, 255)", name: "pink" ,title: "firoz", description: "from karlapalem",isarchived:"true",istrash:"0"},
       { color: "rgb(255, 255, 128)", name: "darkGolden",title: "ershad", description: "from karlapalem" ,isarchived:"true",istrash:"0"},
