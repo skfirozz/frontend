@@ -10,8 +10,6 @@ import { Note } from 'src/app/model/note.model';
 export class TrashComponent implements OnInit {
 
   note: Note = new Note();
-  pinNotes: Note[];
-  unPinNotes: Note[];
   allNotes: Note[];
 
   constructor(private noteservice:NoteservicesService) { }
@@ -43,14 +41,14 @@ export class TrashComponent implements OnInit {
 
  
   notes = [
-    { color: "rgb(255, 179, 255)", name: "pink", title: "firoz", description: "from karlapalem", isarchived: true, istrash: "0",pinned: true },
-    { color: "rgb(255, 255, 128)", name: "darkGolden", title: "ershad", description: "from karlapalem", isarchived: true, istrash: "0",pinned: true },
-    { color: "rgb(200, 232, 104)", name: "yellow", title: "shamsheer", description: "from karlapalem", isarchived: false, istrash: "1" ,pinned: true},
-    { color: " rgb(158, 136, 191)", name: "darkYellow", title: "mallika", description: "from karlapalem", isarchived: false, istrash: "1" ,pinned: true},
+    { color: "rgb(255, 179, 255)", name: "pink", title: "firoz", description: "from karlapalem", isarchived: true, istrash: true,pinned: true },
+    { color: "rgb(255, 255, 128)", name: "darkGolden", title: "ershad", description: "from karlapalem", isarchived: true, istrash: false,pinned: true },
+    { color: "rgb(200, 232, 104)", name: "yellow", title: "shamsheer", description: "from karlapalem", isarchived: false, istrash: true ,pinned: true},
+    { color: " rgb(158, 136, 191)", name: "darkYellow", title: "mallika", description: "from karlapalem", isarchived: false, istrash: false ,pinned: true},
     { color: "slategray", name: "grey", title: "karim", description: "from karlapalem", isarchived: "1", istrash: false ,pinned: false},
-    { color: "rgb(153, 221, 255)", name: "Teal", title: "sharmila", description: "from karlapalem", isarchived: false, istrash: "1" ,pinned: false},
-    { color: "rgb(203,240,248)", name: "blue", title: "budi", description: "from karlapalem", isarchived: true, istrash: "0"  ,pinned: false},
-    { color: "rgb(174,203,250)", name: "Dark blue", title: "shabbir", description: "from karlapalem", isarchived: true, istrash: "0" ,pinned: false}
+    { color: "rgb(153, 221, 255)", name: "Teal", title: "sharmila", description: "from karlapalem", isarchived: false, istrash: false ,pinned: false},
+    { color: "rgb(203,240,248)", name: "blue", title: "budi", description: "from karlapalem", isarchived: true, istrash: false ,pinned: false},
+    { color: "rgb(174,203,250)", name: "Dark blue", title: "shabbir", description: "from karlapalem", isarchived: true, istrash: false ,pinned: false}
   ]
 
   arrayofColors = [
