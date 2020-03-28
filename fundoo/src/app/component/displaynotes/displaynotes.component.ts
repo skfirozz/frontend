@@ -26,7 +26,7 @@ export class DisplaynotesComponent implements OnInit {
     })
   }
 
-  pin(noteId, notes) {
+  pin(noteId:number, notes) {
     if (notes.pinned == '0') {
       notes.pinned = '1';
       this.noteservice.updatePin(noteId, notes).subscribe(response => {
@@ -41,7 +41,7 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  archive(noteId, notes) {
+  archive(noteId:number, notes) {
     if (notes.isarchive == "0") {
       notes.isarchive = '1';
       this.noteservice.updateArchive(noteId, notes).subscribe(response => {
@@ -56,7 +56,7 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  trash(noteId, notes) {
+  trash(noteId:number, notes) {
     if (notes.istrash == '0') {
       notes.istrash = '1';
       this.noteservice.updateTrash(noteId, notes).subscribe(response => {
@@ -71,9 +71,8 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  setColor(color,noteId,notes){
-    notes.color = color;
-    this.noteservice.setColor(noteId,notes).subscribe( response => {
+  color(noteId:number,color){
+    this.noteservice.setColor(noteId,color).subscribe( response => {
       console.log("color set");
     })
   }
