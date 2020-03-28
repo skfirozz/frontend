@@ -7,7 +7,7 @@
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
         <div *ngFor="let note of notes">
-            <mat-card class="notes" *ngIf=note.isarchived [ngStyle]="{'background-color':note.color}">
+            <mat-card class="notes" *ngIf=note.pinned [ngStyle]="{'background-color':note.color}">
                 <div>
                     <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon>
                 </div>
@@ -61,7 +61,7 @@
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
         <div *ngFor="let note of notes">
-            <mat-card class="notes" *ngIf=!note.isarchived [ngStyle]="{'background-color':note.color}">
+            <mat-card class="notes" *ngIf=!note.pinned [ngStyle]="{'background-color':note.color}">
                 <div>
                     <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon>
                 </div>
