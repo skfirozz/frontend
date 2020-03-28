@@ -32,6 +32,37 @@ export class ArchiveComponent implements OnInit {
     }
   }
 
+  archive(noteId:number, notes) {
+    if (notes.isarchive == "0") {
+      notes.isarchive = '1';
+      this.noteservice.updateArchive(noteId, notes).subscribe(response => {
+        console.log('archived');
+      })
+    }
+    else {
+      notes.isarchive = '0';
+      this.noteservice.updateArchive(noteId, notes).subscribe(response => {
+        console.log('unarchived');
+      })
+    }
+  }
+
+  trash(noteId:number, notes) {
+    if (notes.istrash == '0') {
+      notes.istrash = '1';
+      this.noteservice.updateTrash(noteId, notes).subscribe(response => {
+        console.log('trashed');
+      })
+    }
+    else {
+      notes.istrash = '0';
+      this.noteservice.updateTrash(noteId, notes).subscribe(response => {
+        console.log('untrashed');
+      })
+    }
+  }
+
+
 
 
  
