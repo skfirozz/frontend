@@ -8,6 +8,10 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 })
 export class ArchiveComponent implements OnInit {
 
+  note: Note = new Note();
+  pinNotes: Note[];
+  unPinNotes: Note[];
+  allNotes: Note[];
   constructor(private noteservice:NoteservicesService) { }
 
   ngOnInit(): void {
