@@ -17,6 +17,22 @@ export class ArchiveComponent implements OnInit {
     this.allNotes = response.token;
     })
   }
+  pin(noteId:number, notes) {
+    if (notes.pinned == '0') {
+      notes.pinned = '1';
+      this.noteservice.updatePin(noteId, notes).subscribe(response => {
+        console.log('pinned');
+      })
+    }
+    else {
+      notes.pinned = '1';
+      this.noteservice.updatePin(noteId, notes).subscribe(response => {
+        console.log('pinned');
+      })
+    }
+  }
+
+
 
  
   arrayOfColors = [
