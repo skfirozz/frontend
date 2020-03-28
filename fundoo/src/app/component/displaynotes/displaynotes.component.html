@@ -9,7 +9,7 @@
         <div *ngFor="let note of notes">
             <mat-card class="notes" *ngIf=note.pinned [ngStyle]="{'background-color':note.color}">
                 <div>
-                    <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon>
+                    <mat-icon matTooltip="unpin" (click)="pin(note.id,note)">home</mat-icon>
                 </div>
                 <mat-card-header>
                     {{note.title}}
