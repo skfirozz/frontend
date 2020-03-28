@@ -34,7 +34,7 @@
                             *ngFor="let colors of arrayofColors">
                             <div *ngFor="let color of colors">
                                 <button [ngStyle]="{ 'background-color': color.color }"
-                                    matTooltip={{color.name}}
+                                (click)="setcolor(color.id, color.name)" matTooltip={{color.name}}
                                     mat-mini-fab></button>
                             </div>
                             <br>
@@ -72,7 +72,39 @@
                     {{note.description}}
                 </mat-card-content>
 
-                
+                <div class="colorlist">
+
+                    <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
+                    <mat-icon matTooltip="collaborator" class="icon">person_add</mat-icon>
+                    <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette</mat-icon>
+                    <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
+                    <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
+
+
+
+                    <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+                        <ng-template matMenuContent>
+                            <div>
+                                <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
+                                    *ngFor="let colors of arrayofColors">
+                                    <div *ngFor="let color of colors">
+                                        <button [ngStyle]="{ 'background-color': color.color }"
+                                        (click)="setcolor(color.id, color.name)"
+                                            matTooltip={{color.name}}
+                                            mat-mini-fab></button>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </mat-menu>
+
+                    <mat-menu #more="matMenu">
+                        <button mat-menu-item>Delete Note</button>
+                        <button mat-menu-item>Add Label</button>
+                        <button mat-menu-item>Add Drawing</button>
+                    </mat-menu>
+                </div>
             </mat-card>
         </div>
     </div>

@@ -71,16 +71,13 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  setholor(noteId){
+  setcolor(noteId){
     this.noteservice.setColor(noteId).subscribe( response => {
       console.log("color set");
     })
   }
 
-  setcolor(noteId){
-    
-      console.log("color set");
-  }
+  
   
 
 
