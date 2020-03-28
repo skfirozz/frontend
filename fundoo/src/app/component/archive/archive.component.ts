@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { Note } from 'src/app/model/note.model';
 
 @Component({
   selector: 'app-archive',
