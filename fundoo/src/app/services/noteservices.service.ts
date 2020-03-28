@@ -50,6 +50,7 @@ export class NoteservicesService {
   
   updatePin(noteId:number,notes){
     let token =localStorage.getItem('token');
+    console.log(environment.baseUrl + environment.updatePin + noteId);
     return this.httpclient.put<any>(environment.baseUrl + environment.updatePin + noteId, notes, { headers:  localStorage.token }  );
   }
 
