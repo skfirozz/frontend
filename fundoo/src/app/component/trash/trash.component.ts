@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { Note } from 'src/app/model/note.model';
 
 @Component({
   selector: 'app-trash',
@@ -7,6 +8,11 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
   styleUrls: ['./trash.component.scss']
 })
 export class TrashComponent implements OnInit {
+
+  note: Note = new Note();
+  pinNotes: Note[];
+  unPinNotes: Note[];
+  allNotes: Note[];
 
   constructor(private noteservice:NoteservicesService) { }
 
