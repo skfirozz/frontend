@@ -76,6 +76,7 @@ export class NoteservicesService {
   }
   setColor(noteId:number,color){
     let token =localStorage.getItem('token');
+    console.log("hihihi");
     return this.httpclient.put<any>(environment.baseUrl + environment.setcolor + noteId, color, { headers:  localStorage.token }  );
  
   }

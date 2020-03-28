@@ -71,7 +71,7 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  color(noteId:number,color){
+  color(noteId,color){
     this.noteservice.setColor(noteId,color).subscribe( response => {
       console.log("color set");
     })
