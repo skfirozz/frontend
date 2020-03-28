@@ -9,7 +9,7 @@
         <div *ngFor="let note of notes">
             <mat-card class="notes" *ngIf=note.isarchived [ngStyle]="{'background-color':note.color}">
                 <div>
-                    <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon >
+                    <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon>
                 </div>
                 <mat-card-header>
                     {{note.title}}
@@ -29,17 +29,17 @@
                 </div>
 
                 <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
-                        <div>
-                            <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
-                                *ngFor="let colors of arrayofColors">
-                                <div *ngFor="let color of colors">
-                                    <button [ngStyle]="{ 'background-color': color.color }"
-                                    (click)="color(color.id, color.name)"
-                                    matTooltip={{color.name}} mat-mini-fab></button>
-                                </div>
-                                <br>
+                    <div>
+                        <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
+                            *ngFor="let colors of arrayofColors">
+                            <div *ngFor="let color of colors">
+                                <button [ngStyle]="{ 'background-color': color.color }"
+                                    (click)="color(color.id, color.name)" matTooltip={{color.name}}
+                                    mat-mini-fab></button>
                             </div>
+                            <br>
                         </div>
+                    </div>
                 </mat-menu>
 
                 <mat-menu #more="matMenu">
@@ -61,9 +61,9 @@
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
         <div *ngFor="let note of notes">
-            <mat-card class="notes" *ngIf=!note.isarchived  [ngStyle]="{'background-color':note.color}">
+            <mat-card class="notes" *ngIf=!note.isarchived [ngStyle]="{'background-color':note.color}">
                 <div>
-                    <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon >
+                    <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon>
                 </div>
                 <mat-card-header>
                     {{note.title}}
@@ -73,34 +73,37 @@
                 </mat-card-content>
 
                 <div class="colorlist">
-                    <a>
-                        <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
-                        <mat-icon matTooltip="collaborator" class="icon">person_add</mat-icon>
-                        <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette</mat-icon>
-                        <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
-                        <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
-                    </a>
-                </div>
 
-                <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
-                        <div>
-                            <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
-                                *ngFor="let colors of arrayofColors">
-                                <div *ngFor="let color of colors">
-                                    <button [ngStyle]="{ 'background-color': color.color }" 
-                                    (click)="color(color.id, color.name)"
-                                    matTooltip={{color.name}} mat-mini-fab></button>
+                    <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
+                    <mat-icon matTooltip="collaborator" class="icon">person_add</mat-icon>
+                    <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette</mat-icon>
+                    <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
+                    <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
+
+
+
+                    <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+                        <ng-template matMenuContent>
+                            <div>
+                                <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
+                                    *ngFor="let colors of arrayofColors">
+                                    <div *ngFor="let color of colors">
+                                        <button [ngStyle]="{ 'background-color': color.color }"
+                                            matTooltip={{color.name}}
+                                            mat-mini-fab></button>
+                                    </div>
+                                    <br>
                                 </div>
-                                <br>
                             </div>
-                        </div>
-                </mat-menu>
+                        </ng-template>
+                    </mat-menu>
 
-                <mat-menu #more="matMenu">
-                    <button mat-menu-item>Delete Note</button>
-                    <button mat-menu-item>Add Label</button>
-                    <button mat-menu-item>Add Drawing</button>
-                </mat-menu>
+                    <mat-menu #more="matMenu">
+                        <button mat-menu-item>Delete Note</button>
+                        <button mat-menu-item>Add Label</button>
+                        <button mat-menu-item>Add Drawing</button>
+                    </mat-menu>
+                </div>
             </mat-card>
         </div>
     </div>
