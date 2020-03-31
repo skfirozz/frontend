@@ -19,11 +19,13 @@ export class NoteservicesService {
     return this.httpclient.get<any>(environment.baseUrl + environment.notes , { headers:  localStorage.token } ) ;
   }
 
+
   getPin()
   {
     let token =localStorage.getItem('token');
     return this.httpclient.get<any>(environment.baseUrl + environment.pinNotes, { headers:  localStorage.token }  );
   }
+  
   getUnPin()
   {
     let token =localStorage.getItem('token');
