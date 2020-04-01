@@ -7,4 +7,3 @@ export class Note{
     color: String;
     reminder: String ;
 }
-
