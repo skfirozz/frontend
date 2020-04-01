@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
     this.serviceObject.geSearchValue(data);
   }
 
+  showNote()
+  {
+    this.router.navigate(['notes']);
+  }
   showArchive()
   {
     this.router.navigate(['archive']);

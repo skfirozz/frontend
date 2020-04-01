@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
       const temp = JSON.stringify(result);
       const results = JSON.parse(temp);
       // console.log(results.message, ':', results);
-      this.router.navigate(['/register']);
+      this.router.navigate(['/fundoo/notes']);
     });
     this.serviceObject.getLoginValue(data);
 }
