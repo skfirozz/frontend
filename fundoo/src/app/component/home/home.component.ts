@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
   search()
   {
     const data = {
@@ -32,6 +31,12 @@ export class HomeComponent implements OnInit {
     this.serviceObject.geSearchValue(data);
   }
 
+  onsignout()
+  {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
+    console.log('logout successful');
+  }
   showNote()
   {
     this.router.navigate(['notes']);

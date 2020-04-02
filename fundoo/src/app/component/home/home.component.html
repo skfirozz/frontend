@@ -10,7 +10,7 @@
             <div class="searchWhole">
                 <div class="searchbar">
                     <div class="searchIcon">
-                        <mat-icon matSuffix >search</mat-icon>
+                        <mat-icon matSuffix>search</mat-icon>
                     </div>
                     <div>
                         <input class="input" matInput type="searchbar" placeholder=" Search"
@@ -39,11 +39,17 @@
                             <mat-icon>reorder</mat-icon>
                         </button>
                     </div>
-                    <button mat-icon-button>
-                        <mat-icon>
-                            account_circle
-                        </mat-icon>
-                    </button>
+                    <div class="account">
+                        <button mat-icon-button [matMenuTriggerFor]="account" matTooltip="settings">
+                            <mat-icon>account_circle</mat-icon>
+                        </button>
+                        <div class="account">
+                            <mat-menu #account="matMenu">
+                                <button mat-raised-button color="primary" (click)="onsignout()">SignOut</button>
+                                <mat-icon> </mat-icon>
+                            </mat-menu>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

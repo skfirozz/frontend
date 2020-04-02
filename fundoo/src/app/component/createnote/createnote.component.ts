@@ -15,8 +15,6 @@ export class CreatenoteComponent implements OnInit {
   popup: boolean = false;
   createNoteForm: FormGroup;
   notes: Note = new Note();
-  // token: string = sessionStorage.getItem('token');
-
   constructor(private formBuilder: FormBuilder, private router: Router, private serviceObject: NoteservicesService) { }
 
   ngOnInit() {
@@ -38,7 +36,7 @@ export class CreatenoteComponent implements OnInit {
       this.serviceObject.createNote(this.createNoteForm.value).subscribe((result) => {
 
         const temp = JSON.stringify(result);
-
+        this.createNoteForm.value.title = null; this.createNoteForm.value.description = null;
         return "created";
       },
         () => {
