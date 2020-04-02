@@ -6,8 +6,8 @@
 <div style="flex-wrap: wrap;">
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
-        <div *ngFor="let note of allnotes">
-            <mat-card class="notes" *ngIf=note.pinned [ngStyle]="{'background-color':note.color}">
+        <div *ngFor="let note of allNotes">
+            <mat-card class="notes"  [ngStyle]="{'background-color':note.color}">
                 <div class="pinNotes">
                     <div class="title">
                         <mat-icon matTooltip="unpin" (click)="pin(note.id,note)">colorize</mat-icon>
@@ -53,7 +53,7 @@
                         <button mat-menu-item>Add Drawing</button>
                     </mat-menu>
              
-            </mat-card> <br>
+            </mat-card>
         </div>
     </div>
 </div>
