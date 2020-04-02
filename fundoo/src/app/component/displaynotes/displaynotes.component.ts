@@ -17,8 +17,13 @@ export class DisplaynotesComponent implements OnInit {
 
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+    this.noteservice.autoRefresh$.subscribe( response => {
+      this.allnotes();
+    });
+    this.allnotes();
+    
+      }
 
   allnotes() {
     this.noteservice.getnotes().subscribe(response => {

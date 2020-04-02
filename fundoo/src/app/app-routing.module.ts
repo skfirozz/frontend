@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'note', component:  CreatenoteComponent},
   { path: 'home', component: HomeComponent},
   { path: 's',component: CreatenoteComponent },
-  { path: 'fundoo', component: HomeComponent,
+  { path: '', component: HomeComponent,
     children: [
       { path: 'notes',component: DisplaynotesComponent },
       { path: 'archive',component: ArchiveComponent},
