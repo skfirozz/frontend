@@ -34,6 +34,7 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -61,6 +62,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatSelectModule,
     AppRoutingModule,
     MatMenuModule,
+    FlexLayoutModule,
     MatCardModule,
     HttpClientModule,
     MatIconModule,

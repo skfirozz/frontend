@@ -15,8 +15,8 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
   }
   getnotes() {
-    let token = localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.notes , { headers:  localStorage.token } ) ;
+    // let token = localStorage.getItem('token');
+    return this.httpclient.get<any>(environment.baseUrl + environment.notes ) ;
   }
 
 
@@ -76,10 +76,10 @@ export class NoteservicesService {
     let token =localStorage.getItem('token');
     return this.httpclient.put<any>(environment.baseUrl + environment.delete , { headers:  localStorage.token }  );
   }
-  setColor(noteId:number, colorname){
-    let token =localStorage.getItem('token');
-    console.log("hihihi");
-    return this.httpclient.put<any>(environment.baseUrl + environment.setcolor + noteId,colorname, { headers:  localStorage.token }  );
+  setColor(arr){
+    // let token =localStorage.getItem('token');
+    // console.log("hihihi");
+    return this.httpclient.post<any>(environment.baseUrl + environment.setcolor ,arr);
  
   }
 }

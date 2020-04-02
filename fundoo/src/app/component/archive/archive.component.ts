@@ -68,7 +68,7 @@ export class ArchiveComponent implements OnInit {
     }
   }
   setcolor(noteId, colorname){
-    this.noteservice.setColor(noteId, colorname).subscribe( response => {
+    this.noteservice.setColor(noteId).subscribe( response => {
       console.log("color set");
     })
   }
