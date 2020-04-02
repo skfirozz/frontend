@@ -10,17 +10,11 @@ import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
-import { Test2Component } from './component/test2/test2.component';
-import { HeaderComponent } from './component/header/header.component';
 import { NotesComponent } from './component/notes/notes.component';
-import { ShowComponent } from './component/show/show.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'show', component: ShowComponent },
-  { path: 'head', component: HeaderComponent },
-  // { path: 'test2', component: Test2Component },
   { path: '', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: 'note', component:  CreatenoteComponent},
