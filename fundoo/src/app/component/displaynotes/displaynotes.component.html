@@ -6,53 +6,47 @@
 <div style="flex-wrap: wrap;">
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
-        <div *ngFor="let note of allNotes">
-            <mat-card class="notes"  [ngStyle]="{'background-color':note.color}">
-                <div class="pinNotes">
-                    <div class="title">
-                        <mat-icon matTooltip="unpin" (click)="pin(note.id,note)">colorize</mat-icon>
-                    </div>
+        <div *ngFor="let note of notes">
+            <mat-card class="notes" *ngIf=note.pinned [ngStyle]="{'background-color':note.color}">
+                <div>
+                    <mat-icon matTooltip="unpin" (click)="pin(note.id,note)">home</mat-icon>
                 </div>
-
-                <div class="ntitle">
+                <mat-card-header>
                     {{note.title}}
-                </div>
-                <br>
-                <div class="description" style="padding: 0px;">
+                </mat-card-header>
+                <mat-card-content>
                     {{note.description}}
+                </mat-card-content>
+
+                <div class="colorlist">
+                    <a>
+                        <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
+                        <mat-icon matTooltip="collaborator" class="icon">person_add</mat-icon>
+                        <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette</mat-icon>
+                        <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
+                        <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
+                    </a>
                 </div>
-                <br>
-                    <div class="colorlist">
-                        <a>
-                            <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
-                            <mat-icon matTooltip="collaborator" class="icon">person_add</mat-icon>
-                            <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette
-                            </mat-icon>
-                            <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
-                            <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
-                        </a>
-                    </div>
 
-                    <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
-                        <div>
-                            <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
-                                *ngFor="let colors of arrayofColors">
-                                <div *ngFor="let color of colors">
-                                    <button [ngStyle]="{ 'background-color': color.color }"
-                                        (click)="setcolor(note.id, color.name)" matTooltip={{color.name}}
-                                        mat-mini-fab></button>
-                                </div>
-                                <br>
+                <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+                    <div>
+                        <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
+                            *ngFor="let colors of arrayofColors">
+                            <div *ngFor="let color of colors">
+                                <button [ngStyle]="{ 'background-color': color.color }"
+                                (click)="setcolor(color.id, color.name)" matTooltip={{color.name}}
+                                    mat-mini-fab></button>
                             </div>
+                            <br>
                         </div>
-                    </mat-menu>
+                    </div>
+                </mat-menu>
 
-                    <mat-menu #more="matMenu">
-                        <button mat-menu-item>Delete Note</button>
-                        <button mat-menu-item>Add Label</button>
-                        <button mat-menu-item>Add Drawing</button>
-                    </mat-menu>
-             
+                <mat-menu #more="matMenu">
+                    <button mat-menu-item>Delete Note</button>
+                    <button mat-menu-item>Add Label</button>
+                    <button mat-menu-item>Add Drawing</button>
+                </mat-menu>
             </mat-card>
         </div>
     </div>
@@ -68,19 +62,15 @@
      box-sizing: border-box; display: flex; margin-left: 5%;">
         <div *ngFor="let note of notes">
             <mat-card class="notes" *ngIf=!note.pinned [ngStyle]="{'background-color':note.color}">
-                <div class="pinNotes">
-                    <div class="title">
-                        <mat-icon matTooltip="pin" (click)="pin(note.id,note)">colorize</mat-icon>
-                    </div>
+                <div>
+                    <mat-icon matTooltip="pin" (click)="pin(note.id,note)">home</mat-icon>
                 </div>
-
-                <div class="ntitle">
+                <mat-card-header>
                     {{note.title}}
-                </div>
-
-                <div class="description" style="padding: 0px;">
+                </mat-card-header>
+                <mat-card-content>
                     {{note.description}}
-                </div>
+                </mat-card-content>
 
                 <div class="colorlist">
 
@@ -99,7 +89,8 @@
                                     *ngFor="let colors of arrayofColors">
                                     <div *ngFor="let color of colors">
                                         <button [ngStyle]="{ 'background-color': color.color }"
-                                            (click)="setcolor(color.id, color.name)" matTooltip={{color.name}}
+                                        (click)="setcolor(color.id, color.name)"
+                                            matTooltip={{color.name}}
                                             mat-mini-fab></button>
                                     </div>
                                     <br>

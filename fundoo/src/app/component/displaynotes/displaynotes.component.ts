@@ -13,25 +13,20 @@ export class DisplaynotesComponent implements OnInit {
   note: Note = new Note();
   pinNotes: Note[];
   unPinNotes: Note[];
-  color:Note[];
-  allNotes: any;
-  displayAllNotes: boolean=false;
+  allNotes: Note[];
 
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) { }
 
-  ngOnInit() {
-    this.allnotes();
+  ngOnInit(): void {
   }
 
   allnotes() {
-    this.noteservice.getnotes().subscribe((response: any) => {
-       console.log(response);
-       this.displayAllNotes =true;
-        this.allNotes = response.data;
+    this.noteservice.getnotes().subscribe(response => {
+    this.allNotes = response.token;
     })
   }
 
-  pin(noteId: number, notes) {
+  pin(noteId:number, notes) {
     if (notes.pinned == '0') {
       notes.pinned = '1';
       this.noteservice.updatePin(noteId, notes).subscribe(response => {
@@ -46,7 +41,7 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  archive(noteId: number, notes) {
+  archive(noteId:number, notes) {
     if (notes.isarchive == "0") {
       notes.isarchive = '1';
       this.noteservice.updateArchive(noteId, notes).subscribe(response => {
@@ -61,7 +56,7 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  trash(noteId: number, notes) {
+  trash(noteId:number, notes) {
     if (notes.istrash == '0') {
       notes.istrash = '1';
       this.noteservice.updateTrash(noteId, notes).subscribe(response => {
@@ -76,27 +71,25 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
-  setcolor(notes) {
-
-    console.log(notes);
-    this.noteservice.setColor(notes).subscribe(response => {
+  setcolor(noteId, colorname){
+    this.noteservice.setColor(noteId, colorname).subscribe( response => {
       console.log("color set");
     })
   }
 
-
-
+  
+  
 
 
   notes = [
-    { color: "rgb(255, 179, 255)", name: "pink", title: "firoz", description: "from karlapalem", isarchived: true, istrash: "0", pinned: true },
-    { color: "rgb(255, 255, 128)", name: "darkGolden", title: "ershad", description: "from karlapalem", isarchived: true, istrash: "0", pinned: true },
-    { color: "rgb(200, 232, 104)", name: "yellow", title: "shamsheer", description: "from karlapalem", isarchived: false, istrash: "1", pinned: true },
-    { color: " rgb(158, 136, 191)", name: "darkYellow", title: "mallika", description: "from karlapalem", isarchived: false, istrash: "1", pinned: true },
-    { color: "slategray", name: "grey", title: "karim", description: "from karlapalem", isarchived: "1", istrash: false, pinned: false },
-    { color: "rgb(153, 221, 255)", name: "Teal", title: "sharmila", description: "from karlapalem", isarchived: false, istrash: "1", pinned: false },
-    { color: "rgb(203,240,248)", name: "blue", title: "budi", description: "from karlapalem", isarchived: true, istrash: "0", pinned: false },
-    { color: "rgb(174,203,250)", name: "Dark blue", title: "shabbir", description: "from karlapalem", isarchived: true, istrash: "0", pinned: false }
+    { color: "rgb(255, 179, 255)", name: "pink", title: "firoz", description: "from karlapalem", isarchived: true, istrash: "0",pinned: true },
+    { color: "rgb(255, 255, 128)", name: "darkGolden", title: "ershad", description: "from karlapalem", isarchived: true, istrash: "0",pinned: true },
+    { color: "rgb(200, 232, 104)", name: "yellow", title: "shamsheer", description: "from karlapalem", isarchived: false, istrash: "1" ,pinned: true},
+    { color: " rgb(158, 136, 191)", name: "darkYellow", title: "mallika", description: "from karlapalem", isarchived: false, istrash: "1" ,pinned: true},
+    { color: "slategray", name: "grey", title: "karim", description: "from karlapalem", isarchived: "1", istrash: false ,pinned: false},
+    { color: "rgb(153, 221, 255)", name: "Teal", title: "sharmila", description: "from karlapalem", isarchived: false, istrash: "1" ,pinned: false},
+    { color: "rgb(203,240,248)", name: "blue", title: "budi", description: "from karlapalem", isarchived: true, istrash: "0"  ,pinned: false},
+    { color: "rgb(174,203,250)", name: "Dark blue", title: "shabbir", description: "from karlapalem", isarchived: true, istrash: "0" ,pinned: false}
   ]
 
   arrayofColors = [
