@@ -39,7 +39,7 @@
                                 *ngFor="let colors of arrayofColors">
                                 <div *ngFor="let color of colors">
                                     <button [ngStyle]="{ 'background-color': color.color }"
-                                        (click)="setcolor(color.id, color.name)" matTooltip={{color.name}}
+                                        (click)="setcolor(note.id, color.name)" matTooltip={{color.name}}
                                         mat-mini-fab></button>
                                 </div>
                                 <br>

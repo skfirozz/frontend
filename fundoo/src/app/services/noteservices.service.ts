@@ -76,7 +76,8 @@ export class NoteservicesService {
     return this.httpclient.put<any>(environment.baseUrl + environment.delete, { headers: localStorage.token });
   }
   setColor(arr) {
-    return this.httpclient.put<any>(environment.baseUrl + environment.setcolor ,arr);
+
+    return this.httpclient.put<any>(environment.baseUrl + environment.setcolor , arr);
 
   }
 }
