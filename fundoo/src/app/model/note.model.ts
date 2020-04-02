@@ -1,9 +1,6 @@
 export class Note{
+    id:number;
     title:String;
-    description:String;
-    istrash: boolean ;
-    ispinned: boolean ;
-    isarchive: boolean ;
+    description:String;   
     color: String;
-    reminder: String ;
 }

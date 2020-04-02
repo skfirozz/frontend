@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -17,7 +17,7 @@ export class NoteservicesService {
   createNote(arr) {
     let auth = localStorage.getItem('token');
     arr['headers'] = { Authorization: auth };
-    return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
+    return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr,{ headers: new HttpHeaders().set('token', localStorage.token) });
   }
   getnotes() {
     let token = localStorage.getItem('token');

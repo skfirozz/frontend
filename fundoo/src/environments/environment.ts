@@ -12,7 +12,7 @@ export const environment = {
 
 
 
-  notes :"notes/",
+  notes :"getNotes/",
 
   getTrashNotes: "getTrash/",
   getArchiveNotes: "getArchive/",
