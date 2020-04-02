@@ -11,8 +11,8 @@ export class NoteservicesService {
   constructor(private httpclient: HttpClient) { }
 
   createNote(arr) {
-    let token = localStorage.getItem('token');
-    return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr, { headers: { Authorization: token } });
+    // let token = localStorage.getItem('token');
+    return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
   }
   getnotes() {
     let token = localStorage.getItem('token');

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { Note } from 'src/app/model/note.model';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -13,6 +14,7 @@ export class CreatenoteComponent implements OnInit {
 
   popup: boolean = false;
   createNoteForm: FormGroup;
+  notes: Note = new Note();
   // token: string = sessionStorage.getItem('token');
 
   constructor(private formBuilder: FormBuilder, private router: Router, private serviceObject: NoteservicesService) { }
@@ -24,8 +26,6 @@ export class CreatenoteComponent implements OnInit {
     }
     )
   }
-
-
   onPopup() {
     this.popup = true;
   }
@@ -33,14 +33,21 @@ export class CreatenoteComponent implements OnInit {
   onSubmit() {
     console.log(this.createNoteForm.value)
     this.popup = false;
-    // this.serviceObject.createNote(this.createNoteForm).subscribe(response => {
-    //   this.matSnackBar.open('note created', 'ok', { duration: 5000 });
-    // },
-    //   (error: any) => {
-    //     console.log(error)
-    //     this.matSnackBar.open('error in note creation', 'ok', { duration: 5000 });
-    //   }
-    // );
-  }
+    if (this.createNoteForm.value.title != null || this.createNoteForm.value.description != null) {
 
+      this.serviceObject.createNote(this.createNoteForm.value).subscribe((result) => {
+
+        const temp = JSON.stringify(result);
+
+        return "created";
+      },
+        () => {
+          return "Failed to Create";
+        });
+      this.serviceObject.createNote(this.createNoteForm.value);
+    }
+    else {
+      this.popup = true;
+    }
+  }
 }
