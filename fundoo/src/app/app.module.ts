@@ -35,6 +35,7 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DisplayComponent } from './component/display/display.component';
 
 
 
@@ -53,6 +54,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     TrashComponent,
     ReminderComponent,
     EditlabelsComponent,
+    DisplayComponent,
   ],
   imports: [
     BrowserModule,
