@@ -7,7 +7,7 @@
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
         <div *ngFor="let note of allNotes">
-            <mat-card class="notes" *ngIf=note.ispinned&&!note.isarchived   [ngStyle]="{'background-color':note.color}">
+            <mat-card class="notes" *ngIf=note.ispinned&&!note.isarchived&&!note.istrash   [ngStyle]="{'background-color':note.color}">
 
                 <div class="pinNotes">
                     <div class="title">
@@ -52,7 +52,7 @@
                         </mat-menu>
                     </div>
                     <mat-menu #more="matMenu">
-                        <button mat-menu-item>Delete Note</button>
+                        <button mat-menu-item (click)="trash(note.id, note.istrash)">Delete Note</button>
                         <button mat-menu-item>Add Label</button>
                         <button mat-menu-item>Add Drawing</button>
                     </mat-menu>
@@ -71,7 +71,7 @@
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
         <div *ngFor="let note of allNotes">
-            <mat-card class="notes" *ngIf=!note.ispinned&&!note.isarchived [ngStyle]="{'background-color':note.color}">
+            <mat-card class="notes" *ngIf=!note.ispinned&&!note.isarchived&&!note.istrash [ngStyle]="{'background-color':note.color}">
 
                 <div class="pinNotes">
                     <div class="title">
@@ -116,7 +116,7 @@
                         </mat-menu>
                     </div>
                     <mat-menu #more="matMenu">
-                        <button mat-menu-item>Delete Note</button>
+                        <button mat-menu-item (click)="trash(note.id, note.istrash)">Delete Note</button>
                         <button mat-menu-item>Add Label</button>
                         <button mat-menu-item>Add Drawing</button>
                     </mat-menu>

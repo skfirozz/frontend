@@ -4,6 +4,6 @@ export class Note{
     description:String;   
     color: String;
     ispinned:boolean;
-    istrashed:boolean;
+    istrash:boolean;
     isarchived:boolean;
 }

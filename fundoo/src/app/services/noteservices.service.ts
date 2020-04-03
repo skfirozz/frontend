@@ -21,68 +21,60 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
   }
   getnotes() {
-    return this.httpclient.get<any>(environment.baseUrl + environment.notes ) ;
+    return this.httpclient.get<any>(environment.baseUrl + environment.notes);
   }
 
 
-  getPin()
-  {
-    let token =localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.pinNotes, { headers:  localStorage.token }  );
-  }
-  
-  getUnPin()
-  {
-    let token =localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.unpinNotes , { headers:  localStorage.token }  );
+  getPin() {
+    let token = localStorage.getItem('token');
+    return this.httpclient.get<any>(environment.baseUrl + environment.pinNotes, { headers: localStorage.token });
   }
 
-  getTrashNotes()
-  {
-    let token =localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers:  localStorage.token } );
+  getUnPin() {
+    let token = localStorage.getItem('token');
+    return this.httpclient.get<any>(environment.baseUrl + environment.unpinNotes, { headers: localStorage.token });
   }
 
-  getArchiveNotes()
-  {
-    let token =localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers:  localStorage.token } );
+  getTrashNotes() {
+    let token = localStorage.getItem('token');
+    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers: localStorage.token });
   }
-  
-  getUnarchiveNotes()
-  {
-    let token =localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers:  localStorage.token } );
+
+  getArchiveNotes() {
+    return this.httpclient.get<any>(environment.baseUrl + environment.getArchiveNotes );
   }
-  
-  updatePin(arr){
-    let token =localStorage.getItem('token');
+
+  getUnarchiveNotes() {
+    let token = localStorage.getItem('token');
+    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers: localStorage.token });
+  }
+
+  updatePin(arr) {
+    let token = localStorage.getItem('token');
     console.log(environment.baseUrl + environment.updatePin + arr);
-    return this.httpclient.post<any>(environment.baseUrl + environment.updatePin , arr );
+    return this.httpclient.post<any>(environment.baseUrl + environment.updatePin, arr);
   }
 
-  updateArchive(arr){
-    return this.httpclient.post<any>(environment.baseUrl + environment.updateArchive ,arr  );
+  updateArchive(arr) {
+    return this.httpclient.post<any>(environment.baseUrl + environment.updateArchive, arr);
   }
 
-  updateTrash(noteId:number,notes){
-    let token =localStorage.getItem('token');
-    return this.httpclient.put<any>(environment.baseUrl + environment.updateTrash + noteId, notes, { headers:  localStorage.token }  );
+  updateTrash(arr) {
+    return this.httpclient.post<any>(environment.baseUrl + environment.updateTrash, arr);
   }
 
-  deleteNotes(noteId:number){
-    let token =localStorage.getItem('token');
-    return this.httpclient.put<any>(environment.baseUrl + environment.delete + noteId, { headers:  localStorage.token }  );
+  deleteNotes(noteId: number) {
+    let token = localStorage.getItem('token');
+    return this.httpclient.put<any>(environment.baseUrl + environment.delete + noteId, { headers: localStorage.token });
   }
 
-  updateColor()  
-  {
-    let token =localStorage.getItem('token');
-    return this.httpclient.put<any>(environment.baseUrl + environment.delete , { headers:  localStorage.token }  );
+  updateColor() {
+    let token = localStorage.getItem('token');
+    return this.httpclient.put<any>(environment.baseUrl + environment.delete, { headers: localStorage.token });
   }
-  setColor(arr){
+  setColor(arr) {
     console.log(arr);
-    return this.httpclient.post<any>(environment.baseUrl + environment.setcolor ,arr);
- 
+    return this.httpclient.post<any>(environment.baseUrl + environment.setcolor, arr);
+
   }
 }

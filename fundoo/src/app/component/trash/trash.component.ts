@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { Note } from 'src/app/model/note.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-trash',
@@ -9,67 +10,65 @@ import { Note } from 'src/app/model/note.model';
 })
 export class TrashComponent implements OnInit {
 
-  note: Note = new Note();
-  allNotes: Note[];
+  trashNotes: any;
+  color: Note = new Note();
 
-  constructor(private noteservice:NoteservicesService) { }
-
-  ngOnInit(): void {
+  constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) 
+  {
   }
 
-  allnotes() {
-    this.noteservice.getnotes().subscribe(response => {
-    this.allNotes = response.token;
+  ngOnInit() {
+    this.allNotes();
+  }
+  ngOnChanges() {
+    console.log('ji');
+    window.location.reload();
+  }
+
+
+  allNotes() {
+    this.noteservice.getArchiveNotes().subscribe(response => {
+      this.trashNotes = response.data;
+      console.log(response.data);
     })
   }
-  trash(noteId:number, notes) {
-    if (notes.istrash == '0') {
-      notes.istrash = '1';
-      this.noteservice.updateTrash(noteId, notes).subscribe(response => {
-        console.log('trashed');
+
+  //working
+  pin(noteId: number, notes) {
+      this.color.id = noteId;
+      this.color.ispinned = true;
+      this.noteservice.updatePin(this.color).subscribe(response => {
+        console.log(response.message);
+      })
+    window.location.reload();
+  }
+
+  //working
+  archive(noteId: number, notes) {
+    this.color.id = noteId;
+    debugger;
+      this.color.isarchived = false;
+      this.noteservice.updateArchive(this.color).subscribe(response => {
+        console.log(response.message);
+      })
+    window.location.reload();
+  }
+
+  //working
+  trash(noteId: number, notes) {
+    this.color.id = noteId;
+    if (notes.istrash) {
+      this.color.istrash = false;
+      this.noteservice.updateTrash(this.color).subscribe(response => {
+        console.log(response.message);
       })
     }
     else {
-      notes.istrash = '0';
-      this.noteservice.updateTrash(noteId, notes).subscribe(response => {
-        console.log('untrashed');
+      this.color.istrash = true;
+      this.noteservice.updateTrash(this.color).subscribe(response => {
+        console.log(response.message);
       })
     }
+    window.location.reload();
   }
-
-
-
- 
-  notes = [
-    { color: "rgb(255, 179, 255)", name: "pink", title: "firoz", description: "from karlapalem", isarchived: true, istrash: true,pinned: true },
-    { color: "rgb(255, 255, 128)", name: "darkGolden", title: "ershad", description: "from karlapalem", isarchived: true, istrash: false,pinned: true },
-    { color: "rgb(200, 232, 104)", name: "yellow", title: "shamsheer", description: "from karlapalem", isarchived: false, istrash: true ,pinned: true},
-    { color: " rgb(158, 136, 191)", name: "darkYellow", title: "mallika", description: "from karlapalem", isarchived: false, istrash: false ,pinned: true},
-    { color: "slategray", name: "grey", title: "karim", description: "from karlapalem", isarchived: "1", istrash: false ,pinned: false},
-    { color: "rgb(153, 221, 255)", name: "Teal", title: "sharmila", description: "from karlapalem", isarchived: false, istrash: false ,pinned: false},
-    { color: "rgb(203,240,248)", name: "blue", title: "budi", description: "from karlapalem", isarchived: true, istrash: false ,pinned: false},
-    { color: "rgb(174,203,250)", name: "Dark blue", title: "shabbir", description: "from karlapalem", isarchived: true, istrash: false ,pinned: false}
-  ]
-
-  arrayofColors = [
-    [
-      { color: "rgb(255,255,255)", name: "white" },
-      { color: "rgb(255,0,0)", name: "red" },
-      { color: "rgb(255,165,0)", name: "orange" },
-      { color: "rgb(255,255,0)", name: "yellow" }
-    ],
-    [
-      { color: "rgb(0,128,0)", name: "green" },
-      { color: "rgb(0,128,128)", name: "teal" },
-      { color: "rgb(0,0,255)", name: "blue" },
-      { color: "rgb(0,0,139)", name: "dark blue" }
-    ],
-    [
-      { color: "rgb(128,0,128)", name: "purple" },
-      { color: "rgb(255,192,203)", name: "pink" },
-      { color: "rgb(165,42,42)", name: "brown" },
-      { color: "rgb(128,128,128)", name: "gray" }
-    ]
-  ]
-
 }

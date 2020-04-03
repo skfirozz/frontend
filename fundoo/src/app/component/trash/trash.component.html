@@ -1,20 +1,26 @@
 <div style="flex-wrap: wrap;">
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
-        <div *ngFor="let note of notes">
-            <mat-card class="notes" *ngIf="note.istrash" [ngStyle]="{'background-color':note.color}">
-                <mat-card-header>
-                    {{note.title}}
-                </mat-card-header>
-                <mat-card-content>
-                    {{note.description}}
-                </mat-card-content>
+        <div *ngFor="let note of trashNotes">
+            <mat-card class="notes"  [ngStyle]="{'background-color':note.color}">
 
-                <div class="buttons">
-                    <a>
-                        <mat-icon class="icon" matTooltip="Delete forever">delete_forever</mat-icon>
-                        <mat-icon matTooltip="Move to Notes" class="icon">restore</mat-icon>
-                    </a>
+                <div class="pinNotes">
+                </div>
+
+                <div class="ntitle">
+                    {{note.title}}
+                </div>
+
+                <div class="titles" style="padding: 0px;">
+                    {{note.description}}
+                </div>
+                <div>
+                    <div class="colorlist">
+                        <a>
+                            <mat-icon class="icon" matTooltip="Delete forever">delete_forever</mat-icon>
+                            <mat-icon class="icon" matTooltip="Restore">restore_from_trash</mat-icon>
+                        </a>
+                    </div>
                 </div>
             </mat-card>
         </div>
