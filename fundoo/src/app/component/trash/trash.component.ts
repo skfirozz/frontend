@@ -27,7 +27,7 @@ export class TrashComponent implements OnInit {
 
 
   allNotes() {
-    this.noteservice.getArchiveNotes().subscribe(response => {
+    this.noteservice.getTrashNotes().subscribe(response => {
       this.trashNotes = response.data;
       console.log(response.data);
     })
@@ -35,20 +35,22 @@ export class TrashComponent implements OnInit {
 
 
   //working
-  trash(noteId: number, notes) {
-    this.color.id = noteId;
-    if (notes.istrash) {
+  unTrash(noteId: number, notes) {
+    // debugger;
+      this.color.id = noteId;
       this.color.istrash = false;
       this.noteservice.updateTrash(this.color).subscribe(response => {
         console.log(response.message);
       })
-    }
-    else {
-      this.color.istrash = true;
-      this.noteservice.updateTrash(this.color).subscribe(response => {
+    // window.location.reload();
+  }
+
+  delete(noteId: number) {
+    // debugger;
+      this.color.id = noteId;
+      this.noteservice.deleteNotes(this.color).subscribe(response => {
         console.log(response.message);
       })
-    }
     window.location.reload();
   }
 }

@@ -37,16 +37,11 @@ export class NoteservicesService {
 
   getTrashNotes() {
     let token = localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers: localStorage.token });
+    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes);
   }
 
   getArchiveNotes() {
     return this.httpclient.get<any>(environment.baseUrl + environment.getArchiveNotes );
-  }
-
-  getUnarchiveNotes() {
-    let token = localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers: localStorage.token });
   }
 
   updatePin(arr) {
@@ -63,9 +58,8 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.updateTrash, arr);
   }
 
-  deleteNotes(noteId: number) {
-    let token = localStorage.getItem('token');
-    return this.httpclient.put<any>(environment.baseUrl + environment.delete + noteId, { headers: localStorage.token });
+  deleteNotes(arr) {
+    return this.httpclient.post<any>(environment.baseUrl + environment.delete ,arr);
   }
 
   updateColor() {
