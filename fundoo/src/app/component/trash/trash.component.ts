@@ -33,26 +33,6 @@ export class TrashComponent implements OnInit {
     })
   }
 
-  //working
-  pin(noteId: number, notes) {
-      this.color.id = noteId;
-      this.color.ispinned = true;
-      this.noteservice.updatePin(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    window.location.reload();
-  }
-
-  //working
-  archive(noteId: number, notes) {
-    this.color.id = noteId;
-    debugger;
-      this.color.isarchived = false;
-      this.noteservice.updateArchive(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    window.location.reload();
-  }
 
   //working
   trash(noteId: number, notes) {
