@@ -19,7 +19,7 @@ export const environment = {
   getUnarchiveNotes: "getUnarchive/",
   createNote: "createnote/",
   updatePin: "updatepin/",
-  updateArchive: "uparchive/",
+  updateArchive: "updateArchive/",
   updateTrash: "updateTrash/",
   updateNotes: "updateNotes/",
   updateColor: "setColor/",

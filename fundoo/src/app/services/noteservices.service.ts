@@ -61,9 +61,8 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.updatePin , arr );
   }
 
-  updateArchive(noteId:number,notes){
-    let token =localStorage.getItem('token');
-    return this.httpclient.put<any>(environment.baseUrl + environment.updateArchive + noteId, notes, { headers:  localStorage.token }  );
+  updateArchive(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.updateArchive ,arr  );
   }
 
   updateTrash(noteId:number,notes){

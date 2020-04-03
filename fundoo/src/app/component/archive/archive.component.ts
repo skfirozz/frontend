@@ -41,13 +41,13 @@ export class ArchiveComponent implements OnInit {
   archive(noteId:number, notes) {
     if (notes.isarchive == "0") {
       notes.isarchive = '1';
-      this.noteservice.updateArchive(noteId, notes).subscribe(response => {
+      this.noteservice.updateArchive(noteId).subscribe(response => {
         console.log('archived');
       })
     }
     else {
       notes.isarchive = '0';
-      this.noteservice.updateArchive(noteId, notes).subscribe(response => {
+      this.noteservice.updateArchive(noteId).subscribe(response => {
         console.log('unarchived');
       })
     }
