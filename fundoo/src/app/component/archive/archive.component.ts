@@ -26,13 +26,13 @@ export class ArchiveComponent implements OnInit {
   pin(noteId:number, notes) {
     if (notes.pinned == '0') {
       notes.pinned = '1';
-      this.noteservice.updatePin(noteId, notes).subscribe(response => {
+      this.noteservice.updatePin(noteId).subscribe(response => {
         console.log('pinned');
       })
     }
     else {
       notes.pinned = '1';
-      this.noteservice.updatePin(noteId, notes).subscribe(response => {
+      this.noteservice.updatePin(noteId).subscribe(response => {
         console.log('pinned');
       })
     }

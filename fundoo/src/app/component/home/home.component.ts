@@ -39,24 +39,24 @@ export class HomeComponent implements OnInit {
   }
   showNote()
   {
-    this.router.navigate(['notes']);
+    this.router.navigate(['fundoo/notes']);
   }
   showArchive()
   {
-    this.router.navigate(['archive']);
+    this.router.navigate(['fundoo/archive']);
   }
 
   showTrash()
   {
-    this.router.navigate(['trash']);
+    this.router.navigate(['fundoo/trash']);
   }
 
   showReminder()
   {
-    this.router.navigate(['reminder']);
+    this.router.navigate(['fundoo/reminder']);
   }
   editlabels()
   {
-    this.router.navigate(['editlabels']);
+    this.router.navigate(['fundoo/editlabels']);
   }
 }

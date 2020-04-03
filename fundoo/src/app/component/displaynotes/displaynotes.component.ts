@@ -10,38 +10,43 @@ import { Note } from 'src/app/model/note.model';
 })
 export class DisplaynotesComponent implements OnInit {
 
-  note: Note = new Note();
   pinNotes: Note[];
   unPinNotes: Note[];
   allNotes: any;
-  color: any;
+  color: Note = new Note();
 
-  constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
     this.allnotes();
     console.log('disply');
+  }
+  ngOnChanges() {
+    console.log('ji');
+    window.location.reload();
   }
 
 
   allnotes() {
     this.noteservice.getnotes().subscribe(response => {
       this.allNotes = response.data;
-      // console.log(response.data);
     })
   }
 
   pin(noteId: number, notes) {
-    if (notes.pinned == '0') {
-      notes.pinned = '1';
-      this.noteservice.updatePin(noteId, notes).subscribe(response => {
-        console.log('pinned');
+    if (notes.pinned == true) {
+      this.color.ispinned=false;
+      this.color.id=noteId;
+      this.noteservice.updatePin(this.color).subscribe(response => {
+        console.log(response.message);
       })
     }
     else {
-      notes.pinned = '1';
-      this.noteservice.updatePin(noteId, notes).subscribe(response => {
-        console.log('pinned');
+      this.color.ispinned=true;
+      this.color.id=noteId;
+      this.noteservice.updatePin(this.color).subscribe(response => {
+        console.log(response.message);
       })
     }
   }
@@ -77,10 +82,12 @@ export class DisplaynotesComponent implements OnInit {
   }
 
   setcolor(noteId, colorname) {
+    this.color.id = noteId;
+    this.color.color = colorname;
     this.noteservice.setColor(this.color).subscribe(response => {
       console.log(response.message);
     })
-    
+    window.location.reload();
   }
 
 

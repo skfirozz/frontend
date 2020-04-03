@@ -8,14 +8,19 @@ import { environment } from 'src/environments/environment';
 })
 export class NoteservicesService {
 
+
+  private _autoRefresh$ = new Subject();
+
   constructor(private httpclient: HttpClient) { }
 
+  get autoRefresh$() {
+    return this._autoRefresh$;
+  }
+
   createNote(arr) {
-    // let token = localStorage.getItem('token');
     return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
   }
   getnotes() {
-    // let token = localStorage.getItem('token');
     return this.httpclient.get<any>(environment.baseUrl + environment.notes ) ;
   }
 
@@ -50,10 +55,10 @@ export class NoteservicesService {
     return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes, { headers:  localStorage.token } );
   }
   
-  updatePin(noteId:number,notes){
+  updatePin(arr){
     let token =localStorage.getItem('token');
-    console.log(environment.baseUrl + environment.updatePin + noteId);
-    return this.httpclient.put<any>(environment.baseUrl + environment.updatePin + noteId, notes, { headers:  localStorage.token }  );
+    console.log(environment.baseUrl + environment.updatePin + arr);
+    return this.httpclient.post<any>(environment.baseUrl + environment.updatePin , arr );
   }
 
   updateArchive(noteId:number,notes){
@@ -77,8 +82,7 @@ export class NoteservicesService {
     return this.httpclient.put<any>(environment.baseUrl + environment.delete , { headers:  localStorage.token }  );
   }
   setColor(arr){
-    // let token =localStorage.getItem('token');
-    // console.log("hihihi");
+    console.log(arr);
     return this.httpclient.post<any>(environment.baseUrl + environment.setcolor ,arr);
  
   }

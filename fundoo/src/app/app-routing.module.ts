@@ -15,7 +15,7 @@ import { NotesComponent } from './component/notes/notes.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: RegisterComponent },
+  { path: 'reigister', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
   { path: 'note', component:  CreatenoteComponent},
   { path: 'home', component: HomeComponent},
