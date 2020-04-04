@@ -54,6 +54,7 @@ export class IconsComponent implements OnInit {
   //working
   setcolor(noteId, colorname) {
     this.color.id = noteId;
+    // debugger;
     this.color.color = colorname;
     this.noteservice.setColor(this.color).subscribe(response => {
       console.log(response.message);

@@ -35,10 +35,10 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DisplayComponent } from './component/display/display.component';
 import { DispComponent } from './component/disp/disp.component';
 import { IconsComponent } from './component/icons/icons.component';
 import { DisplayDataComponent } from './component/display-data/display-data.component';
+import { CreateComponent } from './component/create/create.component';
 
 
 
@@ -57,10 +57,10 @@ import { DisplayDataComponent } from './component/display-data/display-data.comp
     TrashComponent,
     ReminderComponent,
     EditlabelsComponent,
-    DisplayComponent,
     DispComponent,
     IconsComponent,
     DisplayDataComponent,
+    CreateComponent,
   ],
   imports: [
     BrowserModule,
