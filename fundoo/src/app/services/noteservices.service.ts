@@ -20,28 +20,24 @@ export class NoteservicesService {
   createNote(arr) {
     return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
   }
-  getnotes() {
-    return this.httpclient.get<any>(environment.baseUrl + environment.notes);
+  getPinNotes() {
+    return this.httpclient.get<any>(environment.baseUrl + environment.getPinNotes);
   }
 
-
-  getPin() {
-    let token = localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.pinNotes, { headers: localStorage.token });
-  }
-
-  getUnPin() {
-    let token = localStorage.getItem('token');
-    return this.httpclient.get<any>(environment.baseUrl + environment.unpinNotes, { headers: localStorage.token });
+  getUnPinNotes(){
+    return this.httpclient.get<any>(environment.baseUrl + environment.getUnPinNote);   
   }
 
   getTrashNotes() {
-    let token = localStorage.getItem('token');
     return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes);
   }
 
   getArchiveNotes() {
     return this.httpclient.get<any>(environment.baseUrl + environment.getArchiveNotes );
+  }
+
+  getallLabels(){
+    return this.httpclient.get<any>(environment.baseUrl + environment.getLabels );
   }
 
   updatePin(arr) {

@@ -12,11 +12,13 @@ export const environment = {
 
 
 
-  notes :"getNotes/",
+  getPinNotes :"getPinNotes/",
+  getUnPinNote:"getUnPinNotes/",
 
   getTrashNotes: "getTrash/",
   getArchiveNotes: "getArchive/",
   getUnarchiveNotes: "getUnarchive/",
+  getLabels : "getallLabels/",
   createNote: "createnote/",
   updatePin: "updatepin/",
   updateArchive: "updateArchive/",

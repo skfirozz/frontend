@@ -72,6 +72,9 @@
                 <mat-divider class="divider"></mat-divider>
 
                 <label>Labels</label><br>
+                <div *ngFor="let notes of labels">
+                    <app-labels [notes]="notes"></app-labels>
+                </div>
                 <a mat-list-item routerLink="notes" matTooltip="notes" (click)="editlabels()">
                     <mat-icon>edit</mat-icon>Edit Labels
                 </a> <br>

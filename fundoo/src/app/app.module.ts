@@ -39,6 +39,7 @@ import { DispComponent } from './component/disp/disp.component';
 import { IconsComponent } from './component/icons/icons.component';
 import { DisplayDataComponent } from './component/display-data/display-data.component';
 import { CreateComponent } from './component/create/create.component';
+import { LabelsComponent } from './component/labels/labels.component';
 
 
 
@@ -61,6 +62,7 @@ import { CreateComponent } from './component/create/create.component';
     IconsComponent,
     DisplayDataComponent,
     CreateComponent,
+    LabelsComponent,
   ],
   imports: [
     BrowserModule,

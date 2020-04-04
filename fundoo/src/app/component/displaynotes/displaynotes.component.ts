@@ -10,17 +10,18 @@ import { Note } from 'src/app/model/note.model';
 })
 export class DisplaynotesComponent implements OnInit {
 
-  pinNotes: Note[];
   unPinNotes: Note[];
-  allNotes: any;
+  pinnedNotes: any;
+  unpinnedNotes: any;
   color: Note = new Note();
-  
- @Input() note:Note= new Note();
+
+//  @Input() note:Note= new Note();
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
-    this.allnotes();
+    this.pinNotes();
+    this.nonPinNotes();
   }
   ngOnChanges() {
     console.log('ji');
@@ -28,9 +29,17 @@ export class DisplaynotesComponent implements OnInit {
   }
 
 
-  allnotes() {
-    this.noteservice.getnotes().subscribe(response => {
-      this.allNotes = response.data;
+  pinNotes() {
+    this.noteservice.getPinNotes().subscribe(response => {
+      this.pinnedNotes = response.data;
+      console.log(response.data);
+    })
+  }
+
+  nonPinNotes()
+  {
+    this.noteservice.getUnPinNotes().subscribe(response => {
+      this.unpinnedNotes = response.data;
       console.log(response.data);
     })
   }

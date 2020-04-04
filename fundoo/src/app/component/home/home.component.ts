@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { FundooAccountServiceService } from 'src/app/fundoo-account-service.service';
+import { Note } from 'src/app/model/note.model';
+import { NoteservicesService } from 'src/app/services/noteservices.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +14,11 @@ export class HomeComponent implements OnInit {
 
   searchData = new FormControl('', [
     Validators.required, ]);
-  constructor( private router: Router, private serviceObject: FundooAccountServiceService ) { }
+    labels :any;
+    constructor(  private serviceobj:NoteservicesService, private router: Router, private serviceObject: FundooAccountServiceService ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.getLabel();
   }
 
   search()
@@ -31,6 +35,15 @@ export class HomeComponent implements OnInit {
     this.serviceObject.geSearchValue(data);
   }
 
+  getLabel()
+  {
+    // debugger;
+    this.serviceobj.getallLabels().subscribe( response => {
+      this.labels = response.data;
+    })
+    console.log(this.labels);
+  }
+ 
   onsignout()
   {
     localStorage.removeItem('token');
