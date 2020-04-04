@@ -43,7 +43,6 @@ import { LabelsComponent } from './component/labels/labels.component';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

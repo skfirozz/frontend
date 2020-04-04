@@ -1,3 +1,25 @@
 <app-create></app-create>
-<p>edit label working</p>
-<p>hii</p>
+<div class="createlabel">
+    <mat-card style="height: 7cm;width: 6.5cm;">
+   
+
+        <span style="display: block;">Edit Labels</span> <br>
+        <div>
+            <mat-icon matTooltip="cancel">close</mat-icon>
+            <input matInput style="border: none; outline: none;" placeholder="Enter label name" matInput>
+            <mat-icon matTooltip="create label" (click)="createLabel('hi')">check</mat-icon>
+        </div>
+
+        <br>
+        <div *ngFor="let note of notes">
+            <mat-icon>label</mat-icon>
+            {{note.label}}
+            <mat-icon>edit</mat-icon>
+
+        </div>
+        <br> <br> <br>
+
+    
+    <button mat-button class="done">Done</button>
+</mat-card>
+</div>

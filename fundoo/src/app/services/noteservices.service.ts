@@ -20,6 +20,10 @@ export class NoteservicesService {
   createNote(arr) {
     return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
   }
+
+  createLabel(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.createLabel,arr);
+  }
   getPinNotes() {
     return this.httpclient.get<any>(environment.baseUrl + environment.getPinNotes);
   }

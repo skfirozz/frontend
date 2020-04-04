@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   getLabel()
   {
-    // debugger;
+    debugger;
     this.serviceobj.getallLabels().subscribe( response => {
       this.labels = response.data;
     })
