@@ -7,23 +7,7 @@
     <div class="notes" fxFlexOffset="15" style="flex-direction: row;
      box-sizing: border-box; display: flex; margin-left: 5%;">
         <div *ngFor="let note of allNotes">
-            <mat-card class="notes" [ngStyle]="{'background-color':note.color}">
-
-                <div class="pinNotes">
-                    <div class="title">
-                        <mat-icon matTooltip="unpin" (click)="pin(note.id,note)">colorize</mat-icon>
-                    </div>
-                </div>
-
-                <div class="ntitle">
-                    {{note.title}}
-                </div>
-
-                <div class="titles" style="padding: 0px;">
-                    {{note.description}}
-                </div>
-                <app-icons [notes]="note"></app-icons>
-            </mat-card>
+            <app-display-data [notes]="note"></app-display-data>
         </div>
     </div>
 </div>

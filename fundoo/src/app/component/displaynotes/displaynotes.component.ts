@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from 'src/app/model/note.model';
@@ -14,7 +14,8 @@ export class DisplaynotesComponent implements OnInit {
   unPinNotes: Note[];
   allNotes: any;
   color: Note = new Note();
-
+  
+ @Input() note:Note= new Note();
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 

@@ -1,1 +1,17 @@
-<p>display-data works!</p>
+<mat-card class="notes" [ngStyle]="{'background-color':notes.color}">
+
+    <div class="pinNotes">
+        <div class="title">
+            <mat-icon matTooltip="unpin" (click)="pin(notes.id,notes)">colorize</mat-icon>
+        </div>
+    </div>
+
+    <div class="ntitle">
+        {{notes.title}}
+    </div>
+
+    <div class="titles" style="padding: 0px;">
+        {{notes.description}}
+    </div>
+    <app-icons [notes]="notes"></app-icons>
+</mat-card>
