@@ -1,1 +1,35 @@
-<p>icons works!</p>
+<div>
+    <div class="colorlist">
+        <a>
+            <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
+            <mat-icon matTooltip="collaborator" class="icon">person_add</mat-icon>
+            <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette
+            </mat-icon>
+            <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
+            <mat-icon class="icon" (click)="archive(notes.id, notes.isarchived)" matTooltip="Archive">archive</mat-icon>
+            <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
+        </a>
+    </div>
+    <div fxLayout="row">
+        <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+            <ng-template matMenuContent>
+                <div>
+                    <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px"
+                        *ngFor="let colors of arrayofColors">
+                        <div *ngFor="let color of colors">
+                            <button [ngStyle]="{'background-color': color.color}"
+                            (click)="setcolor(notes.id, color.color)"
+                            matTooltip="{{ color.name }}" mat-mini-fab></button>
+
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </mat-menu>
+    </div>
+    <mat-menu #more="matMenu">
+        <button mat-menu-item (click)="trash(notes.id, notes.istrash)">Delete Note</button>
+        <button mat-menu-item>Add Label</button>
+        <button mat-menu-item>Add Drawing</button>
+    </mat-menu>
+</div>
