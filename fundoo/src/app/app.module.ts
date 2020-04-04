@@ -36,6 +36,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DisplayComponent } from './component/display/display.component';
+import { DispComponent } from './component/disp/disp.component';
+import { IconsComponent } from './component/icons/icons.component';
 
 
 
@@ -55,6 +57,8 @@ import { DisplayComponent } from './component/display/display.component';
     ReminderComponent,
     EditlabelsComponent,
     DisplayComponent,
+    DispComponent,
+    IconsComponent,
   ],
   imports: [
     BrowserModule,
