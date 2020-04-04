@@ -38,6 +38,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DisplayComponent } from './component/display/display.component';
 import { DispComponent } from './component/disp/disp.component';
 import { IconsComponent } from './component/icons/icons.component';
+import { DisplayDataComponent } from './component/display-data/display-data.component';
 
 
 
@@ -59,6 +60,7 @@ import { IconsComponent } from './component/icons/icons.component';
     DisplayComponent,
     DispComponent,
     IconsComponent,
+    DisplayDataComponent,
   ],
   imports: [
     BrowserModule,
