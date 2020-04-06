@@ -24,6 +24,11 @@ export class NoteservicesService {
   createLabel(arr){
     return this.httpclient.post<any>(environment.baseUrl + environment.createLabel,arr);
   }
+  
+  getAllNotes(){
+    return this.httpclient.get<any>(environment.baseUrl + environment.getAllNotes);
+  }
+
   getPinNotes() {
     return this.httpclient.get<any>(environment.baseUrl + environment.getPinNotes);
   }

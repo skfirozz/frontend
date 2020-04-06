@@ -1,0 +1,7 @@
+<div *ngIf="labelName==notes.label">
+    <div *ngFor="let no of allNotes">
+        <div *ngIf="labelName==no.label">
+            <app-display-data [notes]="no"></app-display-data>
+        </div>
+    </div>
+</div>

@@ -12,6 +12,7 @@ export const environment = {
 
 
 
+  getAllNotes:"getAllNotes/",
   getPinNotes :"getPinNotes/",
   getUnPinNote:"getUnPinNotes/",
 

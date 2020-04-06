@@ -13,16 +13,19 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 export class HomeComponent implements OnInit {
 
   searchData = new FormControl('', [
-    Validators.required, ]);
-    labels :any;
-    constructor(  private serviceobj:NoteservicesService, private router: Router, private serviceObject: FundooAccountServiceService ) { }
+    Validators.required,]);
+  labels: any;
+  labelOper: boolean = false;
+  labelName: any;
+  allNotes: any;
+  constructor(private serviceobj: NoteservicesService, private router: Router, private serviceObject: FundooAccountServiceService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getLabel();
+    this.getAllNotes();
   }
 
-  search()
-  {
+  search() {
     const data = {
       searchData: this.searchData.value,
     };
@@ -35,41 +38,55 @@ export class HomeComponent implements OnInit {
     this.serviceObject.geSearchValue(data);
   }
 
-  getLabel()
-  {
-    debugger;
-    this.serviceobj.getallLabels().subscribe( response => {
+  getLabel() {
+    // debugger;
+    this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
     })
     console.log(this.labels);
   }
- 
-  onsignout()
-  {
+
+  getAllNotes() {
+    debugger;
+    this.serviceobj.getAllNotes().subscribe(response => {
+      this.allNotes = response.data;
+    })
+    console.log(this.allNotes);
+  }
+
+  labelOperation(label) {
+    // debugger;
+    if (this.labelOper == true) {
+      this.labelOper = false;
+    }
+    else {
+      this.labelOper = true;
+    }
+    this.labelName = label;
+
+    console.log('working');
+  }
+
+  onsignout() {
     localStorage.removeItem('token');
     this.router.navigate(['login']);
     console.log('logout successful');
   }
-  showNote()
-  {
+  showNote() {
     this.router.navigate(['fundoo/notes']);
   }
-  showArchive()
-  {
+  showArchive() {
     this.router.navigate(['fundoo/archive']);
   }
 
-  showTrash()
-  {
+  showTrash() {
     this.router.navigate(['fundoo/trash']);
   }
 
-  showReminder()
-  {
+  showReminder() {
     this.router.navigate(['fundoo/reminder']);
   }
-  editlabels()
-  {
+  editlabels() {
     this.router.navigate(['fundoo/editlabels']);
   }
 }

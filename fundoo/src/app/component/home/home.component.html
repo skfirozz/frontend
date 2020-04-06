@@ -3,7 +3,7 @@
         <div class="Main">
             <div class="sideNavIcon">
                 <div>
-                    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+                    <mat-icon (click)="drawer.toggle()" >menu</mat-icon>
                 </div>
                 <div>Fundoo</div>
             </div>
@@ -73,7 +73,10 @@
 
                 <label>Labels</label><br>
                 <div *ngFor="let notes of labels">
-                    <app-labels [notes]="notes"></app-labels>
+                    <app-labels [notes]="notes" (click)="labelOperation(notes.label)"></app-labels>
+                    <div *ngIf="labelOper" class="labelnotes"> 
+                        <app-labelnotes [notes]="notes" [allNotes]="allNotes" [labelName]="labelName"></app-labelnotes>
+                    </div>
                 </div>
                 <div>
                    
