@@ -12,16 +12,16 @@ export class LabelnotesComponent implements OnInit {
 
   popup: boolean = true;
   param: any;
-  allNotes:any;
-  newLabel:Note =new Note();
-  labels:any;
-  constructor(private serviceobj:NoteservicesService,private route: ActivatedRoute,private router: Router) { }
+  allNotes: any;
+  newLabel: Note = new Note();
+  labels: any;
+  constructor(private serviceobj: NoteservicesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getAllNotes();
     this.getlabels();
-    this.route.queryParams.subscribe( params =>{
-      this.param=params['page']|| '';
+    this.route.queryParams.subscribe(params => {
+      this.param = params['page'] || '';
       console.log(this.param);
     });
   }
@@ -34,28 +34,31 @@ export class LabelnotesComponent implements OnInit {
     console.log(this.allNotes);
   }
 
-  getlabels()
-  {
-    this.serviceobj.getallLabels().subscribe( response => {
+  getlabels() {
+    this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
     })
   }
 
-  createLabel(labelName)
-  {
-    this.newLabel.label=labelName;
-    this.newLabel.id=1;
-    this.serviceobj.createLabel(this.newLabel).subscribe( response =>{
+  createLabel(labelName) {
+    this.newLabel.label = labelName;
+    this.newLabel.id = 1;
+    this.serviceobj.createLabel(this.newLabel).subscribe(response => {
       console.log(response.message);
     })
   }
-  
-  done(){
-    this.popup=false;
-    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'notes'} });
+
+  done() {
+    this.popup = false;
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes' } });
   }
 
-  deleteLabel(label){
-    
+  deleteLabel(label) {
+    this.newLabel.id = label;
+    this.serviceobj.deleteLabel(this.newLabel).subscribe(response => {
+
+      console.log(response.message);
+    })
+
   }
 }
