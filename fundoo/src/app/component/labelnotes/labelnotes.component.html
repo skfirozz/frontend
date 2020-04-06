@@ -1,5 +1,7 @@
-<br><br>
-<div *ngIf="param!='editnotes'">
+
+<div *ngIf="param!='editlabel'">
+    <app-createnote [labelName]="param"></app-createnote>
+    <br><br>
     <div style="flex-wrap: wrap;">
         <div class="notes" fxFlexOffset="15" style="flex-direction: row;
          box-sizing: border-box; display: flex; margin-left: 5%;">

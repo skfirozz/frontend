@@ -73,7 +73,9 @@
 
                 <label>Labels</label><br>
                 <div *ngFor="let notes of labels">
-                    <app-labels [notes]="notes" (click)="labelOperation(notes.label)"></app-labels>
+                    <a mat-list-item  matTooltip={{notes.label}} (click)="labelOperation(notes.label)">
+                        <mat-icon>label</mat-icon>{{notes.label}}
+                    </a> <br>
                 </div>
                 
                 <div>

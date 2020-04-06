@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
@@ -15,6 +15,7 @@ export class CreatenoteComponent implements OnInit {
   popup: boolean = false;
   createNoteForm: FormGroup;
   notes: Note = new Note();
+  @Input() labelName:any;
   constructor(private formBuilder: FormBuilder, private router: Router, private serviceObject: NoteservicesService) { }
 
   ngOnInit() {
@@ -33,16 +34,14 @@ export class CreatenoteComponent implements OnInit {
     this.popup = false;
     if (this.createNoteForm.value.title != null || this.createNoteForm.value.description != null) {
 
-      this.serviceObject.createNote(this.createNoteForm.value).subscribe((result) => {
-
-        const temp = JSON.stringify(result);
-        this.createNoteForm.value.title = null; this.createNoteForm.value.description = null;
-        return "created";
-      },
-        () => {
-          return "Failed to Create";
-        });
-      this.serviceObject.createNote(this.createNoteForm.value);
+      this.notes.title=this.createNoteForm.value.title;
+      this.notes.description=this.createNoteForm.value.description;
+      this.notes.label=this.labelName;
+      this.notes.color=null;
+      this.notes.ispinned=false;
+      this.notes.istrash=false;
+      console.log(this.notes);
+      
     }
     else {
       this.popup = true;
