@@ -75,8 +75,9 @@
                 <div *ngFor="let notes of labels">
                     <app-labels [notes]="notes" (click)="labelOperation(notes.label)"></app-labels>
                     <div *ngIf="labelOper" class="labelnotes"> 
-                        <app-labelnotes [notes]="notes" [allNotes]="allNotes" [labelName]="labelName"></app-labelnotes>
-                    </div>
+                        <!-- <a [routerLink]="['/labels', '90']"  ></a> -->
+                       <!--  <app-labelnotes [notes]="notes" [allNotes]="allNotes" [labelName]="labelName"></app-labelnotes>-->
+                    </div> 
                 </div>
                 <div>
                    

@@ -11,6 +11,7 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { NotesComponent } from './component/notes/notes.component';
+import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'trash',component: TrashComponent },
       { path: 'reminder',component: ReminderComponent },
       { path: 'editlabels',component: EditlabelsComponent },
+      { path: 'labels/:id',component: LabelnotesComponent },
     ]
   }
 ]

@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   labelOper: boolean = false;
   labelName: any;
   allNotes: any;
+
+  id:any;
   constructor(private serviceobj: NoteservicesService, private router: Router, private serviceObject: FundooAccountServiceService) { }
 
   ngOnInit() {
@@ -64,6 +66,7 @@ export class HomeComponent implements OnInit {
     }
     this.labelName = label;
 
+    this.router.navigate(['label:' + this.id]);
     console.log('working');
   }
 
