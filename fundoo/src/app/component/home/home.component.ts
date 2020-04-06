@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { FundooAccountServiceService } from 'src/app/fundoo-account-service.service';
 import { Note } from 'src/app/model/note.model';
@@ -19,8 +19,8 @@ export class HomeComponent implements OnInit {
   labelName: any;
   allNotes: any;
 
-  id:any;
-  constructor(private serviceobj: NoteservicesService, private router: Router, private serviceObject: FundooAccountServiceService) { }
+  id: any;
+  constructor(private serviceobj: NoteservicesService, private router: Router, private activateRoute: ActivatedRoute, private serviceObject: FundooAccountServiceService) { }
 
   ngOnInit() {
     this.getLabel();
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   }
 
   getAllNotes() {
-    debugger;
+    // debugger;
     this.serviceobj.getAllNotes().subscribe(response => {
       this.allNotes = response.data;
     })
@@ -58,15 +58,9 @@ export class HomeComponent implements OnInit {
 
   labelOperation(label) {
     // debugger;
-    if (this.labelOper == true) {
-      this.labelOper = false;
-    }
-    else {
-      this.labelOper = true;
-    }
     this.labelName = label;
-
-    this.router.navigate(['label:' + this.id]);
+    this.labelOper == true
+    this.router.navigate(['fundoo/labels'] , { queryParams : {page : label} });
     console.log('working');
   }
 
@@ -91,5 +85,9 @@ export class HomeComponent implements OnInit {
   }
   editlabels() {
     this.router.navigate(['fundoo/editlabels']);
+  }
+
+  labelNotes() {
+    this.router.navigate(['fundoo/labels/' + this.id])
   }
 }

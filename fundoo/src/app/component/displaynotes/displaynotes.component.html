@@ -1,26 +1,52 @@
 <app-create></app-create>
-<div style="padding-left: 255px;">
-    <h5>PINNED</h5>
-</div>
-<div style="flex-wrap: wrap;">
-    <div class="notes" fxFlexOffset="15" style="flex-direction: row;
-     box-sizing: border-box; display: flex; margin-left: 5%;">
-        <div *ngFor="let note of pinnedNotes">
-            <app-display-data [notes]="note"></app-display-data>
+<div *ngIf="param=='notes'">
+
+    <div style="padding-left: 255px;">
+        <h5>PINNED</h5>
+    </div>
+    <div style="flex-wrap: wrap;">
+        <div class="notes" fxFlexOffset="15" style="flex-direction: row;
+         box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of pinnedNotes">
+                <app-display-data [notes]="note"></app-display-data>
+            </div>
+        </div>
+    </div>
+    
+    <!-- OTHERS -->
+    
+    <div style="padding-left: 255px;">
+        <h5>OTHERS</h5>
+    </div>
+    <div style="flex-wrap: wrap;">
+        <div class="notes" fxFlexOffset="15" style="flex-direction: row;
+         box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of unpinnedNotes">
+                <app-display-data [notes]="note"></app-display-data>
+            </div>
         </div>
     </div>
 </div>
 
-<!-- OTHERS -->
+<div *ngIf="param=='archive'">
+    <div style="flex-wrap: wrap;">
+        <div class="notes" fxFlexOffset="15" style="flex-direction: row;
+         box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of unpinnedNotes">
+                <app-display-data [notes]="note"></app-display-data>
+            </div>
+        </div>
+    </div>
 
-<div style="padding-left: 255px;">
-    <h5>OTHERS</h5>
 </div>
-<div style="flex-wrap: wrap;">
-    <div class="notes" fxFlexOffset="15" style="flex-direction: row;
-     box-sizing: border-box; display: flex; margin-left: 5%;">
-        <div *ngFor="let note of unpinnedNotes">
-            <app-display-data [notes]="note"></app-display-data>
+
+<div *ngIf="param=='trash'">
+    <div style="flex-wrap: wrap;">
+        <div class="notes" fxFlexOffset="15" style="flex-direction: row;
+         box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of unpinnedNotes">
+                <app-display-data [notes]="note"></app-display-data>
+            </div>
         </div>
     </div>
 </div>

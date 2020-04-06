@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
+import { ActivatedRoute } from '@angular/router';
+import { NoteservicesService } from 'src/app/services/noteservices.service';
 
 @Component({
   selector: 'app-labelnotes',
@@ -8,12 +10,26 @@ import { Note } from 'src/app/model/note.model';
 })
 export class LabelnotesComponent implements OnInit {
 
-  @Input() labelName:any;
-  @Input() notes:Note=new Note();
-  @Input() allNotes:Note=new Note();
-  constructor() { }
+  param: any;
+  allNotes:any;
+  constructor(private serviceobj:NoteservicesService,private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getAllNotes();
+    this.route.queryParams.subscribe( params =>{
+      this.param=params['page']|| '';
+      console.log(this.param);
+    });
   }
+
+  getAllNotes() {
+    // debugger;
+    this.serviceobj.getAllNotes().subscribe(response => {
+      this.allNotes = response.data;
+    })
+    console.log(this.allNotes);
+  }
+
+  
 
 }

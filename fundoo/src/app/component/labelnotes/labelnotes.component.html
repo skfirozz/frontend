@@ -1,10 +1,11 @@
-<div *ngIf="labelName==notes.label">
-    <div *ngFor="let no of allNotes">
-        <div *ngIf="labelName==no.label">
-            <app-display-data [notes]="no"></app-display-data>
+<br><br>
+<div style="flex-wrap: wrap;">
+    <div class="notes" fxFlexOffset="15" style="flex-direction: row;
+     box-sizing: border-box; display: flex; margin-left: 5%;">
+        <div *ngFor="let notes of allNotes">
+            <div *ngIf="param==notes.label">
+                <app-display-data [notes]="notes"></app-display-data>
+            </div>
         </div>
     </div>
-</div>
-<div>
-    hiiiiiiiiiiiiiiiiiiii
 </div>

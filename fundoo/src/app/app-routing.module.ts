@@ -28,7 +28,7 @@ const routes: Routes = [
       { path: 'trash',component: TrashComponent },
       { path: 'reminder',component: ReminderComponent },
       { path: 'editlabels',component: EditlabelsComponent },
-      { path: 'labels/:id',component: LabelnotesComponent },
+      { path: 'labels',component: LabelnotesComponent },
     ]
   }
 ]
