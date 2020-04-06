@@ -15,6 +15,8 @@ export class LabelnotesComponent implements OnInit {
   allNotes: any;
   newLabel: Note = new Note();
   labels: any;
+  editlabelcard: boolean = false;
+  renameLabel: boolean=false;
   constructor(private serviceobj: NoteservicesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -24,8 +26,8 @@ export class LabelnotesComponent implements OnInit {
       this.param = params['page'] || '';
       console.log(this.param);
     });
+    
   }
-
   getAllNotes() {
     // debugger;
     this.serviceobj.getAllNotes().subscribe(response => {
@@ -35,12 +37,15 @@ export class LabelnotesComponent implements OnInit {
   }
 
   getlabels() {
+    // debugger;
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
     })
+    console.log(this.labels);
   }
 
   createLabel(labelName) {
+    // debugger;
     this.newLabel.labelname = labelName;
     this.newLabel.id = 1;
     this.serviceobj.createLabel(this.newLabel).subscribe(response => {
@@ -48,6 +53,13 @@ export class LabelnotesComponent implements OnInit {
     })
   }
 
+  rename(){
+    this.renameLabel=true;
+    console.log('working');
+  }
+  cancelButton() {
+    this.popup=false;
+  }
   done() {
     this.popup = false;
     this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes' } });
@@ -59,6 +71,8 @@ export class LabelnotesComponent implements OnInit {
 
       console.log(response.message);
     })
+    window.location.reload();
+    
 
   }
 }
