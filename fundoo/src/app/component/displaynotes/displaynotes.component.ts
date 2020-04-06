@@ -13,23 +13,23 @@ export class DisplaynotesComponent implements OnInit {
   unPinNotes: Note[];
   pinnedNotes: any;
   unpinnedNotes: any;
+  archive: any;
+  trash: any;
   color: Note = new Note();
-  param:any;
-//  @Input() note:Note= new Note();
+  param: any;
+  //  @Input() note:Note= new Note();
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
     this.pinNotes();
     this.nonPinNotes();
-    this.route.queryParams.subscribe( params =>{
-      this.param=params['page']|| '';
+    this.trashNotes();
+    this.archiveNotes();
+    this.route.queryParams.subscribe(params => {
+      this.param = params['page'] || '';
       console.log(this.param);
     });
-  }
-  ngOnChanges() {
-    console.log('ji');
-    window.location.reload();
   }
 
 
@@ -40,29 +40,22 @@ export class DisplaynotesComponent implements OnInit {
     })
   }
 
-  nonPinNotes()
-  {
+  archiveNotes() {
+    this.noteservice.getArchiveNotes().subscribe(response => {
+      this.archive = response.data;
+    })
+  }
+
+  trashNotes() {
+    this.noteservice.getTrashNotes().subscribe(response => {
+      this.trash = response.data;
+    })
+  }
+  nonPinNotes() {
     this.noteservice.getUnPinNotes().subscribe(response => {
       this.unpinnedNotes = response.data;
       console.log(response.data);
     })
   }
 
-  //working
-  pin(noteId: number, notes) {
-    this.color.id = noteId;
-    if (notes.ispinned == true) {
-      this.color.ispinned = false;
-      this.noteservice.updatePin(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    }
-    else {
-      this.color.ispinned = true;
-      this.noteservice.updatePin(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    }
-    window.location.reload();
-  }
 }
