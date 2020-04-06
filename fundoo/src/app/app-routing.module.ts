@@ -7,7 +7,6 @@ import { CreatenoteComponent } from './component/createnote/createnote.component
 import { HomeComponent } from './component/home/home.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
-import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 
@@ -24,7 +23,6 @@ const routes: Routes = [
       { path: 'notes',component: DisplaynotesComponent },
       { path: 'trash',component: TrashComponent },
       { path: 'reminder',component: ReminderComponent },
-      { path: 'editlabels',component: EditlabelsComponent },
       { path: 'labels',component: LabelnotesComponent },
     ]
   }

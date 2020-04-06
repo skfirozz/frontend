@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 
@@ -10,6 +10,7 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 export class IconsComponent implements OnInit {
 
   @Input() notes: Note = new Note();
+  @Output() outputProperty = new EventEmitter<any>();
   constructor(private noteservice:NoteservicesService) { }
   color :Note = new Note();
   ngOnInit(): void {

@@ -29,13 +29,11 @@ import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
-import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IconsComponent } from './component/icons/icons.component';
 import { DisplayDataComponent } from './component/display-data/display-data.component';
-import { CreateComponent } from './component/create/create.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 
 
@@ -51,10 +49,8 @@ import { LabelnotesComponent } from './component/labelnotes/labelnotes.component
     DisplaynotesComponent,
     TrashComponent,
     ReminderComponent,
-    EditlabelsComponent,
     IconsComponent,
     DisplayDataComponent,
-    CreateComponent,
     LabelnotesComponent,
   ],
   imports: [
