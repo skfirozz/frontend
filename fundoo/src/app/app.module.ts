@@ -24,7 +24,6 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { ArchiveComponent } from './component/archive/archive.component';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
 import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
@@ -47,7 +46,6 @@ import { LabelnotesComponent } from './component/labelnotes/labelnotes.component
     RegisterComponent,
     LoginComponent,
     ForgotComponent,
-    ArchiveComponent,
     CreatenoteComponent,
     HomeComponent,
     DisplaynotesComponent,
