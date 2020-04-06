@@ -67,6 +67,9 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.delete ,arr);
   }
 
+  deleteLabel(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.deleteLabel, arr);
+  }
   updateColor() {
     let token = localStorage.getItem('token');
     return this.httpclient.put<any>(environment.baseUrl + environment.delete, { headers: localStorage.token });
