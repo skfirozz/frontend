@@ -29,7 +29,7 @@
                 <br>
                 <div *ngFor="let note of labels">
                     <mat-icon matTooltip="Delete" (click)="deleteLabel(note.id)">label</mat-icon>
-                    {{note.labelname}}
+                    {{note.label}}
                     <mat-icon matTooltip="Rename">edit</mat-icon>
         
                 </div>
