@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 
 @Component({
@@ -10,12 +10,16 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 })
 export class LabelnotesComponent implements OnInit {
 
+  popup: boolean = true;
   param: any;
   allNotes:any;
-  constructor(private serviceobj:NoteservicesService,private route: ActivatedRoute) { }
+  newLabel:Note =new Note();
+  labels:any;
+  constructor(private serviceobj:NoteservicesService,private route: ActivatedRoute,private router: Router) { }
 
   ngOnInit() {
     this.getAllNotes();
+    this.getlabels();
     this.route.queryParams.subscribe( params =>{
       this.param=params['page']|| '';
       console.log(this.param);
@@ -30,6 +34,28 @@ export class LabelnotesComponent implements OnInit {
     console.log(this.allNotes);
   }
 
-  
+  getlabels()
+  {
+    this.serviceobj.getallLabels().subscribe( response => {
+      this.labels = response.data;
+    })
+  }
 
+  createLabel(labelName)
+  {
+    this.newLabel.label=labelName;
+    this.newLabel.id=1;
+    this.serviceobj.createLabel(this.newLabel).subscribe( response =>{
+      console.log(response.message);
+    })
+  }
+  
+  done(){
+    this.popup=false;
+    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'notes'} });
+  }
+
+  deleteLabel(label){
+    
+  }
 }

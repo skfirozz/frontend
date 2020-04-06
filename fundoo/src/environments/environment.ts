@@ -33,4 +33,7 @@ export const environment = {
   unarchiveNotes: "unarchiveNotes/",
   delete: "delete/",
   setcolor: "setColor/",
+
+  //labels
+  deleteLabel: "deleteLabel",
 };

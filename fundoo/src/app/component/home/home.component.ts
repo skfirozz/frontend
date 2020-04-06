@@ -70,21 +70,21 @@ export class HomeComponent implements OnInit {
     console.log('logout successful');
   }
   showNote() {
-    this.router.navigate(['fundoo/notes']);
+    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'notes'} });
   }
   showArchive() {
-    this.router.navigate(['fundoo/archive']);
+    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'archive'} });
   }
 
   showTrash() {
-    this.router.navigate(['fundoo/trash']);
+    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'trash'} });
   }
 
   showReminder() {
     this.router.navigate(['fundoo/reminder']);
   }
   editlabels() {
-    this.router.navigate(['fundoo/editlabels']);
+    this.router.navigate(['fundoo/labels'] , { queryParams : {page : 'editlabel'} });
   }
 
   labelNotes() {
