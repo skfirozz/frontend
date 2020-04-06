@@ -41,7 +41,7 @@ export class LabelnotesComponent implements OnInit {
   }
 
   createLabel(labelName) {
-    this.newLabel.label = labelName;
+    this.newLabel.labelname = labelName;
     this.newLabel.id = 1;
     this.serviceobj.createLabel(this.newLabel).subscribe(response => {
       console.log(response.message);

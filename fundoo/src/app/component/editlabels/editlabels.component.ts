@@ -26,7 +26,7 @@ export class EditlabelsComponent implements OnInit {
 
   createLabel(labelName)
   {
-    this.newLabel.label=labelName;
+    this.newLabel.labelname=labelName;
     this.newLabel.id=1;
     this.noteService.createLabel(this.newLabel).subscribe( response =>{
       console.log(response.message);

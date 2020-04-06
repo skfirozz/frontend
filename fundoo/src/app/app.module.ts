@@ -28,18 +28,15 @@ import { ArchiveComponent } from './component/archive/archive.component';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
 import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
-import { NotesComponent } from './component/notes/notes.component';
 import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DispComponent } from './component/disp/disp.component';
 import { IconsComponent } from './component/icons/icons.component';
 import { DisplayDataComponent } from './component/display-data/display-data.component';
 import { CreateComponent } from './component/create/create.component';
-import { LabelsComponent } from './component/labels/labels.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 
 
@@ -54,15 +51,12 @@ import { LabelnotesComponent } from './component/labelnotes/labelnotes.component
     CreatenoteComponent,
     HomeComponent,
     DisplaynotesComponent,
-    NotesComponent,
     TrashComponent,
     ReminderComponent,
     EditlabelsComponent,
-    DispComponent,
     IconsComponent,
     DisplayDataComponent,
     CreateComponent,
-    LabelsComponent,
     LabelnotesComponent,
   ],
   imports: [

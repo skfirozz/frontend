@@ -10,7 +10,6 @@ import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
-import { NotesComponent } from './component/notes/notes.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 
 

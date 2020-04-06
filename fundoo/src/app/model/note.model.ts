@@ -1,6 +1,6 @@
 export class Note{
     id:number;
-    label:string;
+    labelname:string;
     title:String;
     description:String;   
     color: String;

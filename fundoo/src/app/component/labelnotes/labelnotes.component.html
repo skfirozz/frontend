@@ -1,12 +1,12 @@
 
 <div *ngIf="param!='editlabel'">
-    <app-createnote [labelName]="param"></app-createnote>
+    <app-createnote [label]="param"></app-createnote>
     <br><br>
     <div style="flex-wrap: wrap;">
         <div class="notes" fxFlexOffset="15" style="flex-direction: row;
          box-sizing: border-box; display: flex; margin-left: 5%;">
             <div *ngFor="let notes of allNotes">
-                <div *ngIf="param==notes.label">
+                <div *ngIf="param==notes.labelname">
                     <app-display-data [notes]="notes"></app-display-data>
                 </div>
             </div>
@@ -29,7 +29,7 @@
                 <br>
                 <div *ngFor="let note of labels">
                     <mat-icon matTooltip="Delete" (click)="deleteLabel(note.id)">label</mat-icon>
-                    {{note.label}}
+                    {{note.labelname}}
                     <mat-icon matTooltip="Rename">edit</mat-icon>
         
                 </div>

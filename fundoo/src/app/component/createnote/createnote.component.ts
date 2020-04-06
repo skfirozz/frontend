@@ -15,7 +15,7 @@ export class CreatenoteComponent implements OnInit {
   popup: boolean = false;
   createNoteForm: FormGroup;
   notes: Note = new Note();
-  @Input() labelName:any;
+  @Input() label:any;
   constructor(private formBuilder: FormBuilder, private router: Router, private serviceObject: NoteservicesService) { }
 
   ngOnInit() {
@@ -30,18 +30,21 @@ export class CreatenoteComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.createNoteForm.value)
+    console.log('start');
+    console.log(this.label);
+    console.log('end');
     this.popup = false;
     if (this.createNoteForm.value.title != null || this.createNoteForm.value.description != null) {
 
       this.notes.title=this.createNoteForm.value.title;
       this.notes.description=this.createNoteForm.value.description;
-      this.notes.label=this.labelName;
+      this.notes.labelname=this.label;
       this.notes.color=null;
       this.notes.ispinned=false;
-      this.notes.istrash=false;
       console.log(this.notes);
-      
+      this.serviceObject.createNote(this.notes).subscribe( response => {
+        console.log(response.message);
+      })
     }
     else {
       this.popup = true;
