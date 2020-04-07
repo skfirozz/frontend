@@ -37,6 +37,7 @@ import { DisplayDataComponent } from './component/display-data/display-data.comp
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { SignoutComponent } from './component/signout/signout.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
+import { EditnotesComponent } from './component/editnotes/editnotes.component';
 
 
 
@@ -56,6 +57,7 @@ import { CollaboratorComponent } from './component/collaborator/collaborator.com
     LabelnotesComponent,
     SignoutComponent,
     CollaboratorComponent,
+    EditnotesComponent,
   ],
   imports: [
     BrowserModule,
