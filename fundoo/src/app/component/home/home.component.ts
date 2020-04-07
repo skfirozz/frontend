@@ -45,7 +45,8 @@ export class HomeComponent implements OnInit {
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
     })
-    console.log(this.labels);
+    
+    console.log('hiii wr' + this.labels);
   }
 
   getAllNotes() {

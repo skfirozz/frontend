@@ -73,8 +73,8 @@
 
                 <label>Labels</label><br>
                 <div *ngFor="let notes of labels">
-                    <a mat-list-item  *ngIf="notes.label!='hii'" matTooltip={{notes.label}} (click)="labelOperation(notes.label)">
-                        <mat-icon>label</mat-icon>{{notes.label}}
+                    <a mat-list-item   matTooltip={{notes.labelname}} (click)="labelOperation(notes.labelname)">
+                        <mat-icon>label</mat-icon>{{notes.labelname}}
                     </a> <br>
                 </div>
                 

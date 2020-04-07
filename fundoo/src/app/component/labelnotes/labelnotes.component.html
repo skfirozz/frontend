@@ -12,34 +12,3 @@
         </div>
     </div>
 </div>
-
-<div *ngIf="popup">
-
-    <div *ngIf="param=='editlabel'&&popup">
-        <div class="createlabel">
-            <mat-card style="height: 7cm;width: 6.5cm;">
-                <span style="display: block;">Edit Labels</span> <br>
-                <div>
-                    <mat-icon matTooltip="cancel" (click)="done()">close</mat-icon>
-                    <input matInput style="border: none; outline: none;" placeholder="Enter label name" matInput>
-                    <mat-icon matTooltip="create label" (click)="createLabel('hi')">check</mat-icon>
-                </div>
-
-                <br>
-                <div *ngFor="let note of labels">
-                    <a *ngIf="note.label!='hii'">
-                        <mat-icon matTooltip="Delete" (click)="deleteLabel(note.id)">label</mat-icon>
-                        <div *ngIf="renameLabel">
-                            <input matInput style="border: none; outline: none;" placeholder="Enter label name">
-                        </div>
-                        <mat-icon matTooltip="Rename" (click)="rename()">edit</mat-icon>
-                    </a>
-
-                </div>
-                <br> <br> <br>
-                <button mat-button class="done" (click)="done()">Done</button>
-            </mat-card>
-        </div>
-    </div>
-
-</div>
