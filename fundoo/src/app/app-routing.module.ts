@@ -9,6 +9,7 @@ import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
+import { SignoutComponent } from './component/signout/signout.component';
 
 
 const routes: Routes = [
@@ -18,12 +19,14 @@ const routes: Routes = [
   { path: 'note', component:  CreatenoteComponent},
   { path: 'home', component: HomeComponent},
   { path: 's',component: CreatenoteComponent },
+  { path: 'signout',component: SignoutComponent },
   { path: 'fundoo', component: HomeComponent,
     children: [
       { path: 'notes',component: DisplaynotesComponent },
       { path: 'trash',component: TrashComponent },
       { path: 'reminder',component: ReminderComponent },
       { path: 'labels',component: LabelnotesComponent },
+     
     ]
   }
 ]

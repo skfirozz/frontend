@@ -43,10 +43,10 @@
                         <button mat-icon-button [matMenuTriggerFor]="account" matTooltip="settings">
                             <mat-icon>account_circle</mat-icon>
                         </button>
+
                         <div class="account">
                             <mat-menu #account="matMenu">
-                                <button mat-raised-button color="primary" (click)="onsignout()">SignOut</button>
-                                <mat-icon> </mat-icon>
+                                <app-signout></app-signout>
                             </mat-menu>
                         </div>
                     </div>
