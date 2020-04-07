@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 })
 export class SignoutComponent implements OnInit {
 
-  @Input() user: any;
+  // @Input() user: any;
+  user="shaik firoz";
+  emailid="shaikfiroz838@gmail.com";
   constructor(private router: Router) { }
 
   ngOnInit(): void {
