@@ -1,1 +1,21 @@
-<p>updatenote works!</p>
+<mat-card [ngStyle]="{'background-color' : note.color}" class="getAllNotes">
+
+    <div fxLayout="row">
+        <div>
+            <strong> <input [ngStyle]="{'background':note.color}" matInput type="text" class="title"
+                    style="padding-top: 20px;" value="{{note.title}}" #title> </strong>
+        </div>
+    </div>
+
+    <div>
+        <i> <input [ngStyle]="{'background': note.color}" matInput type="text" class="title"
+                value="{{note.description}}" #description> </i>
+
+        <div fxLayout="row" style="padding-top: 32px;">
+            <button type="submit" (click)="updateNote(title.value, description.value, data.note.id)" mat-button
+                NoteId="SUBMIT">
+                <h3> Close </h3>
+            </button>
+        </div>
+    </div>
+</mat-card>
