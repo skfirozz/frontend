@@ -1,13 +1,24 @@
-<div *ngIf="!notes.istrash; else trash">
+<div *ngIf="!notes.istrash; else showtrash">
     <div style="padding-left: 15px;padding-top: 10px;" fxLayout="row">
         <div class="colorlist">
             <a>
                 <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
-                <mat-icon matTooltip="collaborator" [matMenuTriggerFor]="collaborator" class="icon">person_add</mat-icon>
+                <mat-icon matTooltip="collaborator" [matMenuTriggerFor]="collaborator" class="icon">person_add
+                </mat-icon>
                 <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette
                 </mat-icon>
                 <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
-                <mat-icon class="icon" (click)="archive(notes.id, notes.isarchived)" matTooltip="Archive">archive</mat-icon>
+
+
+                <mat-icon class="icon" *ngIf="notes.isarchived; else showarchive"
+                    (click)="archive(notes.id, notes.isarchived)" matTooltip="UnArchive">unarchive
+                </mat-icon>
+
+                <ng-template #showarchive>
+                    <mat-icon class="icon" (click)="archive(notes.id, notes.isarchived)" matTooltip="Archive">archive
+                    </mat-icon>
+                </ng-template>
+
                 <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
             </a>
         </div>
@@ -22,9 +33,9 @@
                             *ngFor="let colors of arrayofColors">
                             <div *ngFor="let color of colors">
                                 <button [ngStyle]="{'background-color': color.color}"
-                                (click)="setcolor(notes.id, color.color)"
-                                matTooltip="{{ color.name }}" mat-mini-fab></button>
-    
+                                    (click)="setcolor(notes.id, color.color)" matTooltip="{{ color.name }}"
+                                    mat-mini-fab></button>
+
                             </div>
                         </div>
                     </div>
@@ -32,16 +43,16 @@
             </mat-menu>
         </div>
         <mat-menu #more="matMenu">
-            <button mat-menu-item >Delete Note</button>
-            <button mat-menu-item >Add Label</button>
-            <button mat-menu-item >Add Drawing</button>
+            <button mat-menu-item (click)="trash(notes.id, notes.istrash)">Delete Note</button>
+            <button mat-menu-item>Add Label</button>
+            <button mat-menu-item>Add Drawing</button>
         </mat-menu>
     </div>
 </div>
 
-<ng-template #trash>
+<ng-template #showtrash>
 
-    <mat-icon class="icon"  matTooltip="Delete forever">delete_forever</mat-icon>
-    <mat-icon class="icon"  matTooltip="Restore">restore_from_trash</mat-icon>
+    <mat-icon class="icon" (click)="delete(notes.id)" matTooltip="Delete forever">delete_forever</mat-icon>
+    <mat-icon class="icon" (click)="unTrash(notes.id,notes)" matTooltip="Restore">restore_from_trash</mat-icon>
 
 </ng-template>

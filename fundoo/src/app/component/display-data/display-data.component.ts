@@ -33,4 +33,8 @@ export class DisplayDataComponent implements OnInit {
     }
     window.location.reload();
   }
+
+  updateNotes(notes){
+    
+  }
 }

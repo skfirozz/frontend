@@ -4,24 +4,22 @@
         <h5>PINNED</h5>
     </div>
     <div style="flex-wrap: wrap;">
-        <div class="notes" fxFlexOffset="15" style="flex-direction: row;
-         box-sizing: border-box; display: flex; margin-left: 5%;">
-            <div *ngFor="let note of pinnedNotes">
-                <app-display-data [notes]="note"></app-display-data>
+        <div class="notes" fxFlexOffset="15" style="box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of pinnedNotes" class="space">
+                <app-display-data *ngIf="!note.istrash" [notes]="note"></app-display-data>
             </div>
         </div>
     </div>
-
+    
     <!-- OTHERS -->
-
+    
     <div style="padding-left: 255px;">
         <h5>OTHERS</h5>
     </div>
     <div style="flex-wrap: wrap;">
-        <div class="notes" fxFlexOffset="15" style="flex-direction: row;
-         box-sizing: border-box; display: flex; margin-left: 5%;">
-            <div *ngFor="let note of unpinnedNotes">
-                <app-display-data [notes]="note"></app-display-data>
+        <div class="notes" fxFlexOffset="15" style="box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of unpinnedNotes" class="space">
+                <app-display-data *ngIf="!note.istrash"[notes]="note"></app-display-data>
             </div>
         </div>
     </div>
@@ -31,7 +29,7 @@
     <div style="flex-wrap: wrap;">
         <div class="notes" fxFlexOffset="15" style="flex-direction: row;
          box-sizing: border-box; display: flex; margin-left: 5%;">
-            <div *ngFor="let note of archive">
+            <div *ngFor="let note of archive" class="space">
                 <app-display-data [notes]="note"></app-display-data>
             </div>
         </div>
@@ -43,7 +41,7 @@
     <div style="flex-wrap: wrap;">
         <div class="notes" fxFlexOffset="15" style="flex-direction: row;
          box-sizing: border-box; display: flex; margin-left: 5%;">
-            <div *ngFor="let note of trash">
+            <div *ngFor="let note of trash" class="space">
                 <app-display-data [notes]="note"></app-display-data>
             </div>
         </div>

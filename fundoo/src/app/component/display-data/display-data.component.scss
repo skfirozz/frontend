@@ -1,20 +1,10 @@
-.cardList {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  /* Column Gap */
-  .cardList > * {
-    box-sizing: border-box;
-  }
-  .cardList > *:not(:last-child) {
-    margin-right: 32px;
-  }
-  /* Item sizing */
-  .cardListItem {
-    flex: 0 1 calc(33.3% - 32px);
-  }
+.notes {
+    height: 76%;
+    width: 6cm;
+    // background-color: red;
+    border-radius: 0 10px 10px 0;
+    margin: 0 6px;
+}
 .pin {
     right: 0%;
 }
