@@ -27,7 +27,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
 import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
-import { TrashComponent } from './component/trash/trash.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
@@ -37,8 +36,7 @@ import { DisplayDataComponent } from './component/display-data/display-data.comp
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { SignoutComponent } from './component/signout/signout.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
-import { MatDialogModule, MatDialog , MatDialogRef } from '@angular/material/dialog';
-import { ShowComponent } from './component/show/show.component';
+import { MatDialogModule} from '@angular/material/dialog';
 import { DialogueComponent } from './component/dialogue/dialogue.component';
 import { PinnedComponent } from './component/pinned/pinned.component';
 // import { MatSnackBar } from '@angular/material/snack-bar';
@@ -49,11 +47,9 @@ import { PinnedComponent } from './component/pinned/pinned.component';
     RegisterComponent,
     LoginComponent,
     ForgotComponent,
-    ShowComponent,
     CreatenoteComponent,
     HomeComponent,
     DisplaynotesComponent,
-    TrashComponent,
     ReminderComponent,
     IconsComponent,
     DialogueComponent,
@@ -97,4 +93,5 @@ import { PinnedComponent } from './component/pinned/pinned.component';
   providers: [FundooAccountServiceService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
