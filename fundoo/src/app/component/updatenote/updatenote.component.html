@@ -1,18 +1,18 @@
-<mat-card [ngStyle]="{'background-color' : note.color}" class="getAllNotes">
+<mat-card [ngStyle]="{'background-color' : notes.color}" class="getAllNotes">
 
     <div fxLayout="row">
         <div>
-            <strong> <input [ngStyle]="{'background':note.color}" matInput type="text" class="title"
-                    style="padding-top: 20px;" value="{{note.title}}" #title> </strong>
+            <strong> <input [ngStyle]="{'background':notes.color}" matInput type="text" class="title"
+                    style="padding-top: 20px;" value="{{notes.title}}" #title> </strong>
         </div>
     </div>
 
     <div>
-        <i> <input [ngStyle]="{'background': note.color}" matInput type="text" class="title"
-                value="{{note.description}}" #description> </i>
+        <i> <input [ngStyle]="{'background': notes.color}" matInput type="text" class="title"
+                value="{{notes.description}}" #description> </i>
 
         <div fxLayout="row" style="padding-top: 32px;">
-            <button type="submit" (click)="updateNote(title.value, description.value, data.note.id)" mat-button
+            <button type="submit" (click)="updateNote(title.value, description.value, notes.id)" mat-button
                 NoteId="SUBMIT">
                 <h3> Close </h3>
             </button>

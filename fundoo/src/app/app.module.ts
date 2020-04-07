@@ -39,8 +39,7 @@ import { SignoutComponent } from './component/signout/signout.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
 import { EditnotesComponent } from './component/editnotes/editnotes.component';
 import { UpdatenoteComponent } from './component/updatenote/updatenote.component';
-
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [

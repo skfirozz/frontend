@@ -79,4 +79,8 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.setcolor, arr);
 
   }
+
+  UpdateNotes(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.)
+  }
 }
