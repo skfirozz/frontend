@@ -42,6 +42,7 @@ import { UpdatenoteComponent } from './component/updatenote/updatenote.component
 import { MatDialogModule, MatDialog , MatDialogRef } from '@angular/material/dialog';
 import { ShowComponent } from './component/show/show.component';
 import { DialogueComponent } from './component/dialogue/dialogue.component';
+import { PinnedComponent } from './component/pinned/pinned.component';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -64,6 +65,7 @@ import { DialogueComponent } from './component/dialogue/dialogue.component';
     CollaboratorComponent,
     EditnotesComponent,
     UpdatenoteComponent,
+    PinnedComponent,
   ],
  
   imports: [

@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
-import { UpdatenoteComponent } from '../updatenote/updatenote.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogueComponent } from '../dialogue/dialogue.component';
 
 @Component({
   selector: 'app-display-data',
@@ -37,8 +37,15 @@ export class DisplayDataComponent implements OnInit {
     window.location.reload();
   }
 
-  OnClicktoUpdate() {
-    this.dialog.open(UpdatenoteComponent);
+  OnClicktoUpdate(note) {
+    console.log("notes :" + note);
+    const dialogRef = this.dialog.open(DialogueComponent, {
+      data: { note: note },
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      note = result;
+    });
   }
   updateNotes(notes) {
     debugger;
