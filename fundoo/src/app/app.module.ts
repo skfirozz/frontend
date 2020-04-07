@@ -37,8 +37,6 @@ import { DisplayDataComponent } from './component/display-data/display-data.comp
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { SignoutComponent } from './component/signout/signout.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
-import { EditnotesComponent } from './component/editnotes/editnotes.component';
-import { UpdatenoteComponent } from './component/updatenote/updatenote.component';
 import { MatDialogModule, MatDialog , MatDialogRef } from '@angular/material/dialog';
 import { ShowComponent } from './component/show/show.component';
 import { DialogueComponent } from './component/dialogue/dialogue.component';
@@ -63,8 +61,6 @@ import { PinnedComponent } from './component/pinned/pinned.component';
     LabelnotesComponent,
     SignoutComponent,
     CollaboratorComponent,
-    EditnotesComponent,
-    UpdatenoteComponent,
     PinnedComponent,
   ],
  
@@ -97,7 +93,7 @@ import { PinnedComponent } from './component/pinned/pinned.component';
     RouterModule.forRoot([])
 
   ],
-  entryComponents: [DialogueComponent,UpdatenoteComponent],
+  entryComponents: [DialogueComponent],
   providers: [FundooAccountServiceService],
   bootstrap: [AppComponent]
 })
