@@ -2,7 +2,13 @@
 
     <div class="pinNotes">
         <div class="title">
-            <mat-icon matTooltip="unpin" (click)="pin(notes.id,notes)">colorize</mat-icon>
+            <button *ngIf="notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes)">
+                <img style="border: none; width: 150%; " src="assets/pin.svg" height="65%">
+            </button>
+            
+            <button *ngIf="!notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes)">
+                <img style="border: none; width: 150%; " src="assets/unpin.svg" height="65%">
+            </button>
         </div>
     </div>
 
