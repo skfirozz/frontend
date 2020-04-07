@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { UpdatenoteComponent } from '../updatenote/updatenote.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-display-data',
@@ -8,12 +10,12 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
   styleUrls: ['./display-data.component.scss']
 })
 export class DisplayDataComponent implements OnInit {
-  
+
   @Input() notes: Note = new Note();
 
-  color:Note=new Note();
-  edit:boolean=false;
-  constructor(private noteservice:NoteservicesService) { }
+  color: Note = new Note();
+  edit: boolean = false;
+  constructor(private dialog: MatDialog, private noteservice: NoteservicesService) { }
 
   ngOnInit(): void {
   }
@@ -35,11 +37,17 @@ export class DisplayDataComponent implements OnInit {
     window.location.reload();
   }
 
-  editnotes()
-  {
-    this.edit=true
+  OnClicktoUpdate(notes) {
+    console.log("notes :" + notes);
+    const dialogRef = this.dialog.open(UpdatenoteComponent, {
+      data: { notes: notes },
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      notes = result;
+    });
   }
-  updateNotes(notes){
+  updateNotes(notes) {
     debugger;
     console.log(notes);
   }

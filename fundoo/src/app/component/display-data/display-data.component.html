@@ -11,15 +11,12 @@
         </div>
     </div>
 
-    <div class="ntitle" (click)="editnotes()">
+    <div class="ntitle" (click)="OnClicktoUpdate(notes)">
         {{notes.title}}
     </div>
 
-    <div class="titles" style="padding: 0px;" (click)="editnotes()">
+    <div class="titles" style="padding: 0px;" (click)="OnClicktoUpdate(notes)">
         {{notes.description}}
-    </div>
-    <div *ngIf="edit">
-        <app-editnotes></app-editnotes>
     </div>
     <app-icons [notes]="notes"></app-icons>
 </mat-card>
