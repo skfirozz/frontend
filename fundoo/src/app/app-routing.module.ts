@@ -16,17 +16,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'reigister', component: RegisterComponent },
   { path: 'forgot', component: ForgotComponent },
-  { path: 'note', component:  CreatenoteComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 's',component: CreatenoteComponent },
-  { path: 'signout',component: SignoutComponent },
-  { path: 'fundoo', component: HomeComponent,
+  {
+    path: 'fundoo', component: HomeComponent,
     children: [
-      { path: 'notes',component: DisplaynotesComponent },
-      { path: 'trash',component: TrashComponent },
-      { path: 'reminder',component: ReminderComponent },
-      { path: 'labels',component: LabelnotesComponent },
-     
+      { path: 'notes', component: DisplaynotesComponent },
+      { path: 'trash', component: TrashComponent },
+      { path: 'reminder', component: ReminderComponent },
+      { path: 'labels', component: LabelnotesComponent },
+
     ]
   }
 ]
