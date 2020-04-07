@@ -39,6 +39,7 @@ import { CollaboratorComponent } from './component/collaborator/collaborator.com
 import { MatDialogModule} from '@angular/material/dialog';
 import { DialogueComponent } from './component/dialogue/dialogue.component';
 import { PinnedComponent } from './component/pinned/pinned.component';
+import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -58,6 +59,7 @@ import { PinnedComponent } from './component/pinned/pinned.component';
     SignoutComponent,
     CollaboratorComponent,
     PinnedComponent,
+    EditlabelsComponent,
   ],
  
   imports: [
