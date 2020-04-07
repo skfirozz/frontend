@@ -22,7 +22,7 @@ export const environment = {
   getLabels : "getLabels/",
   createNote: "createnote/",
   createLabel: "createLabel/",
-  UpdateNotes: "UpdateNotes/",
+  UpdateNotes: "updateNotes/",
   updatePin: "updatepin/",
   updateArchive: "updateArchive/",
   updateTrash: "updateTrash/",

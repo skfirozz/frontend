@@ -23,16 +23,18 @@ export class DisplayDataComponent implements OnInit {
  
   OnClicktoUpdate(note) {
     console.log("notes :" + note);
-    const dialogRef = this.dialog.open(DialogueComponent, {
-      data: { note: note },
-      panelClass: 'custom-dialog-container'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      note = result;
-    });
-  }
-  updateNotes(notes) {
-    debugger;
-    console.log(notes);
+    if(note.istrash!=true)
+    {
+      const dialogRef = this.dialog.open(DialogueComponent, {
+        data: { note: note },
+        panelClass: 'custom-dialog-container'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        note = result;
+      });
+    }
+    else{
+      console.log("can't edit the trash notes");
+    }
   }
 }
