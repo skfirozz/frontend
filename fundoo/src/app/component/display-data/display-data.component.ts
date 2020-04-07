@@ -20,23 +20,7 @@ export class DisplayDataComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  pin(noteId: number, notes) {
-    this.color.id = noteId;
-    if (notes.ispinned == true) {
-      this.color.ispinned = false;
-      this.noteservice.updatePin(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    }
-    else {
-      this.color.ispinned = true;
-      this.noteservice.updatePin(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    }
-    window.location.reload();
-  }
-
+ 
   OnClicktoUpdate(note) {
     console.log("notes :" + note);
     const dialogRef = this.dialog.open(DialogueComponent, {
