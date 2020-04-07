@@ -12,6 +12,19 @@
     <div class="titles" style="padding: 0px;" (click)="OnClicktoUpdate(notes)">
         {{notes.description}}
     </div>
+
+    <div fxLayout="row">
+        <div *ngFor="let labels of getLabel">
+                <div *ngIf="labels.noteid == notes.id" fxLayout="row">
+                        <strong> {{labels.title}} </strong>
+                        <button matTooltip="Remove label"
+                                [ngStyle]="{'background-color' : notes.color}"
+                                style="border: none;outline: none;">
+                                <mat-icon>close</mat-icon>
+                        </button>
+                </div>
+        </div>
+</div>
     <app-icons [notes]="notes"></app-icons>
 </mat-card>
 

@@ -44,7 +44,7 @@
         </div>
         <mat-menu #more="matMenu">
             <button mat-menu-item (click)="trash(notes.id, notes.istrash)">Delete Note</button>
-            <button mat-menu-item>Add Label</button>
+            <button mat-menu-item (click)="addLabel(notes)">Add Label</button>
             <button mat-menu-item>Add Drawing</button>
         </mat-menu>
     </div>

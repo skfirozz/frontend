@@ -20,6 +20,7 @@ export const environment = {
   getArchiveNotes: "getArchive/",
   getUnarchiveNotes: "getUnarchive/",
   getLabels : "getLabels/",
+  getLabelNotes: "getLabelNotes/",
   createNote: "createnote/",
   createLabel: "createLabel/",
   UpdateNotes: "updateNotes/",

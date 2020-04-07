@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditlabelsComponent } from '../editlabels/editlabels.component';
+import { Label } from 'src/app/model/label.model';
 
 @Component({
   selector: 'app-icons',
@@ -11,28 +14,29 @@ export class IconsComponent implements OnInit {
 
   @Input() notes: Note = new Note();
   @Output() outputProperty = new EventEmitter<any>();
-  constructor(private noteservice:NoteservicesService) { }
-  color :Note = new Note();
+  value: Label = new Label();
+  constructor(public dialog: MatDialog, private noteservice: NoteservicesService) { }
+  color: Note = new Note();
   ngOnInit(): void {
   }
 
 
   unTrash(noteId: number, notes) {
     // debugger;
-      this.color.id = noteId;
-      this.color.istrash = false;
-      this.noteservice.updateTrash(this.color).subscribe(response => {
-        console.log(response.message);
-      })
+    this.color.id = noteId;
+    this.color.istrash = false;
+    this.noteservice.updateTrash(this.color).subscribe(response => {
+      console.log(response.message);
+    })
     window.location.reload();
   }
 
   delete(noteId: number) {
     // debugger;
-      this.color.id = noteId;
-      this.noteservice.deleteNotes(this.color).subscribe(response => {
-        console.log(response.message);
-      })
+    this.color.id = noteId;
+    this.noteservice.deleteNotes(this.color).subscribe(response => {
+      console.log(response.message);
+    })
     window.location.reload();
   }
 
@@ -80,6 +84,19 @@ export class IconsComponent implements OnInit {
       console.log(response.message);
     })
     window.location.reload();
+  }
+
+  addLabel(labels) {
+
+    console.log(labels);
+    this.value.noteid = labels;
+    const dialogRef = this.dialog.open(EditlabelsComponent, {
+      data: { labels:labels },
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      labels = result;
+    });
   }
 
   arrayofColors = [

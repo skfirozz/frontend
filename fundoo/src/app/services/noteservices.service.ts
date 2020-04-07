@@ -49,6 +49,10 @@ export class NoteservicesService {
     return this.httpclient.get<any>(environment.baseUrl + environment.getLabels );
   }
 
+  getLabelNotes(){
+    return this.httpclient.get<any>(environment.baseUrl + environment.getLabelNotes);
+  }
+  
   updatePin(arr) {
     let token = localStorage.getItem('token');
     console.log(environment.baseUrl + environment.updatePin + arr);
