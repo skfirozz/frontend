@@ -15,7 +15,7 @@ export class DisplayDataComponent implements OnInit {
 
   color: Note = new Note();
   edit: boolean = false;
-  constructor(private dialog: MatDialog, private noteservice: NoteservicesService) { }
+  constructor( public dialog:MatDialog,private noteservice: NoteservicesService) { }
 
   ngOnInit(): void {
   }
@@ -37,15 +37,8 @@ export class DisplayDataComponent implements OnInit {
     window.location.reload();
   }
 
-  OnClicktoUpdate(notes) {
-    console.log("notes :" + notes);
-    const dialogRef = this.dialog.open(UpdatenoteComponent, {
-      data: { notes: notes },
-      panelClass: 'custom-dialog-container'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      notes = result;
-    });
+  OnClicktoUpdate() {
+    this.dialog.open(UpdatenoteComponent);
   }
   updateNotes(notes) {
     debugger;

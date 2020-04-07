@@ -6,11 +6,13 @@ import { ForgotComponent } from './component/forgot/forgot.component';
 import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
+import { ShowComponent } from './component/show/show.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'reigister', component: RegisterComponent },
+  { path: 'show', component: ShowComponent },
   { path: 'forgot', component: ForgotComponent },
   {
     path: 'fundoo', component: HomeComponent,

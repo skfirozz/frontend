@@ -11,25 +11,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class UpdatenoteComponent implements OnInit {
 
-  @Input() notes: Note = new Note();
+  // @Input() notes: Note = new Note();
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService, private snakbar: MatSnackBar) { }
+  constructor( private noteService: NoteservicesService, private snakbar: MatSnackBar) { }
 
   ngOnInit(): void {
-  }
-  updateNote(title, description, noteId) {
-
-    this.notes.title = title;
-    this.notes.description = description;
-    this.notes.id = noteId;
-    console.log(this.notes)
-    // this.noteService.UpdateNotes(this.notes).subscribe(response => {
-      // window.location.reload();
-      return this.snakbar.open("Successfully Updated Note..", "", { duration: 3000 });
-    // },
-      // () => {
-        // return this.snakbar.open("Failed to Updated Note..", "", { duration: 3000 });
-      // });
   }
 
 }

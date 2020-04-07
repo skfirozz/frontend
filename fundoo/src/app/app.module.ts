@@ -39,6 +39,10 @@ import { SignoutComponent } from './component/signout/signout.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
 import { EditnotesComponent } from './component/editnotes/editnotes.component';
 import { UpdatenoteComponent } from './component/updatenote/updatenote.component';
+import { MatDialogModule, MatDialog , MatDialogRef } from '@angular/material/dialog';
+import { ShowComponent } from './component/show/show.component';
+import { DialogueComponent } from './component/dialogue/dialogue.component';
+// import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -46,12 +50,14 @@ import { UpdatenoteComponent } from './component/updatenote/updatenote.component
     RegisterComponent,
     LoginComponent,
     ForgotComponent,
+    ShowComponent,
     CreatenoteComponent,
     HomeComponent,
     DisplaynotesComponent,
     TrashComponent,
     ReminderComponent,
     IconsComponent,
+    DialogueComponent,
     DisplayDataComponent,
     LabelnotesComponent,
     SignoutComponent,
@@ -59,6 +65,7 @@ import { UpdatenoteComponent } from './component/updatenote/updatenote.component
     EditnotesComponent,
     UpdatenoteComponent,
   ],
+ 
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -83,10 +90,12 @@ import { UpdatenoteComponent } from './component/updatenote/updatenote.component
     MatButtonToggleModule,
     MatListModule,
     MatExpansionModule,
+    MatDialogModule,
     // Component,
     RouterModule.forRoot([])
 
   ],
+  entryComponents: [DialogueComponent,UpdatenoteComponent],
   providers: [FundooAccountServiceService],
   bootstrap: [AppComponent]
 })
