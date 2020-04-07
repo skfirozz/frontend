@@ -12,6 +12,7 @@ export class DisplayDataComponent implements OnInit {
   @Input() notes: Note = new Note();
 
   color:Note=new Note();
+  edit:boolean=false;
   constructor(private noteservice:NoteservicesService) { }
 
   ngOnInit(): void {
@@ -34,6 +35,10 @@ export class DisplayDataComponent implements OnInit {
     window.location.reload();
   }
 
+  editnotes()
+  {
+    this.edit=true
+  }
   updateNotes(notes){
     debugger;
     console.log(notes);

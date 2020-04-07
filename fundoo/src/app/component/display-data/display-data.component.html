@@ -1,22 +1,25 @@
 <mat-card class="cardList" [ngStyle]="{'background-color':notes.color}">
     <div class="pinNotes">
-        <div class="title" >
+        <div class="title">
             <button *ngIf="notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes)">
                 <img style="border: none; width: 150%; " src="assets/pin.svg" height="65%">
             </button>
-            
+
             <button *ngIf="!notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes)">
                 <img style="border: none; width: 150%; " src="assets/unpin.svg" height="65%">
             </button>
         </div>
     </div>
 
-    <div class="ntitle" (click)="updateNotes(notes)">
+    <div class="ntitle" (click)="editnotes()">
         {{notes.title}}
     </div>
 
-    <div class="titles" style="padding: 0px;" (click)="updateNotes(notes)">
+    <div class="titles" style="padding: 0px;" (click)="editnotes()">
         {{notes.description}}
+    </div>
+    <div *ngIf="edit">
+        <app-editnotes></app-editnotes>
     </div>
     <app-icons [notes]="notes"></app-icons>
 </mat-card>
