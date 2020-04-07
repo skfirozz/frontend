@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-updatenote',
@@ -10,27 +11,25 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 })
 export class UpdatenoteComponent implements OnInit {
 
-  @Input() notes : Note = new Note();
- 
-  constructor( @Inject(MAT_DIALOG_DATA) public data: any, private noteService:NoteservicesService)
-  { }
+  @Input() notes: Note = new Note();
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService, private snakbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
-  updateNote(title, takenote, noteId) {
-    console.log("datas : "+title);
-    console.log("datas : "+takenote);
-    console.log("datas : "+noteId);
+  updateNote(title, description, noteId) {
+
     this.notes.title = title;
-    this.notes.description = takenote;
+    this.notes.description = description;
     this.notes.id = noteId;
-this.noteService.UpdateNotes(this.notes).subscribe( response => {
-  window.location.reload();
-  return this.snakbar.open("Successfully Updated Note..", "", {duration : 3000});
-},
-() => {
-  return this.snakbar.open("Failed to Updated Note..", "", {duration : 3000});
-});
+    console.log(this.notes)
+    // this.noteService.UpdateNotes(this.notes).subscribe(response => {
+      // window.location.reload();
+      return this.snakbar.open("Successfully Updated Note..", "", { duration: 3000 });
+    // },
+      // () => {
+        // return this.snakbar.open("Failed to Updated Note..", "", { duration: 3000 });
+      // });
   }
 
 }

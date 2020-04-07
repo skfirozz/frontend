@@ -81,6 +81,6 @@ export class NoteservicesService {
   }
 
   UpdateNotes(arr){
-    return this.httpclient.post<any>(environment.baseUrl + environment.)
+    return this.httpclient.post<any>(environment.baseUrl + environment.UpdateNotes,arr);
   }
 }
