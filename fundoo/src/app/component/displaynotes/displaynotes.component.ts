@@ -58,4 +58,8 @@ export class DisplaynotesComponent implements OnInit {
     })
   }
 
+  getlabelNotes(){
+    // this.noteservice.
+  }
+
 }

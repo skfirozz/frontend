@@ -35,6 +35,7 @@ export class DisplayDataComponent implements OnInit {
   }
 
   updateNotes(notes){
-    
+    debugger;
+    console.log(notes);
   }
 }
