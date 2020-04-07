@@ -4,6 +4,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { FundooAccountServiceService } from 'src/app/fundoo-account-service.service';
 import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EditlabelsComponent } from '../editlabels/editlabels.component';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
   allNotes: any;
 
   id: any;
-  constructor(private serviceobj: NoteservicesService, private router: Router, private activateRoute: ActivatedRoute, private serviceObject: FundooAccountServiceService) { }
+  constructor(public dialog: MatDialog, private serviceobj: NoteservicesService, private router: Router, private activateRoute: ActivatedRoute, private serviceObject: FundooAccountServiceService) { }
 
   ngOnInit() {
     this.getLabel();
@@ -45,7 +47,7 @@ export class HomeComponent implements OnInit {
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
     })
-    
+
     console.log('hiii wr' + this.labels);
   }
 
@@ -61,7 +63,7 @@ export class HomeComponent implements OnInit {
     // debugger;
     this.labelName = label;
     this.labelOper == true
-    this.router.navigate(['fundoo/labels'] , { queryParams : {page : label} });
+    this.router.navigate(['fundoo/labels'], { queryParams: { page: label } });
     console.log('working');
   }
 
@@ -71,21 +73,29 @@ export class HomeComponent implements OnInit {
     console.log('logout successful');
   }
   showNote() {
-    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'notes'} });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes' } });
   }
   showArchive() {
-    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'archive'} });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'archive' } });
   }
 
   showTrash() {
-    this.router.navigate(['fundoo/notes'] , { queryParams : {page : 'trash'} });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'trash' } });
   }
 
   showReminder() {
     this.router.navigate(['fundoo/reminder']);
   }
-  editlabels() {
-    this.router.navigate(['fundoo/labels'] , { queryParams : {page : 'editlabel'} });
+  editlabels(labels) {
+    // debugger;
+    console.log(labels);
+    const dialogRef = this.dialog.open(EditlabelsComponent, {
+      data: { labels: labels },
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      labels = result;
+    });
   }
 
   labelNotes() {

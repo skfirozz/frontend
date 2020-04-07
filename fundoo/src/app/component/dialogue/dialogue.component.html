@@ -14,7 +14,7 @@
 
         <div fxLayout="row" style="padding-top: 32px;">
             <app-icons [notes]="data.note"></app-icons>
-            <button mat-raised-button 
+            <button mat-button mat-dialog-close
                 (click)="updateNote(title.value, description.value, data.note.id)">Close</button>
         </div>
     </div>
