@@ -106,7 +106,7 @@ export class HomeComponent implements OnInit {
   }
 
   gridView() {
-    debugger;
+    // debugger;
     if(this.view==true){
       this.view=false;
       this.grid="row"
@@ -115,6 +115,12 @@ export class HomeComponent implements OnInit {
       this.view=true;
       this.grid="column"
     }
+    this.activateRoute.queryParams.subscribe(params => {
+      // debugger;
+      let page= params['page'] || '';
+      this.router.navigate(['fundoo/notes'], { queryParams: { page: page, view: this.grid } });
+    });
+    
     console.log(this.view);
   }
 }

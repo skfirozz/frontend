@@ -13,11 +13,12 @@
         <div class="column" *ngIf="gridView=='column'" fxLayout="column" fxFlexOffset="15"  style="box-sizing: border-box; display: flex; margin-left: 5%;">
             <div *ngFor="let note of pinnedNotes" class="space">
                 <app-display-data *ngIf="!note.istrash" [notes]="note"></app-display-data>
+                <br>
             </div>
         </div>
         
     </div>
-    
+    <br>
     <!-- OTHERS -->
     
     <div style="padding-left: 255px;">
@@ -33,6 +34,7 @@
         <div class="column" fxFlexOffset="15" *ngIf="gridView=='column'"  fxLayout="column" style="box-sizing: border-box; display: flex; margin-left: 5%;">
             <div *ngFor="let note of unpinnedNotes" class="space">
                 <app-display-data *ngIf="!note.istrash&&!note.isarchived"[notes]="note"></app-display-data>
+                <br>
             </div>
         </div>
 

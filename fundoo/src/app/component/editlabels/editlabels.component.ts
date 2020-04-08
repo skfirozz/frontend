@@ -36,6 +36,15 @@ export class EditlabelsComponent implements OnInit {
 
   }
 
+  deleteLabel(id)
+  {
+    this.labelname.id=id;
+    this.noteService.deleteLabel(this.labelname).subscribe( response => {
+      console.log(response.message);
+    })
+    console.log("your output: " + id);
+  }
+
   editLabel() {
     this.edit=true;
   }

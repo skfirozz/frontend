@@ -13,7 +13,7 @@
         {{notes.description}}
     </div>
 
-    <div fxLayout="row">
+    <!-- <div fxLayout="row">
         <div *ngFor="let labels of getLabel">
                 <div *ngIf="labels.noteid == notes.id" fxLayout="row">
                         <strong> {{labels.title}} </strong>
@@ -23,8 +23,7 @@
                                 <mat-icon>close</mat-icon>
                         </button>
                 </div>
-        </div>
-</div>
+        </div> 
+</div>-->
     <app-icons [notes]="notes"></app-icons>
 </mat-card>
-

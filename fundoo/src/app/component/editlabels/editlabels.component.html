@@ -10,7 +10,7 @@
 
         <label *ngFor="let lab of data.labels" fxLayout="coloum">
             <div fxLayout="row">
-                <mat-icon matTooltip="Delete Label"> label</mat-icon>
+                <mat-icon matTooltip="Delete Label" (click)="deleteLabel(lab.id)"> label</mat-icon>
                 <input style="border: none; outline: none; background-color: whitesmoke;width:3cm;" *ngIf="edit"
                     value="{{lab.labelname}}">
                 <a *ngIf="!edit" style="width:3cm"> {{lab.labelname}}</a>

@@ -29,7 +29,7 @@ export class DisplaynotesComponent implements OnInit {
     this.trashNotes();
     this.archiveNotes();
     this.route.queryParams.subscribe(params => {
-      debugger;
+      // debugger;
       this.param = params['page'] || '';
       this.gridView=  params['view'];
       console.log(this.param);
