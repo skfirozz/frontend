@@ -1,27 +1,27 @@
-<mat-card style="height: 340px;width: 215px;">
+<mat-card class="size">
 
     <div fxLayout="row">
         <mat-icon matTooltip="Go back">arrow_back</mat-icon>
         Pick date & time
     </div>
     <mat-form-field>
-        <input matInput [matDatepicker]="myDatePicker">
-        <mat-datepicker-toggle [for]="myDatePicker"  matSuffix></mat-datepicker-toggle>
-        <mat-datepicker #myDatePicker></mat-datepicker>
-    </mat-form-field>
+        <input matInput [matDatepicker]="date"  value="matDatepicker" #picdate>
+        <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+        <mat-datepicker #date></mat-datepicker>
+      </mat-form-field>
     <br>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="color">
         <mat-label>8:00 AM</mat-label>
         <mat-select>
             <mat-option value="8:00 AM" (click)="setTime(a.value)" #a>Morning 8:00 AM</mat-option>
             <mat-option value="1:00 PM" (click)="setTime(b.value)" #b>Afternoon 1:00 PM</mat-option>
             <mat-option value="6:00 PM" (click)="setTime(c.value)" #c>Evening 6:00 PM</mat-option>
             <mat-option value="8:00 PM" (click)="setTime(d.value)" #d>Night 8:00 PM</mat-option>
-            <mat-option value="8:00 AM" (click)="setTime(e.value)" #e>Custom</mat-option>
+            <mat-option value="10:00 AM" (click)="setTime(e.value)" #e>Custom</mat-option>
         </mat-select>
     </mat-form-field>
     <br>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="color">
         <mat-label>Does not repeat</mat-label>
         <mat-select>
             <mat-option value="not" (click)="setRepitation(f.value)" #f>Does not repeat</mat-option>
@@ -31,5 +31,5 @@
             <mat-option value="yearly" (click)="setRepitation(j.value)" #j>Yearly</mat-option>
         </mat-select>
     </mat-form-field>
-    <button class="button" mat-button>Save</button>
+    <button  mat-raised-button (click)="save(picdate.value)" >Save</button>
 </mat-card>
