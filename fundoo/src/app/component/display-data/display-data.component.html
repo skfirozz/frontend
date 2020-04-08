@@ -13,17 +13,24 @@
         {{notes.description}}
     </div>
 
-    <!-- <div fxLayout="row">
+    <div fxLayout="row">
         <div *ngFor="let labels of getLabel">
-                <div *ngIf="labels.noteid == notes.id" fxLayout="row">
-                        <strong> {{labels.title}} </strong>
-                        <button matTooltip="Remove label"
-                                [ngStyle]="{'background-color' : notes.color}"
-                                style="border: none;outline: none;">
-                                <mat-icon>close</mat-icon>
-                        </button>
-                </div>
-        </div> 
-</div>-->
+            <div *ngIf="labels.noteid == notes.id" fxLayout="row">
+                <strong> {{labels.title}} </strong>
+                <button matTooltip="Remove label" [ngStyle]="{'background-color' : notes.color}"
+                    style="border: none;outline: none;">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div> 
+    
+    <div fxLayout="row" *ngIf="notes.reminder!=null">
+        {{notes.reminder}}
+        <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : notes.color}"
+            style="border: none;outline: none;">
+            <mat-icon (click)="deleteReminder(notes.id)">close</mat-icon>
+        </button>
+    </div>
     <app-icons [notes]="notes"></app-icons>
 </mat-card>

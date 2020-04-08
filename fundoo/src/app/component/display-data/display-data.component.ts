@@ -42,11 +42,19 @@ export class DisplayDataComponent implements OnInit {
 
   getLabelNotes()
   {
-    // debugger;
+    debugger;
     this.noteservice.getLabelNotes().subscribe( response => {
       this.getLabel = response.data;
     })
     console.log(this.getLabel);
+  }
+
+  deleteReminder(id){
+    this.color.id=id;
+    this.noteservice.deleteReminder(this.color).subscribe( Response => {
+      console.log(Response.message);
+    })
+    window.location.reload();
   }
 
 }

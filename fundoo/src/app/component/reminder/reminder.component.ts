@@ -28,7 +28,7 @@ export class ReminderComponent implements OnInit {
   }
 
   save(date, noteId) {
-    debugger;
+    // debugger;
     let str:any;
     if (date != "") {
       let v = new Date(date);

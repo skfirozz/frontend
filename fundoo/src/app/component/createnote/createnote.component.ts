@@ -41,7 +41,7 @@ export class CreatenoteComponent implements OnInit {
       this.notes.labelname=this.label;
       this.notes.color=null;
       this.notes.ispinned=false;
-      console.log(this.notes);
+      // console.log(this.notes);
       this.serviceObject.createNote(this.notes).subscribe( response => {
         console.log(response.message);
       })

@@ -35,7 +35,7 @@ export const environment = {
   setcolor: "setColor/",
 
   addReminder: "addReminder/",
-
+  deleteReminder: "deleteReminder/",
   //labels
   deleteLabel: "deleteLabel",
 };
