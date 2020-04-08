@@ -71,7 +71,7 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.delete ,arr);
   }
 
-  deleteLabel(arr){9
+  deleteLabel(arr){
     return this.httpclient.post<any>(environment.baseUrl + environment.deleteLabel, arr);
   }
   updateColor() {

@@ -49,4 +49,12 @@ export class DisplayDataComponent implements OnInit {
     window.location.reload();
   }
 
+  removeLabel(id){
+    this.color.id=id;
+    this.noteservice.deleteLabel(this.color).subscribe( Response => {
+      console.log(Response.message)
+    })
+    window.location.reload();
+  }
+
 }
