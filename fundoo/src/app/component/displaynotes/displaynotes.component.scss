@@ -1,10 +1,17 @@
-.notes {
+.row {
     height: 76%;
     width: 6cm;
     // background-color: red;
     border-radius: 0 10px 10px 0;
     margin: 0 6px;
 }
+.column {
+    height:4cm;
+    width: 15cm;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 10px auto;;
+}
+
 .pin {
     right: 0%;
 }

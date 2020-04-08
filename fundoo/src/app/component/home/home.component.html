@@ -35,8 +35,11 @@
                         <button id="refreshbutton" mat-icon-button>
                             <mat-icon>refresh</mat-icon>
                         </button>
-                        <button mat-icon-button>
-                            <mat-icon>reorder</mat-icon>
+                        <button mat-icon-button *ngIf="view" (click)="gridView()">
+                            <mat-icon>view_module</mat-icon>
+                        </button>
+                        <button mat-icon-button *ngIf="!view" (click)="gridView()">
+                            <mat-icon>view_agenda</mat-icon>
                         </button>
                     </div>
                     <div class="account">

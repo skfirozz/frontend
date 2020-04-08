@@ -17,6 +17,8 @@ export class DisplaynotesComponent implements OnInit {
   trash: any;
   color: Note = new Note();
   param: any;
+
+  gridView:any;
   //  @Input() note:Note= new Note();
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
@@ -27,7 +29,9 @@ export class DisplaynotesComponent implements OnInit {
     this.trashNotes();
     this.archiveNotes();
     this.route.queryParams.subscribe(params => {
+      debugger;
       this.param = params['page'] || '';
+      this.gridView=  params['view'];
       console.log(this.param);
     });
   }

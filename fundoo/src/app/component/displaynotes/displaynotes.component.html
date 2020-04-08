@@ -4,11 +4,18 @@
         <h5>PINNED</h5>
     </div>
     <div style="flex-wrap: wrap;">
-        <div class="notes" fxFlexOffset="15" style="box-sizing: border-box; display: flex; margin-left: 5%;">
+        <div class="row" *ngIf="gridView=='row'" fxLayout="row" fxFlexOffset="15"  style="box-sizing: border-box; display: flex; margin-left: 5%;">
             <div *ngFor="let note of pinnedNotes" class="space">
                 <app-display-data *ngIf="!note.istrash" [notes]="note"></app-display-data>
             </div>
         </div>
+
+        <div class="column" *ngIf="gridView=='column'" fxLayout="column" fxFlexOffset="15"  style="box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of pinnedNotes" class="space">
+                <app-display-data *ngIf="!note.istrash" [notes]="note"></app-display-data>
+            </div>
+        </div>
+        
     </div>
     
     <!-- OTHERS -->
@@ -17,11 +24,18 @@
         <h5>OTHERS</h5>
     </div>
     <div style="flex-wrap: wrap;">
-        <div class="notes" fxFlexOffset="15" style="box-sizing: border-box; display: flex; margin-left: 5%;">
+        <div class="row" fxFlexOffset="15"  *ngIf="gridView=='row'" fxLayout="row" style="box-sizing: border-box; display: flex; margin-left: 5%;">
             <div *ngFor="let note of unpinnedNotes" class="space">
                 <app-display-data *ngIf="!note.istrash&&!note.isarchived"[notes]="note"></app-display-data>
             </div>
         </div>
+
+        <div class="column" fxFlexOffset="15" *ngIf="gridView=='column'"  fxLayout="column" style="box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of unpinnedNotes" class="space">
+                <app-display-data *ngIf="!note.istrash&&!note.isarchived"[notes]="note"></app-display-data>
+            </div>
+        </div>
+
     </div>
 </div>
 

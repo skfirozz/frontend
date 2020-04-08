@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
   labelName: any;
   allNotes: any;
 
+  view: boolean = false;
+  grid = "row";
+
   id: any;
   constructor(public dialog: MatDialog, private serviceobj: NoteservicesService, private router: Router, private activateRoute: ActivatedRoute, private serviceObject: FundooAccountServiceService) { }
 
@@ -63,7 +66,7 @@ export class HomeComponent implements OnInit {
     // debugger;
     this.labelName = label;
     this.labelOper == true
-    this.router.navigate(['fundoo/labels'], { queryParams: { page: label } });
+    this.router.navigate(['fundoo/labels'], { queryParams: { page: label , view: this.grid } });
     console.log('working');
   }
 
@@ -73,14 +76,14 @@ export class HomeComponent implements OnInit {
     console.log('logout successful');
   }
   showNote() {
-    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes' } });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: this.grid } });
   }
   showArchive() {
-    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'archive' } });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'archive',view: this.grid } });
   }
 
   showTrash() {
-    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'trash' } });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'trash',view: this.grid } });
   }
 
   showReminder() {
@@ -100,5 +103,18 @@ export class HomeComponent implements OnInit {
 
   labelNotes() {
     this.router.navigate(['fundoo/labels/' + this.id])
+  }
+
+  gridView() {
+    debugger;
+    if(this.view==true){
+      this.view=false;
+      this.grid="row"
+    }
+    else{
+      this.view=true;
+      this.grid="column"
+    }
+    console.log(this.view);
   }
 }

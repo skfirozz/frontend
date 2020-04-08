@@ -42,7 +42,7 @@ export class DisplayDataComponent implements OnInit {
 
   getLabelNotes()
   {
-    debugger;
+    // debugger;
     this.noteservice.getLabelNotes().subscribe( response => {
       this.getLabel = response.data;
     })
