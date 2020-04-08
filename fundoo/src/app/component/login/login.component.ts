@@ -26,14 +26,6 @@ export class LoginComponent implements OnInit {
       password: this.password.value,
       email: this.email.value,
     };
-    // console.log(data);
-    this.serviceObject.getLoginValue(data).subscribe((result) => {
-      const temp = JSON.stringify(result);
-      const results = JSON.parse(temp);
-      // console.log(results.message, ':', results);
-      this.router.navigate(['notes']);
-    });
-    this.serviceObject.getLoginValue(data);
 }
 
 

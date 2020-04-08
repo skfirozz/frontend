@@ -15,6 +15,7 @@ export class FundooAccountServiceService {
 
     return this.http.post(this.baseUrl + 'register', arr);
   }
+  
   getLoginValue(arr) {
 
     return this.http.post(this.baseUrl + 'login', arr);
