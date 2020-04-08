@@ -4,6 +4,7 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';
 import { Label } from 'src/app/model/label.model';
+import { ReminderComponent } from '../reminder/reminder.component';
 
 @Component({
   selector: 'app-icons',
@@ -92,6 +93,18 @@ export class IconsComponent implements OnInit {
     this.value.noteid = labels;
     const dialogRef = this.dialog.open(EditlabelsComponent, {
       data: { labels:labels },
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      labels = result;
+    });
+  }
+
+  editlabels(labels) {
+    // debugger;
+    console.log(labels);
+    const dialogRef = this.dialog.open(ReminderComponent, {
+      data: { labels: labels },
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
