@@ -21,7 +21,7 @@ export class DialogueComponent implements OnInit {
     this.passData.id=noteId;
     this.passData.description=description;
     this.passData.title=title;
-    console.log(this.passData);
+    // console.log(this.passData);
     this.service.UpdateNotes(this.passData).subscribe(response => {
       window.location.reload();
       console.log(response.message);

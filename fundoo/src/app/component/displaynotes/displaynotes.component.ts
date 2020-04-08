@@ -17,7 +17,7 @@ export class DisplaynotesComponent implements OnInit {
   trash: any;
   color: Note = new Note();
   param: any;
-
+  labels:any;
   gridView:any;
   //  @Input() note:Note= new Note();
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
@@ -28,11 +28,12 @@ export class DisplaynotesComponent implements OnInit {
     this.nonPinNotes();
     this.trashNotes();
     this.archiveNotes();
+    this.getLabelNotes();
     this.route.queryParams.subscribe(params => {
       // debugger;
       this.param = params['page'] || '';
       this.gridView=  params['view'];
-      console.log(this.param);
+      // console.log(this.param);
     });
   }
 
@@ -40,7 +41,7 @@ export class DisplaynotesComponent implements OnInit {
   pinNotes() {
     this.noteservice.getPinNotes().subscribe(response => {
       this.pinnedNotes = response.data;
-      console.log(response.data);
+      // console.log(response.data);
     })
   }
 
@@ -58,12 +59,18 @@ export class DisplaynotesComponent implements OnInit {
   nonPinNotes() {
     this.noteservice.getUnPinNotes().subscribe(response => {
       this.unpinnedNotes = response.data;
-      console.log(response.data);
+      // console.log(response.data);
     })
   }
 
-  getlabelNotes(){
-    // this.noteservice.
+  getLabelNotes()
+  {
+    debugger;
+    this.noteservice.getLabelNotes().subscribe( response => {
+      this.labels = response.data;
+      console.log(response.data);
+    })
+    // console.log(this.getLabel);
   }
 
 }

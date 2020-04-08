@@ -3,6 +3,7 @@ import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogueComponent } from '../dialogue/dialogue.component';
+import { Label } from 'src/app/model/label.model';
 
 @Component({
   selector: 'app-display-data',
@@ -12,14 +13,14 @@ import { DialogueComponent } from '../dialogue/dialogue.component';
 export class DisplayDataComponent implements OnInit {
 
   @Input() notes: Note = new Note();
-
+  @Input() labels:Label=new Label();
   color: Note = new Note();
   edit: boolean = false;
   getLabel:any;
-  constructor( public dialog:MatDialog,private noteservice: NoteservicesService) { }
+  constructor( public dialog:MatDialog,private noteservice: NoteservicesService) { 
+  }
 
   ngOnInit() {
-    this.getLabelNotes();
   }
 
  
@@ -38,15 +39,6 @@ export class DisplayDataComponent implements OnInit {
     else{
       console.log("can't edit the trash notes");
     }
-  }
-
-  getLabelNotes()
-  {
-    debugger;
-    this.noteservice.getLabelNotes().subscribe( response => {
-      this.getLabel = response.data;
-    })
-    console.log(this.getLabel);
   }
 
   deleteReminder(id){

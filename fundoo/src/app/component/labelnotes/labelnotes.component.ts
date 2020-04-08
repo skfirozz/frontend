@@ -33,7 +33,7 @@ export class LabelnotesComponent implements OnInit {
     this.serviceobj.getAllNotes().subscribe(response => {
       this.allNotes = response.data;
     })
-    console.log(this.allNotes);
+    // console.log(this.allNotes);
   }
 
   getlabels() {
@@ -41,7 +41,7 @@ export class LabelnotesComponent implements OnInit {
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
     })
-    console.log(this.labels);
+    // console.log(this.labels);
   }
 
   createLabel(labelName) {

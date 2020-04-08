@@ -21,7 +21,7 @@ export class EditlabelsComponent implements OnInit {
   createLabels(data,id) {
     debugger;
     if (data != null) {
-      console.log(" label is: " + data);
+      // console.log(" label is: " + data);
       this.labelname.labelname=data;
       this.labelname.noteid=id;
       this.noteService.createLabel(this.labelname).subscribe(response => {
