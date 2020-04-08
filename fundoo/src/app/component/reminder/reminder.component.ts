@@ -12,11 +12,9 @@ export class ReminderComponent implements OnInit {
 
   time = "8:00 AM";
   repeat = "daily";
-  reminder:Note = new Note();
-  todayNumber: number = Date.now();
-  todayDate : Date = new Date();
-  todayString : string = new Date().toDateString();
-  todayISOString : string = new Date().toISOString();
+  reminder: Note = new Note();
+  day = "Today";
+  todayString: string = new Date().toDateString();
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService) { }
   ngOnInit(): void {
   }
@@ -29,15 +27,21 @@ export class ReminderComponent implements OnInit {
     this.repeat = repeat;
   }
 
-  save(date,noteId) {
-    this.reminder.reminder= date + " "+this.time;
-    this.reminder.id=noteId;
+  save(date, noteId) {
+    debugger;
+    let str:any;
+    if (date != "") {
+      let v = new Date(date);
+      str = v.toDateString();
+    }
+    else{
+      str=this.day;
+    }
+    this.reminder.reminder = str + " " + this.time;
+    this.reminder.id = noteId;
     console.log(this.reminder);
-    console.log(this.todayNumber);
-    console.log(this.todayDate);
-    console.log(this.todayString);
-    console.log(this.todayISOString);
+    this.noteService.addReminder(this.reminder).subscribe( response => {
+      console.log(response.message);
+    })
   }
-
-
 }

@@ -87,4 +87,8 @@ export class NoteservicesService {
   UpdateNotes(arr){
     return this.httpclient.post<any>(environment.baseUrl + environment.UpdateNotes,arr);
   }
+
+  addReminder(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.addReminder,arr);
+  }
 }

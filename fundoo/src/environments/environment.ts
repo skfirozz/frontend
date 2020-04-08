@@ -34,6 +34,8 @@ export const environment = {
   delete: "deleteNotes/",
   setcolor: "setColor/",
 
+  addReminder: "addReminder/",
+
   //labels
   deleteLabel: "deleteLabel",
 };
