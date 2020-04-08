@@ -7,10 +7,12 @@ import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { ShowComponent } from './component/show/show.component';
+import { ReminderComponent } from './component/reminder/reminder.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'date', component: ReminderComponent },
   { path: 'reigister', component: RegisterComponent },
   { path: 'show', component: ShowComponent },
   { path: 'forgot', component: ForgotComponent },

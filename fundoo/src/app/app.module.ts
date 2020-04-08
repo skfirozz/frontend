@@ -40,6 +40,8 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { DialogueComponent } from './component/dialogue/dialogue.component';
 import { PinnedComponent } from './component/pinned/pinned.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -72,6 +74,7 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
     MatMenuModule,
     FlexLayoutModule,
     MatCardModule,
+    MatDatepickerModule,
     HttpClientModule,
     MatIconModule,
     MatTooltipModule,
@@ -87,12 +90,13 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
     MatListModule,
     MatExpansionModule,
     MatDialogModule,
+    MatNativeDateModule,
     // Component,
     RouterModule.forRoot([])
 
   ],
   entryComponents: [DialogueComponent],
-  providers: [FundooAccountServiceService],
+  providers: [FundooAccountServiceService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 

@@ -15,25 +15,23 @@ export const environment = {
   getAllNotes:"getAllNotes/",
   getPinNotes :"getPinNotes/",
   getUnPinNote:"getUnPinNotes/",
-
-  getTrashNotes: "getTrash/",
+  getTrashNotes: "getTrashNotes/",
   getArchiveNotes: "getArchive/",
-  getUnarchiveNotes: "getUnarchive/",
+
   getLabels : "getLabels/",
   getLabelNotes: "getLabelNotes/",
+  
   createNote: "createnote/",
   createLabel: "createLabel/",
+  
   UpdateNotes: "updateNotes/",
   updatePin: "updatepin/",
   updateArchive: "updateArchive/",
   updateTrash: "updateTrash/",
   updateNotes: "updateNotes/",
   updateColor: "setColor/",
-  pinNotes : "pinNotes/",
-  unpinNotes : "unpinNotes/",
-  archiveNotes : "archiveNotes/",
-  unarchiveNotes: "unarchiveNotes/",
-  delete: "delete/",
+  
+  delete: "deleteNotes/",
   setcolor: "setColor/",
 
   //labels

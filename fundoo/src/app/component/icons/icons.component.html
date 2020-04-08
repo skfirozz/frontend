@@ -2,7 +2,7 @@
     <div style="padding-left: 15px;padding-top: 10px;" fxLayout="row">
         <div class="colorlist">
             <a>
-                <mat-icon class="icon" matTooltip="Add alert">add_alert</mat-icon>
+                <mat-icon class="icon"  [matMenuTriggerFor]="remindme" matTooltip="Remind Me">add_alert</mat-icon>
                 <mat-icon matTooltip="collaborator" [matMenuTriggerFor]="collaborator" class="icon">person_add
                 </mat-icon>
                 <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette
@@ -22,6 +22,17 @@
                 <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
             </a>
         </div>
+        <mat-menu #remindme="matMenu">
+            <div fxLayout="column">
+                <button mat-menu-item>Reminder:</button>
+                <button mat-menu-item >Later today 8:00PM</button>
+                <button mat-menu-item >Tomorrow 8:00AM</button>
+                <button mat-menu-item >Next week Mon, 8:00AM</button>
+                <button mat-menu-item ><mat-icon matTooltip="Go back">access_time</mat-icon> Pick date & time</button>
+                <button mat-menu-item><mat-icon>place</mat-icon>Pick place</button>
+                </div>
+        </mat-menu>
+
         <mat-menu #collaborator="matMenu">
             <app-collaborator></app-collaborator>
         </mat-menu>
