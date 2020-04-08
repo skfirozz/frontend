@@ -1,6 +1,6 @@
 <mat-card class="size">
     <div fxLayout="row">
-        <mat-icon matTooltip="Go back">arrow_back</mat-icon>
+        <mat-icon matTooltip="Go back" mat-dialog-close>arrow_back</mat-icon>
         Pick date & time
     </div>
     <mat-form-field>
@@ -30,5 +30,5 @@
             <mat-option value="yearly" (click)="setRepitation(j.value)" #j>Yearly</mat-option>
         </mat-select>
     </mat-form-field>
-    <button  mat-raised-button (click)="save(picdate.value,data.labels.id)" >Save</button>
+    <button  mat-raised-button  mat-dialog-close (click)="save(picdate.value,data.labels.id)" >Save</button>
 </mat-card>

@@ -100,7 +100,7 @@ export class IconsComponent implements OnInit {
     });
   }
 
-  editlabels(labels) {
+  reminder(labels) {
     // debugger;
     console.log(labels);
     const dialogRef = this.dialog.open(ReminderComponent, {
