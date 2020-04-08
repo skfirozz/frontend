@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FundooAccountServiceService } from 'src/app/fundoo-account-service.service';
+import { Userdata } from 'src/app/model/userdata.model';
+import { UserservicesService } from 'src/app/services/userservices.service';
 
 @Component({
   selector: 'app-login',
@@ -16,16 +18,25 @@ export class LoginComponent implements OnInit {
     Validators.required, Validators.minLength(6), ]);
 
 
-  constructor(private router: Router, private serviceObject: FundooAccountServiceService) { }
+    userdata:Userdata = new Userdata();
+  constructor(private router: Router, private userServices: UserservicesService) { }
 
   ngOnInit(): void {
   }
 
   onLogin() {
-    const data = {
-      password: this.password.value,
-      email: this.email.value,
-    };
+
+    this.userdata.email=this.email.value;
+    this.userdata.password=this.password.value;
+    console.log(this.userdata);
+    this.userServices.login(this.userdata).subscribe( response => {
+      console.log(response.message);
+      if(response.message=='valid')
+      localStorage.setItem('token',response.token);
+      else {
+        console.log("..............");
+      }
+    })
 }
 
 
