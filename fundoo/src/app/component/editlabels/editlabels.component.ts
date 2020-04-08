@@ -46,6 +46,7 @@ export class EditlabelsComponent implements OnInit {
       console.log(response.message);
     })
     console.log("your output: " + id);
+    window.location.reload();
   }
 
   editLabel() {

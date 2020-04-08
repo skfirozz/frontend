@@ -65,7 +65,7 @@ export class DisplaynotesComponent implements OnInit {
 
   getLabelNotes()
   {
-    debugger;
+    // debugger;
     this.noteservice.getLabelNotes().subscribe( response => {
       this.labels = response.data;
       console.log(response.data);
