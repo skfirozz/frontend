@@ -7,4 +7,5 @@ export class Note{
     ispinned:boolean;
     istrash:boolean;
     isarchived:boolean;
+    reminder:string;
 }
