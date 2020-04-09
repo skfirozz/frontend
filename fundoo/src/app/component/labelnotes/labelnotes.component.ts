@@ -12,12 +12,12 @@ export class LabelnotesComponent implements OnInit {
 
   param: any;
   allNotes: Note=new Note();
-  labels: any;
+  labelNotes:any;
   constructor(private serviceobj: NoteservicesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getAllNotes();
-    this.getLabelNotes();
+    this.getLabelNote();
     this.route.queryParams.subscribe(params => {
       this.param = params['page'] || '';
       console.log(this.param);
@@ -28,23 +28,16 @@ export class LabelnotesComponent implements OnInit {
     // debugger;
     this.serviceobj.getAllNotes().subscribe(Response => {
       this.allNotes = Response.data;
-      console.log("--------------");
-      console.log(Response.data);
-      console.log("--------------");
-    
-    })
-    
+    });
   }
 
-  getLabelNotes()
+  getLabelNote()
   {
-    // debugger;
-    this.serviceobj.getLabelNotes().subscribe( Response => {
-      this.labels = Response.data;
-      console.log("+11111111111111111+");
+    this.serviceobj.getLabelNotes().subscribe(Response => {
+      this.labelNotes=Response.data;
+      console.log("------------------");
       console.log(Response.data);
-      console.log("++++++++++++++++");
+      console.log("------------------");
     })
-    // console.log(this.getLabel);
   }
 }

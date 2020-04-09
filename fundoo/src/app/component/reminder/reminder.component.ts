@@ -42,6 +42,7 @@ export class ReminderComponent implements OnInit {
     console.log(this.reminder);
     this.noteService.addReminder(this.reminder).subscribe( response => {
       console.log(response.message);
+      window.location.reload();
     })
   }
 }

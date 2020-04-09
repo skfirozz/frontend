@@ -13,7 +13,7 @@ import { Label } from 'src/app/model/label.model';
 export class DisplayDataComponent implements OnInit {
 
   @Input() notes: Note = new Note();
-  @Input() labels:Label=new Label();
+  @Input() labels:any;
   color: Note = new Note();
   edit: boolean = false;
   getLabel:any;

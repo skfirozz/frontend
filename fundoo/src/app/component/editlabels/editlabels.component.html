@@ -5,10 +5,10 @@
             <mat-icon mat-dialog-close matTooltip="cancel">close</mat-icon>
             <input matInput style="border: none; outline: none;background-color: whitesmoke; width:3cm;height:0.7cm"
                 placeholder="Enter label name" matInput [(ngModel)]="nameLabel"> <br>
-            <mat-icon matTooltip="create" (click)="createLabels(nameLabel)" >check</mat-icon>
+            <mat-icon matTooltip="create"  mat-dialog-close (click)="createLabels(nameLabel)" >check</mat-icon>
         </div>
 
-        <label *ngFor="let lab of data.labels" fxLayout="coloum">
+        <label *ngFor="let lab of allLabelNames" fxLayout="coloum">
             <div fxLayout="row">
                 <mat-icon matTooltip="Delete Label" (click)="deleteLabel(lab.id)"  mat-dialog-close> label</mat-icon>
                 <input style="border: none; outline: none; background-color: whitesmoke;width:3cm;" *ngIf="edit"

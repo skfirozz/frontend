@@ -26,44 +26,37 @@ export class NoteservicesService {
   }
   
   getAllNotes(){
-    let token= 1;
-    console.log("alll" +token);
+    let token= localStorage.token;
     return this.httpclient.get<any>(environment.baseUrl + environment.getAllNotes + "?token=" + token);
   }
 
   getPinNotes() {
     let token= localStorage.token;
-    console.log("pin" + token);
     return this.httpclient.get<any>(environment.baseUrl + environment.getPinNotes +"?token=" + token);
   }
 
   getUnPinNotes(){
     let token= localStorage.token;
-    console.log("unpin" + token);
     return this.httpclient.get<any>(environment.baseUrl + environment.getUnPinNote +"?token=" + token);   
   }
 
   getTrashNotes() {
-    let token= localStorage.token;
-    console.log("trash" + token);
+    let token= localStorage.token
     return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes +"?token=" + token);
   }
 
   getArchiveNotes() {
     let token= localStorage.token;
-    console.log("archive" + token);
     return this.httpclient.get<any>(environment.baseUrl + environment.getArchiveNotes  +"?token=" + token);
   }
 
   getallLabels(){
     let token= localStorage.token;
-    console.log("labels" + token);
     return this.httpclient.get<any>(environment.baseUrl + environment.getLabels  +"?token=" + token);
   }
 
   getLabelNotes(){
     let token= localStorage.token;
-    console.log("labels notes" + token);
     return this.httpclient.get<any>(environment.baseUrl + environment.getLabelNotes +"?token=" + token);
   }
   

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { Label } from 'src/app/model/label.model';
 
 @Component({
   selector: 'app-test',
@@ -8,22 +9,20 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 })
 export class TestComponent implements OnInit {
 
-  data:any;
+  labelNotes:Label=new Label();
   constructor(private note:NoteservicesService) { }
 
   ngOnInit(): void {
     this.getvalues();
-    console.log(this.data);
+    // console.log(this.data);
   }
 
 
   getvalues()
   {
-    //debugger;
-    this.note.getAllNotes().subscribe(Response => {
-      console.log(Response.data);
+    this.note.getLabelNotes().subscribe(Response => {
+      this.labelNotes=Response.data;
     })
-
   }
 
 }

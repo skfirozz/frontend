@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Note } from 'src/app/model/note.model';
+import { Label } from 'src/app/model/label.model';
 
 @Component({
   selector: 'app-displaynotes',
@@ -17,7 +18,7 @@ export class DisplaynotesComponent implements OnInit {
   trash: any;
   color: Note = new Note();
   param: any;
-  labels:any;
+  labelNotes:any;
   gridView:any;
   //  @Input() note:Note= new Note();
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
@@ -28,7 +29,7 @@ export class DisplaynotesComponent implements OnInit {
     this.nonPinNotes();
     this.trashNotes();
     this.archiveNotes();
-    this.getLabelNotes();
+    this.getLabelNote();
     this.route.queryParams.subscribe(params => {
       // debugger;
       this.param = params['page'] || '';
@@ -63,14 +64,11 @@ export class DisplaynotesComponent implements OnInit {
     })
   }
 
-  getLabelNotes()
+  getLabelNote()
   {
-    // debugger;
-    this.noteservice.getLabelNotes().subscribe( response => {
-      this.labels = response.data;
-      console.log(response.data);
+    this.noteservice.getLabelNotes().subscribe(Response => {
+      this.labelNotes=Response.data;
     })
-    // console.log(this.getLabel);
   }
 
 }

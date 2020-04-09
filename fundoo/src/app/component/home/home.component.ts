@@ -6,6 +6,7 @@ import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';
+import { Label } from 'src/app/model/label.model';
 
 @Component({
   selector: 'app-home',
@@ -15,8 +16,8 @@ import { EditlabelsComponent } from '../editlabels/editlabels.component';
 export class HomeComponent implements OnInit {
 
   searchData = new FormControl('', [
-    Validators.required,]);
-  labels: any;
+  Validators.required,]);
+  labels: Label = new Label();
   labelOper: boolean = false;
   labelName: any;
   allNotes: any;
@@ -29,7 +30,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getLabel();
-    this.getAllNotes();
   }
 
   search() {
@@ -49,21 +49,9 @@ export class HomeComponent implements OnInit {
     // debugger;
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
-      console.log('hiii wr' + response.data);
+      console.log('checcking');
+      console.log( response.data);
     })
-
-   
-  }
-
-  getAllNotes() {
-    // debugger;
-    this.serviceobj.getAllNotes().subscribe(response => {
-      this.allNotes = response.data;
-      console.log('---------------');
-      console.log(response.data);
-      console.log('++++++++++');
-    })
-   
   }
 
   labelOperation(label) {

@@ -15,7 +15,7 @@
 
     <div fxLayout="row">
         <div *ngFor="let label of labels">
-            <div *ngIf="label.noteid == notes.id" fxLayout="row">
+            <div fxLayout="row" *ngIf="label.noteid==notes.id">
                 <button matTooltip="Remove label" fxLayout="row" class="labelButton" (click)="removeLabel(label.id)">
                     <strong> {{label.labelname}} </strong>
                     <mat-icon>close</mat-icon>

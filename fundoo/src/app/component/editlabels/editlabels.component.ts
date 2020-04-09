@@ -10,26 +10,29 @@ import { Label } from 'src/app/model/label.model';
 })
 export class EditlabelsComponent implements OnInit {
 
+  allLabelNames: any;
   edit: boolean = false;
   nameLabel: any;
   labelname: Label = new Label();
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService) { }
 
   ngOnInit(): void {
+    this.allLabels()
   }
 
   createLabels(data) {
-    // debugger;
+    debugger;
     if (data != null) {
       this.labelname.labelname = data;
-      this.labelname.token=localStorage.token;
       if (this.data.labels.id == null)
         this.labelname.noteid = null;
       else {
-        this.labelname.noteid =1;
+        this.labelname.noteid = this.data.labels.id;
       }
+      this.labelname.token=localStorage.token;
       this.noteService.createLabel(this.labelname).subscribe(response => {
         window.location.reload();
+      
       });
     }
     else if (data == null) {
@@ -39,6 +42,13 @@ export class EditlabelsComponent implements OnInit {
 
   done() {
 
+  }
+
+  allLabels() {
+    this.noteService.getallLabels().subscribe(Response => {
+      this.allLabelNames = Response.data;
+      console.log(Response.data);
+    })
   }
 
   deleteLabel(id) {
