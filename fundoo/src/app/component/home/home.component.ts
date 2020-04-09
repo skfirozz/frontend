@@ -49,17 +49,21 @@ export class HomeComponent implements OnInit {
     // debugger;
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
+      console.log('hiii wr' + response.data);
     })
 
-    console.log('hiii wr' + this.labels);
+   
   }
 
   getAllNotes() {
     // debugger;
     this.serviceobj.getAllNotes().subscribe(response => {
       this.allNotes = response.data;
+      console.log('---------------');
+      console.log(response.data);
+      console.log('++++++++++');
     })
-    console.log(this.allNotes);
+   
   }
 
   labelOperation(label) {

@@ -22,10 +22,11 @@ export class EditlabelsComponent implements OnInit {
     // debugger;
     if (data != null) {
       this.labelname.labelname = data;
+      this.labelname.token=localStorage.token;
       if (this.data.labels.id == null)
         this.labelname.noteid = null;
       else {
-        this.labelname.noteid = this.data.labels.id;
+        this.labelname.noteid =1;
       }
       this.noteService.createLabel(this.labelname).subscribe(response => {
         window.location.reload();

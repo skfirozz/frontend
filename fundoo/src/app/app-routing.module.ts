@@ -8,10 +8,12 @@ import { DisplaynotesComponent } from './component/displaynotes/displaynotes.com
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { ShowComponent } from './component/show/show.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
+import { TestComponent } from './component/test/test.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'test', component: TestComponent },
   { path: 'date', component: ReminderComponent },
   { path: 'reigister', component: RegisterComponent },
   { path: 'show', component: ShowComponent },

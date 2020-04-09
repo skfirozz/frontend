@@ -8,4 +8,5 @@ export class Note{
     istrash:boolean;
     isarchived:boolean;
     reminder:string;
+    token:number;
 }

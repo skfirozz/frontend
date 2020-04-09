@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FundooAccountServiceService } from 'src/app/fundoo-account-service.service';
 import { Userdata } from 'src/app/model/userdata.model';
 import { UserservicesService } from 'src/app/services/userservices.service';
@@ -13,31 +13,34 @@ import { UserservicesService } from 'src/app/services/userservices.service';
 export class LoginComponent implements OnInit {
 
   email = new FormControl('', [
-    Validators.required, Validators.email, ]);
+    Validators.required, Validators.email,]);
   password = new FormControl('', [
-    Validators.required, Validators.minLength(6), ]);
+    Validators.required, Validators.minLength(6),]);
 
 
-    userdata:Userdata = new Userdata();
-  constructor(private router: Router, private userServices: UserservicesService) { }
+  userdata: Userdata = new Userdata();
+  constructor(private router: Router, private userServices: UserservicesService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
   onLogin() {
 
-    this.userdata.email=this.email.value;
-    this.userdata.password=this.password.value;
+    this.userdata.email = this.email.value;
+    this.userdata.password = this.password.value;
     console.log(this.userdata);
-    this.userServices.login(this.userdata).subscribe( response => {
+    this.userServices.login(this.userdata).subscribe(response => {
       console.log(response.message);
-      if(response.message=='valid')
-      localStorage.setItem('token',response.token);
+      if (response.message == 'valid') {
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['fundoo/notes']);
+      }
+
       else {
-        console.log("..............");
+        console.log("invalid user credentials");
       }
     })
-}
+  }
 
 
 }

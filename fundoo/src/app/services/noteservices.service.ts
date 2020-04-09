@@ -26,31 +26,45 @@ export class NoteservicesService {
   }
   
   getAllNotes(){
-    return this.httpclient.get<any>(environment.baseUrl + environment.getAllNotes);
+    let token= 1;
+    console.log("alll" +token);
+    return this.httpclient.get<any>(environment.baseUrl + environment.getAllNotes + "?token=" + token);
   }
 
   getPinNotes() {
-    return this.httpclient.get<any>(environment.baseUrl + environment.getPinNotes);
+    let token= localStorage.token;
+    console.log("pin" + token);
+    return this.httpclient.get<any>(environment.baseUrl + environment.getPinNotes +"?token=" + token);
   }
 
   getUnPinNotes(){
-    return this.httpclient.get<any>(environment.baseUrl + environment.getUnPinNote);   
+    let token= localStorage.token;
+    console.log("unpin" + token);
+    return this.httpclient.get<any>(environment.baseUrl + environment.getUnPinNote +"?token=" + token);   
   }
 
   getTrashNotes() {
-    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes);
+    let token= localStorage.token;
+    console.log("trash" + token);
+    return this.httpclient.get<any>(environment.baseUrl + environment.getTrashNotes +"?token=" + token);
   }
 
   getArchiveNotes() {
-    return this.httpclient.get<any>(environment.baseUrl + environment.getArchiveNotes );
+    let token= localStorage.token;
+    console.log("archive" + token);
+    return this.httpclient.get<any>(environment.baseUrl + environment.getArchiveNotes  +"?token=" + token);
   }
 
   getallLabels(){
-    return this.httpclient.get<any>(environment.baseUrl + environment.getLabels );
+    let token= localStorage.token;
+    console.log("labels" + token);
+    return this.httpclient.get<any>(environment.baseUrl + environment.getLabels  +"?token=" + token);
   }
 
   getLabelNotes(){
-    return this.httpclient.get<any>(environment.baseUrl + environment.getLabelNotes);
+    let token= localStorage.token;
+    console.log("labels notes" + token);
+    return this.httpclient.get<any>(environment.baseUrl + environment.getLabelNotes +"?token=" + token);
   }
   
   updatePin(arr) {
@@ -60,6 +74,7 @@ export class NoteservicesService {
   }
 
   updateArchive(arr) {
+    let token= localStorage.token;
     return this.httpclient.post<any>(environment.baseUrl + environment.updateArchive, arr);
   }
 

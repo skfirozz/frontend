@@ -42,6 +42,7 @@ import { PinnedComponent } from './component/pinned/pinned.component';
 import { EditlabelsComponent } from './component/editlabels/editlabels.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { TestComponent } from './component/test/test.component';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -62,6 +63,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     CollaboratorComponent,
     PinnedComponent,
     EditlabelsComponent,
+    TestComponent,
   ],
  
   imports: [
