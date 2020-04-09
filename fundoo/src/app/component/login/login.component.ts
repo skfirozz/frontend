@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
       console.log(response.message);
       if (response.message == 'valid') {
         localStorage.setItem('token', response.token);
-        this.router.navigate(['fundoo/notes']);
+        this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: 'row' } });
       }
 
       else {

@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
   }
 
   showReminder() {
-    this.router.navigate(['fundoo/reminder']);
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'reminder',view: this.grid } });
   }
   editlabels(labels) {
     // debugger;
