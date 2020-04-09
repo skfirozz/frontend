@@ -15,7 +15,7 @@ export class CollaboratorComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService:NoteservicesService) { }
 
   ngOnInit(){
-  this.userValues();  
+  this.userValues();
   }
 
   userValues(){

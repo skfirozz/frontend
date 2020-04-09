@@ -17,7 +17,6 @@ export class IconsComponent implements OnInit {
   @Input() notes: Note = new Note();
   @Output() outputProperty = new EventEmitter<any>();
   value: Label = new Label();
-  colaboratorOption:boolean=false;
   constructor(public dialog: MatDialog, private noteservice: NoteservicesService) { }
   color: Note = new Note();
   ngOnInit(): void {
@@ -44,7 +43,7 @@ export class IconsComponent implements OnInit {
   }
 
   archive(noteId: number, notes) {
-    debugger;
+    // debugger;
     this.color.id = noteId;
     if(notes==0)
       this.color.isarchived=1;  
@@ -57,18 +56,15 @@ export class IconsComponent implements OnInit {
   //working
   trash(noteId: number, notes) {
     this.color.id = noteId;
-    if (notes.istrash) {
+    if (notes.istrash) 
       this.color.istrash = false;
-      this.noteservice.updateTrash(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    }
-    else {
+    else 
       this.color.istrash = true;
+
       this.noteservice.updateTrash(this.color).subscribe(response => {
         console.log(response.message);
       })
-    }
+    
     window.location.reload();
   }
 
@@ -109,11 +105,11 @@ export class IconsComponent implements OnInit {
   }
 
   collaborator(id){
-      this.dialog.open(CollaboratorComponent, {
-        data : { notes : id },
-        panelClass: 'custom-dialog-container'
-      });
-  }
+    this.dialog.open(CollaboratorComponent, {
+      data : { notes : id },
+      panelClass: 'custom-dialog-container'
+    });
+}
 
   arrayofColors = [
     [
