@@ -17,7 +17,7 @@ export class EditlabelsComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService) { }
 
   ngOnInit(): void {
-    this.allLabels()
+    this.allLabels();
   }
 
   createLabels(data) {
@@ -56,7 +56,7 @@ export class EditlabelsComponent implements OnInit {
       console.log(response.message);
     })
     console.log("your output: " + id);
-    window.location.reload();
+    // window.location.reload();
   }
 
   editLabel() {
