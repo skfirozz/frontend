@@ -12,6 +12,7 @@ import { Label } from 'src/app/model/label.model';
 export class DisplaynotesComponent implements OnInit {
 
   unPinNotes: Note[];
+  allnotes:any;
   pinnedNotes: any;
   unpinnedNotes: any;
   archive: any;
@@ -25,11 +26,12 @@ export class DisplaynotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pinNotes();
-    this.nonPinNotes();
-    this.trashNotes();
-    this.archiveNotes();
-    this.getLabelNote();
+    // this.pinNotes();
+    // this.nonPinNotes();
+    // this.trashNotes();
+    // this.archiveNotes();
+    // this.getLabelNote();
+    this.noteservice.getAllNotes().subscribe( Response => this.allnotes=Response.data);
     this.route.queryParams.subscribe(params => {
       // debugger;
       this.param = params['page'] || '';

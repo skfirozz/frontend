@@ -4,9 +4,9 @@ export class Note{
     title:String;
     description:String;   
     color: String;
-    ispinned:boolean;
+    ispinned:number;
     istrash:boolean;
-    isarchived:boolean;
+    isarchived:number;
     reminder:string;
     token:number;
 }

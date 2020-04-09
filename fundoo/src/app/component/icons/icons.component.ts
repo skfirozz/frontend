@@ -42,19 +42,13 @@ export class IconsComponent implements OnInit {
   }
 
   archive(noteId: number, notes) {
+    debugger;
     this.color.id = noteId;
-    if (notes.isarchived) {
-      this.color.isarchived = false;
-      this.noteservice.updateArchive(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    }
-    else {
-      this.color.isarchived = true;
-      this.noteservice.updateArchive(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    }
+    if(notes==0)
+      this.color.isarchived=1;  
+    else
+    this.color.isarchived=0;
+    this.noteservice.updateArchive(this.color).subscribe( Response => console.log(Response.message));
     window.location.reload();
   }
 
