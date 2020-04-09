@@ -1,7 +1,7 @@
-<button *ngIf="notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes)">
+<button *ngIf="notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes.ispinned)">
     <img style="border: none; width: 150%; " src="assets/pin.svg" height="65%">
 </button>
 
-<button *ngIf="!notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes)">
+<button *ngIf="!notes.ispinned" mat-icon-button matTooltip="pin" (click)="pin(notes.id, notes.ispinned)">
     <img style="border: none; width: 150%; " src="assets/unpin.svg" height="65%">
 </button>

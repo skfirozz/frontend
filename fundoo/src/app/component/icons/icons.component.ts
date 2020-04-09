@@ -26,7 +26,7 @@ export class IconsComponent implements OnInit {
   unTrash(noteId: number, notes) {
     // debugger;
     this.color.id = noteId;
-    this.color.istrash = false;
+    this.color.istrash = 0;
     this.noteservice.updateTrash(this.color).subscribe(response => {
       console.log(response.message);
     })
@@ -57,9 +57,9 @@ export class IconsComponent implements OnInit {
   trash(noteId: number, notes) {
     this.color.id = noteId;
     if (notes.istrash) 
-      this.color.istrash = false;
+      this.color.istrash = 0;
     else 
-      this.color.istrash = true;
+      this.color.istrash = 1;
 
       this.noteservice.updateTrash(this.color).subscribe(response => {
         console.log(response.message);

@@ -1,13 +1,13 @@
-<mat-card class="si">
-    <img style="padding-left: 85px;" class="size" >
-    <div fxLayout="row" style="padding-left: 75px;">
-        <div>
-            {{user}}
-        </div>
-        <br>
+<mat-card class="signout">
+    <div fxLayout="column">
+        <!-- <img *ngIf="userValues.profile!=null" style="border: none; width: 150%; " src={{userValues.profile}} height="65%"> -->
+
+        <mat-card-title>
+            <!-- <strong>{{userValues.name}}</strong> -->
+        </mat-card-title>
     </div>
-    <div>
-        {{emailid}}
-    </div>
-    <button style="outline: none; border: none; padding-left: 80px; padding-top: 30px;" (click)="SignOut()">Signout</button>
+    <mat-divider class="divider"></mat-divider>
+
+    <button mat-dialog-close mat-raised-button class="button" (click)="SignOut()">SignOut</button>
+
 </mat-card>

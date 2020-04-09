@@ -11,6 +11,8 @@ export class SignoutComponent implements OnInit {
   // @Input() user: any;
   user="shaik firoz";
   emailid="shaikfiroz838@gmail.com";
+
+  @Input() userValues:any;
   constructor(private router: Router) { }
 
   ngOnInit(): void {

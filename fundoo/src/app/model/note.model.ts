@@ -6,7 +6,7 @@ export class Note{
     description:String;   
     color: String;
     ispinned:number;
-    istrash:boolean;
+    istrash:number;
     isarchived:number;
     reminder:string;
     token:number;

@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   labelOper: boolean = false;
   labelName: any;
   allNotes: any;
+  userValues:any;
 
   view: boolean = false;
   grid = "row";
@@ -30,6 +31,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getLabel();
+
   }
 
   search() {
@@ -81,6 +83,8 @@ export class HomeComponent implements OnInit {
   showReminder() {
     this.router.navigate(['fundoo/notes'], { queryParams: { page: 'reminder',view: this.grid } });
   }
+
+
   editlabels(labels) {
     // debugger;
     console.log(labels);
@@ -91,10 +95,6 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       labels = result;
     });
-  }
-
-  labelNotes() {
-    this.router.navigate(['fundoo/labels/' + this.id])
   }
 
   gridView() {
@@ -114,5 +114,11 @@ export class HomeComponent implements OnInit {
     });
     
     console.log(this.view);
+  }
+
+
+  userDatas()
+  {
+  
   }
 }
