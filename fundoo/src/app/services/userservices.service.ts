@@ -18,9 +18,4 @@ export class UserservicesService {
   register(arr){
     return this.httpclient.post<any>(environment.baseUrl + environment.login, arr);
   }
-
-  userDetails(){
-    let token=localStorage.token;
-    return this.httpclient.get<any>(environment.baseUrl + environment.userDetails + "?token=" + token )
-  }
 }

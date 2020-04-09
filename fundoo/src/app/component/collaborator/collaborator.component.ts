@@ -10,11 +10,20 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 export class CollaboratorComponent implements OnInit {
 
   userData:any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteServices:NoteservicesService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService:NoteservicesService) { }
 
-  ngOnInit(): void {
-    this.noteServices.
-    
+  ngOnInit(){
+  this.userValues();  
   }
+
+  userValues(){
+    // debugger;
+    this.noteService.userValues().subscribe( Response => {
+      this.userData=Response.data
+      console.log(Response.data);
+    });
+  }
+
+
 
 }

@@ -17,6 +17,11 @@ export class NoteservicesService {
     return this._autoRefresh$;
   }
 
+  userValues(){
+    let token=localStorage.token;
+    return this.httpclient.get<any>(environment.baseUrl + environment.info + "?token=" + token )
+  }
+
   createNote(arr) {
     return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);
   }

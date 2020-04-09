@@ -43,7 +43,6 @@ export class EditlabelsComponent implements OnInit {
   done() {
 
   }
-
   allLabels() {
     this.noteService.getallLabels().subscribe(Response => {
       this.allLabelNames = Response.data;

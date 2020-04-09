@@ -11,7 +11,7 @@ export const environment = {
   forgot : "forgot",
 
 
-  userDetails: "userDetails/",
+  info: "userDetails/",
 
 
 
