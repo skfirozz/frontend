@@ -3,7 +3,7 @@
         <div class="colorlist">
             <a>
                 <mat-icon class="icon"  matTooltip="Remind Me" (click)="reminder(notes)">add_alert</mat-icon>
-                <mat-icon matTooltip="collaborator" (click)="collaborator()" class="icon">person_add
+                <mat-icon matTooltip="collaborator" (click)="collaborator(notes.id)" class="icon">person_add
                 </mat-icon>
                 
                 <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette
