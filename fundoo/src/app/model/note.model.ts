@@ -1,5 +1,6 @@
 export class Note{
     id:number;
+    email:string;
     labelname:string;
     title:String;
     description:String;   

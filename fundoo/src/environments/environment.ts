@@ -26,6 +26,8 @@ export const environment = {
   
   createNote: "createnote/",
   createLabel: "createLabel/",
+  addCollaborator: "addCollaborator/",
+  deleteCollaboration: "deleteCollaboration/",
   
   UpdateNotes: "updateNotes/",
   updatePin: "updatepin/",

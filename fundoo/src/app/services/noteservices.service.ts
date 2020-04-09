@@ -30,6 +30,10 @@ export class NoteservicesService {
     return this.httpclient.post<any>(environment.baseUrl + environment.createLabel,arr);
   }
   
+  addCollaborator(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.addCollaborator,arr);
+  }
+
   getAllNotes(){
     let token= localStorage.token;
     return this.httpclient.get<any>(environment.baseUrl + environment.getAllNotes + "?token=" + token);

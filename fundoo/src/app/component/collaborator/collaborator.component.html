@@ -6,13 +6,13 @@
     <br>
     <div>
         <div fxLayout="row">
-            <!-- <img *ngIf="userData.profile!=null" style="border: none; width: 150%; " src={{userData.profile}} height="65%"> -->
+            <img *ngIf="userData.profile!=null" style="border: none; width: 150%; " src={{userData.profile}} height="65%">
           <strong>{{userData.name}}</strong>(Owner)
         </div>
         {{userData.email}}
     </div>
 
-    <input matInput style="border: none; outline: none;background-color: #e4f0e4;" placeholder="user Email" value=""
+    <input matInput class="inputs" placeholder="user Email" value=""
         #email> <br>
     <mat-divider class="divider"></mat-divider>
 

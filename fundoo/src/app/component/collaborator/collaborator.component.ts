@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
+import { Note } from 'src/app/model/note.model';
 
 @Component({
   selector: 'app-collaborator',
@@ -10,6 +11,7 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 export class CollaboratorComponent implements OnInit {
 
   userData:any;
+  colData:Note=new Note();
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService:NoteservicesService) { }
 
   ngOnInit(){
@@ -24,6 +26,13 @@ export class CollaboratorComponent implements OnInit {
     });
   }
 
-
-
+  save(email,noteId){
+    this.colData.id=noteId;
+    if(email!=null){
+    this.colData.email=email;
+    this.noteService.addCollaborator(this.colData).subscribe(Response => console.log(Response.message));  
+  }
+    else
+    console.log("error");
+  }
 }
