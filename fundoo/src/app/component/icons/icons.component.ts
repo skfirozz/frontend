@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';
 import { Label } from 'src/app/model/label.model';
 import { ReminderComponent } from '../reminder/reminder.component';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
   selector: 'app-icons',
@@ -16,6 +17,7 @@ export class IconsComponent implements OnInit {
   @Input() notes: Note = new Note();
   @Output() outputProperty = new EventEmitter<any>();
   value: Label = new Label();
+  colaboratorOption:boolean=false;
   constructor(public dialog: MatDialog, private noteservice: NoteservicesService) { }
   color: Note = new Note();
   ngOnInit(): void {
@@ -104,6 +106,13 @@ export class IconsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       labels = result;
     });
+  }
+
+  collaborator(id){
+      this.dialog.open(CollaboratorComponent, {
+        data : { notes : id },
+        panelClass: 'custom-dialog-container'
+      });
   }
 
   arrayofColors = [

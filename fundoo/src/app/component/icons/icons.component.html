@@ -3,8 +3,9 @@
         <div class="colorlist">
             <a>
                 <mat-icon class="icon"  matTooltip="Remind Me" (click)="reminder(notes)">add_alert</mat-icon>
-                <mat-icon matTooltip="collaborator" [matMenuTriggerFor]="collaborator" class="icon">person_add
+                <mat-icon matTooltip="collaborator" (click)="collaborator()" class="icon">person_add
                 </mat-icon>
+                
                 <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette
                 </mat-icon>
                 <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
@@ -23,9 +24,6 @@
             </a>
         </div>
 
-        <mat-menu #collaborator="matMenu">
-            <app-collaborator></app-collaborator>
-        </mat-menu>
         <div fxLayout="row">
             <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
                 <ng-template matMenuContent>
