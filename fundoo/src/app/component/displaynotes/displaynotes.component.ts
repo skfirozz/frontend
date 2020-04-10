@@ -29,37 +29,9 @@ export class DisplaynotesComponent implements OnInit {
     this.getLabelNote();
     this.noteservice.getAllNotes().subscribe( Response => this.allnotes=Response.data);
     this.route.queryParams.subscribe(params => {
-      // debugger;
       this.param = params['page'];
       this.gridView=  params['view'];
-      // console.log(this.param);
     });
-  }
-
-
-  pinNotes() {
-    this.noteservice.getPinNotes().subscribe(response => {
-      this.pinnedNotes = response.data;
-      // console.log(response.data);
-    })
-  }
-
-  archiveNotes() {
-    this.noteservice.getArchiveNotes().subscribe(response => {
-      this.archive = response.data;
-    })
-  }
-
-  trashNotes() {
-    this.noteservice.getTrashNotes().subscribe(response => {
-      this.trash = response.data;
-    })
-  }
-  nonPinNotes() {
-    this.noteservice.getUnPinNotes().subscribe(response => {
-      this.unpinnedNotes = response.data;
-      // console.log(response.data);
-    })
   }
 
   getLabelNote()

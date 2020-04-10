@@ -42,7 +42,6 @@ export class CreatenoteComponent implements OnInit {
       this.notes.color=null;
       this.notes.ispinned=0;
       this.notes.token=localStorage.token;
-      // console.log(this.notes);
       this.serviceObject.createNote(this.notes).subscribe( response => {
         console.log(response.message);
       })

@@ -1,6 +1,6 @@
 <mat-toolbar class="docs-navbar-header">
     <mat-toolbar-row>
-        <div class="Main">
+        <div class="Main" fxLayout="row">
             <div class="sideNavIcon">
                 <div>
                     <mat-icon (click)="drawer.toggle()">menu</mat-icon>
@@ -42,14 +42,8 @@
                             <mat-icon>view_agenda</mat-icon>
                         </button>
                     </div>
-                    <!-- <button ; else showDefault" mat-icon-button (click)="OpenSignout(userValues)"  matTooltip="settings" class="circle"> -->
-                        <img *ngIf="userValues.profile!=null" src="assets/{{userValues.profile}}" (click)="OpenSignout(userValues)" class="image"> 
-                    <!-- </button> -->
-                    <!-- <ng-template #showDefault> -->
-                        <!-- <mat-icon  (click)="OpenSignout(userValues)" matTooltip="Account">account_circle</mat-icon> -->
-                    <!-- </ng-template> -->
-
-                  
+                    <img *ngIf="userValues.profile!=null" src="assets/{{userValues.profile}}"
+                        (click)="OpenSignout(userValues)" class="image">
                 </div>
             </div>
         </div>
