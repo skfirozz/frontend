@@ -7,6 +7,7 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';
 import { Label } from 'src/app/model/label.model';
+import { SignoutComponent } from '../signout/signout.component';
 
 @Component({
   selector: 'app-home',
@@ -64,11 +65,7 @@ export class HomeComponent implements OnInit {
     console.log('working');
   }
 
-  onsignout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
-    console.log('logout successful');
-  }
+
   showNote() {
     this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: this.grid } });
   }
@@ -115,6 +112,17 @@ export class HomeComponent implements OnInit {
     console.log(this.view);
   }
 
+
+  OpenSignout(userValues)
+  {
+    const dialogRef = this.dialog.open(SignoutComponent, {
+      data: { userValues: userValues },
+      panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      userValues = result;
+    });
+  }
 
   userDatas()
   {

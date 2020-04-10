@@ -1,16 +1,19 @@
 <mat-card class="si">
     <div fxLayout="column">
         <div>
-            <img *ngIf="valuesOfUserData.profile!=null" src="assets/{{valuesOfUserData.profile}}" class="image">
+            <img src="assets/{{data.userValues.profile}}" class="image">
 
-            <mat-icon *ngIf="valuesOfUserData.profile==null" class="image" matTooltip="Upload Profile Pic">
-                account_circle</mat-icon>
-            <input id="file-input" type="file" value="" #email />
+            <div fxLaout="row">
+                <input  style="border: none; outline: none; width: 4cm;" placeholder="Change Profile" type="file" value="" #profile />
+                <button (click)="Upload(profile.value)">Upload</button>
+            </div>
+
         </div>
-        <strong>{{valuesOfUserData.name}}</strong>
+        <strong>{{data.userValues.name}}</strong>
     </div>
-    {{valuesOfUserData.email}}
+    {{data.userValues.email}}
     <br>
+    {{val}}
     <mat-divider class="divider"></mat-divider>
     <button mat-dialog-close mat-raised-button color="primary" class="button" (click)="SignOut()">SignOut</button>
 </mat-card>

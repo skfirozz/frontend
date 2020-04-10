@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NoteservicesService } from 'src/app/services/noteservices.service';
 
 @Component({
   selector: 'app-signout',
@@ -8,19 +10,21 @@ import { Router } from '@angular/router';
 })
 export class SignoutComponent implements OnInit {
 
-  // @Input() user: any;
-  user="shaik firoz";
-  emailid="shaikfiroz838@gmail.com";
-
-  @Input() valuesOfUserData:any;
-  constructor(private router: Router) { }
+  val:any;
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private router: Router,private noteService:NoteservicesService) { }
 
   ngOnInit(): void {
   }
 
-  SignOut() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+  Upload(profile)
+  {
+    this.val=profile;
+    console.log(profile);
   }
 
+  SignOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
+    console.log('logout successful');
+  }
 }

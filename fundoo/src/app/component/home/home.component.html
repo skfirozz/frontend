@@ -42,17 +42,13 @@
                             <mat-icon>view_agenda</mat-icon>
                         </button>
                     </div>
-                    <button *ngIf="userValues.profile!=null; else showDefault" mat-icon-button   matTooltip="settings" class="circle">
-                        <img  src="assets/{{userValues.profile}}" class="image"> 
-                    </button>
-                    <ng-template #showDefault>
-                        <mat-icon  [matMenuTriggerFor]="account" matTooltip="Account">account_circle</mat-icon>
-                    </ng-template>
+                    <!-- <button ; else showDefault" mat-icon-button (click)="OpenSignout(userValues)"  matTooltip="settings" class="circle"> -->
+                        <img *ngIf="userValues.profile!=null" src="assets/{{userValues.profile}}" (click)="OpenSignout(userValues)" class="image"> 
+                    <!-- </button> -->
+                    <!-- <ng-template #showDefault> -->
+                        <!-- <mat-icon  (click)="OpenSignout(userValues)" matTooltip="Account">account_circle</mat-icon> -->
+                    <!-- </ng-template> -->
 
-                    
-                        <mat-menu #account="matMenu">
-                            <app-signout [valuesOfUserData]="userValues"></app-signout>
-                        </mat-menu>
                   
                 </div>
             </div>
