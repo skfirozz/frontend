@@ -34,7 +34,7 @@ export class LabelnotesComponent implements OnInit {
   getLabelNote()
   {
     this.serviceobj.getLabelNotes().subscribe(Response => {
-      this.labelNotes=Response.data;
+    this.labelNotes=Response.data;
       console.log("------------------");
       console.log(Response.data);
       console.log("------------------");
