@@ -13,16 +13,17 @@ export class LabelnotesComponent implements OnInit {
   param: any;
   allNotes: Note=new Note();
   labelNotes:any;
+  gridView:any;
   constructor(private serviceobj: NoteservicesService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.getAllNotes();
     this.getLabelNote();
     this.route.queryParams.subscribe(params => {
-      this.param = params['page'] || '';
+      this.param = params['page'] ;
+      this.gridView= params['view'];
       console.log(this.param);
     });
-    
   }
   getAllNotes() {
     // debugger;

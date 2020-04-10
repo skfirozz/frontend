@@ -12,7 +12,7 @@ export class SignoutComponent implements OnInit {
   user="shaik firoz";
   emailid="shaikfiroz838@gmail.com";
 
-  @Input() userValues:any;
+  @Input() valuesOfUserData:any;
   constructor(private router: Router) { }
 
   ngOnInit(): void {

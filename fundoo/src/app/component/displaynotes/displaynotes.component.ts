@@ -26,15 +26,11 @@ export class DisplaynotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.pinNotes();
-    // this.nonPinNotes();
-    // this.trashNotes();
-    // this.archiveNotes();
-    // this.getLabelNote();
+    this.getLabelNote();
     this.noteservice.getAllNotes().subscribe( Response => this.allnotes=Response.data);
     this.route.queryParams.subscribe(params => {
       // debugger;
-      this.param = params['page'] || '';
+      this.param = params['page'];
       this.gridView=  params['view'];
       // console.log(this.param);
     });

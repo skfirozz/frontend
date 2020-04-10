@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.getLabel();
-
+    this.userDatas();
   }
 
   search() {
@@ -118,6 +118,6 @@ export class HomeComponent implements OnInit {
 
   userDatas()
   {
-  
+    this.serviceobj.userValues().subscribe( Response => this.userValues=Response.data);
   }
 }

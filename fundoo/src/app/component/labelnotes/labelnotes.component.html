@@ -1,15 +1,23 @@
-<div *ngIf="param!='editlabel'">
+<div>
     <app-createnote [label]="param"></app-createnote>
     <br><br>
+    <!-- <div *ngFor="let labels of labelNotes"> -->
+    <!-- <div *ngIf="labels.labelname==param&&notes.id==labels.noteid"> -->
+    <!-- <app-display-data  [notes]="notes"></app-display-data> -->
+    <!-- </div> -->
+    <!-- </div> -->
+
     <div style="flex-wrap: wrap;">
-        <div class="notes" fxFlexOffset="15" style="flex-direction: row;
-         box-sizing: border-box; display: flex; margin-left: 5%;">
-            <div *ngFor="let notes of allNotes">
+        <div class={{gridView}} fxLayout={{gridView}} fxFlexOffset="15"
+            style="flex-direction: row;box-sizing: border-box; display: flex; margin-left: 5%;">
+            <div *ngFor="let note of allNotes" class="space">
                 <div *ngFor="let labels of labelNotes">
-                    <div *ngIf="labels.labelname==param&&notes.id==labels.noteid">
-                        <app-display-data [labels]="labelNotes" [notes]="notes"></app-display-data>
+                    <div *ngIf="labels.labelname==param&&note.id==labels.noteid">
+                        <app-display-data [labels]="labelNotes" [notes]="note"></app-display-data>
+                        <br>
                     </div>
                 </div>
+               
             </div>
         </div>
     </div>

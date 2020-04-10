@@ -3,7 +3,7 @@
         <div class="Main">
             <div class="sideNavIcon">
                 <div>
-                    <mat-icon (click)="drawer.toggle()" >menu</mat-icon>
+                    <mat-icon (click)="drawer.toggle()">menu</mat-icon>
                 </div>
                 <div>Fundoo</div>
             </div>
@@ -35,24 +35,25 @@
                         <button id="refreshbutton" mat-icon-button>
                             <mat-icon>refresh</mat-icon>
                         </button>
-                        <button mat-icon-button *ngIf="view" (click)="gridView()">
+                        <button mat-icon-button *ngIf="view" matTooltip="View Grid" (click)="gridView()">
                             <mat-icon>view_module</mat-icon>
                         </button>
-                        <button mat-icon-button *ngIf="!view" (click)="gridView()">
+                        <button mat-icon-button *ngIf="!view" matTooltip="List View" (click)="gridView()">
                             <mat-icon>view_agenda</mat-icon>
                         </button>
                     </div>
-                    <div class="account">
-                        <button mat-icon-button [matMenuTriggerFor]="account" matTooltip="settings">
-                            <mat-icon>account_circle</mat-icon>
-                        </button>
+                    <button *ngIf="userValues.profile!=null; else showDefault" mat-icon-button   matTooltip="settings" class="circle">
+                        <img  src="assets/{{userValues.profile}}" class="image"> 
+                    </button>
+                    <ng-template #showDefault>
+                        <mat-icon  [matMenuTriggerFor]="account" matTooltip="Account">account_circle</mat-icon>
+                    </ng-template>
 
-                        <div class="account">
-                            <mat-menu #account="matMenu">
-                               <app-signout></app-signout>
-                            </mat-menu>
-                        </div>
-                    </div>
+                    
+                        <mat-menu #account="matMenu">
+                            <app-signout [valuesOfUserData]="userValues"></app-signout>
+                        </mat-menu>
+                  
                 </div>
             </div>
         </div>
@@ -68,7 +69,7 @@
                 <a mat-list-item matTooltip="notes" (click)="showNote()">
                     <mat-icon>lightbulb_outline</mat-icon>Notes
                 </a> <br>
-                <a mat-list-item  (click)="showReminder()" matTooltip="reminder">
+                <a mat-list-item (click)="showReminder()" matTooltip="reminder">
                     <mat-icon>notifications</mat-icon>Reminders
                 </a>
 
@@ -76,22 +77,22 @@
 
                 <label>Labels</label><br>
                 <div *ngFor="let notes of labels">
-                    <a mat-list-item   matTooltip={{notes.labelname}} (click)="labelOperation(notes.labelname)">
+                    <a mat-list-item matTooltip={{notes.labelname}} (click)="labelOperation(notes.labelname)">
                         <mat-icon>label</mat-icon>{{notes.labelname}}
                     </a> <br>
                 </div>
-                
+
                 <div>
-                   
-                    <a mat-list-item  matTooltip="notes" (click)="editlabels(labels)">
+
+                    <a mat-list-item matTooltip="notes" (click)="editlabels(labels)">
                         <mat-icon>edit</mat-icon>Edit Labels
                     </a>
-                </div> 
+                </div>
                 <br>
 
                 <mat-divider class="divider"></mat-divider>
 
-                <a mat-list-item  (click)="showArchive()" matTooltip="archive">
+                <a mat-list-item (click)="showArchive()" matTooltip="archive">
                     <mat-icon>archive</mat-icon>Archive
                 </a> <br>
 

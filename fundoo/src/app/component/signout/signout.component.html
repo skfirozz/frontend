@@ -1,13 +1,16 @@
-<mat-card class="signout">
+<mat-card class="si">
     <div fxLayout="column">
-        <!-- <img *ngIf="userValues.profile!=null" style="border: none; width: 150%; " src={{userValues.profile}} height="65%"> -->
+        <div>
+            <img *ngIf="valuesOfUserData.profile!=null" src="assets/{{valuesOfUserData.profile}}" class="image">
 
-        <mat-card-title>
-            <!-- <strong>{{userValues.name}}</strong> -->
-        </mat-card-title>
+            <mat-icon *ngIf="valuesOfUserData.profile==null" class="image" matTooltip="Upload Profile Pic">
+                account_circle</mat-icon>
+            <input id="file-input" type="file" value="" #email />
+        </div>
+        <strong>{{valuesOfUserData.name}}</strong>
     </div>
+    {{valuesOfUserData.email}}
+    <br>
     <mat-divider class="divider"></mat-divider>
-
-    <button mat-dialog-close mat-raised-button class="button" (click)="SignOut()">SignOut</button>
-
+    <button mat-dialog-close mat-raised-button color="primary" class="button" (click)="SignOut()">SignOut</button>
 </mat-card>
