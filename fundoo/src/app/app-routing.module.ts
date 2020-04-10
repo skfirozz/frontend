@@ -21,7 +21,6 @@ const routes: Routes = [
     children: [
       { path: 'notes', component: DisplaynotesComponent },
       { path: 'labels', component: LabelnotesComponent },
-
     ]
   }
 ]

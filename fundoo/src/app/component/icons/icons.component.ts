@@ -14,6 +14,7 @@ import { CollaboratorComponent } from '../collaborator/collaborator.component';
 })
 export class IconsComponent implements OnInit {
 
+  @Input() param:any;
   @Input() notes: Note = new Note();
   @Output() outputProperty = new EventEmitter<any>();
   value: Label = new Label();

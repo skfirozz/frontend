@@ -1,9 +1,12 @@
-.notes {
-    height: 76%;
-    width: 6cm;
-    border-radius: 0 10px 10px 0;
-    margin: 0 6px;
-}
+.matcardnote{
+    width:7cm;
+    left:23%;
+  }
+  .shownotes{
+    margin-top:1%;
+    bottom: 20%;
+    padding-right: 20px;
+  }
 .pin {
     right: 0%;
 }
@@ -31,4 +34,12 @@
     background-color: rgb(190, 181, 181);
     border-radius: 30%;
     margin: 0 2px;
+}
+.icons{
+    visibility: hidden;
+}
+.shownotes:hover{
+    .icons{
+        visibility: visible;
+    }
 }

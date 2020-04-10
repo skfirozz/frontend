@@ -14,6 +14,7 @@ export class DisplayDataComponent implements OnInit {
 
   @Input() notes: Note = new Note();
   @Input() labels:any;
+  @Input() param:any;
   color: Note = new Note();
   edit: boolean = false;
   getLabel:any;

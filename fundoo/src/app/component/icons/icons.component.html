@@ -2,25 +2,37 @@
     <div style="padding-left: 15px;padding-top: 10px;" fxLayout="row">
         <div class="colorlist">
             <a>
-                <mat-icon class="icon"  matTooltip="Remind Me" (click)="reminder(notes)">add_alert</mat-icon>
-                <mat-icon matTooltip="collaborator" (click)="collaborator(notes.id)" class="icon">person_add
-                </mat-icon>
-                
-                <mat-icon [matMenuTriggerFor]="colorlist" class="icon" matTooltip="Add Color">palette
-                </mat-icon>
-                <mat-icon class="icon" matTooltip="Add image">image</mat-icon>
+                <button mat-icon-button (click)="reminder(notes)" matTooltip="Remind Me" class="{{param}}">
+                    <mat-icon>add_alert</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="collaborator" (click)="collaborator(notes.id)" class="{{param}}">
+                    <mat-icon>person_add</mat-icon>
+                </button>
 
-
-                <mat-icon class="icon" *ngIf="notes.isarchived; else showarchive"
-                    (click)="archive(notes.id, notes.isarchived)" matTooltip="UnArchive">unarchive
-                </mat-icon>
-
-                <ng-template #showarchive>
-                    <mat-icon class="icon" (click)="archive(notes.id, notes.isarchived)" matTooltip="Archive">archive
+                <button mat-icon-button [matMenuTriggerFor]="colorlist" class="{{param}}" matTooltip="Add Color">
+                    <mat-icon>palette
                     </mat-icon>
-                </ng-template>
+                </button>
+                <button mat-icon-button class="{{param}}" matTooltip="Add image">
+                    <mat-icon>image</mat-icon>
+                </button>
 
-                <mat-icon [matMenuTriggerFor]="more" class="icon" matTooltip="more">more_vert</mat-icon>
+
+                <button mat-icon-button class="{{param}}" *ngIf="notes.isarchived; else showarchive"
+                    (click)="archive(notes.id, notes.isarchived)" matTooltip="UnArchive">
+                    <mat-icon>unarchive</mat-icon>
+                </button>            
+                    <ng-template #showarchive>
+                        <button mat-icon-button class="{{param}}" (click)="archive(notes.id, notes.isarchived)"
+                            matTooltip="Archive">
+                            <mat-icon>
+                                archive
+                            </mat-icon>
+                        </button>
+                    </ng-template>
+                <button mat-icon-button [matMenuTriggerFor]="more" class="{{param}}" matTooltip="more">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
             </a>
         </div>
 
@@ -50,8 +62,10 @@
 </div>
 
 <ng-template #showtrash>
-
-    <mat-icon class="icon" (click)="delete(notes.id)" matTooltip="Delete forever">delete_forever</mat-icon>
-    <mat-icon class="icon" (click)="unTrash(notes.id,notes)" matTooltip="Restore">restore_from_trash</mat-icon>
-
+    <button mat-menu-item class="{{param}}" (click)="delete(notes.id)" matTooltip="Delete forever">
+        <mat-icon>delete_forever</mat-icon>
+    </button>
+    <button mat-menu-item class="{{param}}" (click)="unTrash(notes.id,notes)" matTooltip="Restore">
+        <mat-icon>restore_from_trash</mat-icon>
+    </button>
 </ng-template>
