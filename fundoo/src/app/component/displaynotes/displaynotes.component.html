@@ -56,7 +56,7 @@
 
 
 <div *ngIf="param=='reminder'">
-    <app-createnote ></app-createnote>
+    <app-createnote [reminder]="reminder"></app-createnote>
     <br>
     <div style="flex-wrap: wrap;">
         <div class={{gridView}}  fxLayout={{gridView}} fxFlexOffset="15"

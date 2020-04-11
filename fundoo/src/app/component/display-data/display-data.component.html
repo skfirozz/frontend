@@ -16,8 +16,8 @@
 
         <div fxLayout="row" class="label">
             <div *ngFor="let label of labels">
-                <div *ngIf="label.noteid==notes.id">
-                    <div class="labelVisibility" fxLayout="row">
+                <div *ngIf="label.noteid==notes.id" fxLayout="row">
+                    <div class="labelVisibility" >
                         {{label.labelname}}
                         <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel(label.id)">
                             <mat-icon>close</mat-icon>
@@ -32,7 +32,7 @@
                 {{notes.reminder}}
 
                 <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : notes.color}"
-                    class="labelCancelVisibilty" style="border: none;outline: none;">
+                    class="labelCancelVisibilty" style="border: none;outline: none;border-radius: 20px;">
                     <mat-icon (click)="deleteReminder(notes.id)">close</mat-icon>
                 </button>
             </div>
@@ -43,5 +43,4 @@
             <app-icons [param]="param" [notes]="notes"></app-icons>
         </mat-card-footer>
     </mat-card>
-
 </div>

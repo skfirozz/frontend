@@ -16,6 +16,7 @@ export class CreatenoteComponent implements OnInit {
   createNoteForm: FormGroup;
   notes: Note = new Note();
   @Input() label:any;
+  @Input() reminder:any;
   constructor(private formBuilder: FormBuilder, private router: Router, private serviceObject: NoteservicesService) { }
 
   ngOnInit() {
@@ -41,6 +42,7 @@ export class CreatenoteComponent implements OnInit {
       this.notes.labelname=this.label;
       this.notes.color=null;
       this.notes.ispinned=0;
+      this.notes.reminder=this.reminder;
       this.notes.token=localStorage.token;
       this.serviceObject.createNote(this.notes).subscribe( response => {
         console.log(response.message);

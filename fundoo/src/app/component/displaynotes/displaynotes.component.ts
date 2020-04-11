@@ -17,11 +17,12 @@ export class DisplaynotesComponent implements OnInit {
   param: any;
   labelNotes:any;
   gridView:any;
-  reminder="Tomorrow 8:00 AM";
+  reminder:any;
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
+    this.reminder="Tomorrow 8:00 AM";
     this.getLabelNote();
     this.noteservice.getAllNotes().subscribe( Response => this.allnotes=Response.data);
     this.route.queryParams.subscribe(params => {
