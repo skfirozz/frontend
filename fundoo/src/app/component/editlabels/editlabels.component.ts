@@ -21,7 +21,7 @@ export class EditlabelsComponent implements OnInit {
   }
 
   createLabels(data) {
-    debugger;
+    // debugger;
     if (data != null) {
       this.labelname.labelname = data;
       if (this.data.labels.id == null)
@@ -31,7 +31,7 @@ export class EditlabelsComponent implements OnInit {
       }
       this.labelname.token=localStorage.token;
       this.noteService.createLabel(this.labelname).subscribe(response => {
-        window.location.reload();
+      location.reload();
       
       });
     }
@@ -56,7 +56,7 @@ export class EditlabelsComponent implements OnInit {
       console.log(response.message);
     })
     console.log("your output: " + id);
-    // window.location.reload();
+    location.reload();
   }
 
   editLabel() {

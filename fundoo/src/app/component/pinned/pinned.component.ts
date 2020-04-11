@@ -23,8 +23,7 @@ export class PinnedComponent implements OnInit {
     this.color.ispinned=1;
     else this.color.ispinned=0;
     this.noteservice.updatePin(this.color).subscribe( Response => console.log(Response.message));
-    
-    window.location.reload();
+    location.reload();
   }
 
 }

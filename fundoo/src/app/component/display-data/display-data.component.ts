@@ -47,7 +47,7 @@ export class DisplayDataComponent implements OnInit {
     this.noteservice.deleteReminder(this.color).subscribe( Response => {
       console.log(Response.message);
     })
-    window.location.reload();
+    location.reload();
   }
 
   removeLabel(id){
@@ -55,7 +55,7 @@ export class DisplayDataComponent implements OnInit {
     this.noteservice.deleteLabel(this.color).subscribe( Response => {
       console.log(Response.message)
     })
-    window.location.reload();
+    location.reload();
   }
 
 }

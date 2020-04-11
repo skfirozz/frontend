@@ -44,6 +44,7 @@ export class CreatenoteComponent implements OnInit {
       this.notes.token=localStorage.token;
       this.serviceObject.createNote(this.notes).subscribe( response => {
         console.log(response.message);
+        location.reload();
       })
     }
     else {

@@ -23,7 +23,7 @@ export class DialogueComponent implements OnInit {
     this.passData.title=title;
     // console.log(this.passData);
     this.service.UpdateNotes(this.passData).subscribe(response => {
-      window.location.reload();
+      location.reload();
       console.log(response.message);
     });
   }

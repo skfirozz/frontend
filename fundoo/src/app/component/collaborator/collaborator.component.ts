@@ -30,7 +30,8 @@ export class CollaboratorComponent implements OnInit {
     this.colData.id=noteId;
     if(email!=null){
     this.colData.email=email;
-    this.noteService.addCollaborator(this.colData).subscribe(Response => console.log(Response.message));  
+    this.noteService.addCollaborator(this.colData).subscribe(Response => console.log(Response.message)); 
+    location.reload(); 
   }
     else
     console.log("error");

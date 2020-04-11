@@ -36,8 +36,12 @@ export class HomeComponent implements OnInit {
   }
 
   search(searchData) {
+    debugger;
     if(searchData!=null){
-      
+      console.log("value is null");
+    }
+    else{
+      console.log(searchData);
     }
     
   }

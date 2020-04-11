@@ -31,7 +31,7 @@ export class IconsComponent implements OnInit {
     this.noteservice.updateTrash(this.color).subscribe(response => {
       console.log(response.message);
     })
-    window.location.reload();
+    location.reload();
   }
 
   delete(noteId: number) {
@@ -40,7 +40,7 @@ export class IconsComponent implements OnInit {
     this.noteservice.deleteNotes(this.color).subscribe(response => {
       console.log(response.message);
     })
-    window.location.reload();
+    location.reload();
   }
 
   archive(noteId: number, notes) {
@@ -51,7 +51,7 @@ export class IconsComponent implements OnInit {
     else
     this.color.isarchived=0;
     this.noteservice.updateArchive(this.color).subscribe( Response => console.log(Response.message));
-    window.location.reload();
+    location.reload();
   }
 
   //working
@@ -65,8 +65,7 @@ export class IconsComponent implements OnInit {
       this.noteservice.updateTrash(this.color).subscribe(response => {
         console.log(response.message);
       })
-    
-    window.location.reload();
+    location.reload();
   }
 
   //working
@@ -77,7 +76,7 @@ export class IconsComponent implements OnInit {
     this.noteservice.setColor(this.color).subscribe(response => {
       console.log(response.message);
     })
-    window.location.reload();
+    location.reload();
   }
 
   addLabel(labels) {
