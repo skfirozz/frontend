@@ -4,7 +4,7 @@
             <div class="ntitle" (click)="OnClicktoUpdate(notes)">
                 {{notes.title}}
             </div>
-            <div class="pinned">
+            <div class="icons">
                 <app-pinned *ngIf="!notes.istrash" [notes]="notes"></app-pinned>
             </div>
         </div>

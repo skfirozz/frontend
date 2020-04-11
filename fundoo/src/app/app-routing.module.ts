@@ -8,6 +8,7 @@ import { DisplaynotesComponent } from './component/displaynotes/displaynotes.com
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import { SignoutComponent } from './component/signout/signout.component';
+import { SearchDataComponent } from './component/search-data/search-data.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
     children: [
       { path: 'notes', component: DisplaynotesComponent },
       { path: 'labels', component: LabelnotesComponent },
+      { path: 'search', component: SearchDataComponent },
     ]
   }
 ]

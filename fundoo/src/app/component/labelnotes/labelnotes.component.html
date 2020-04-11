@@ -17,7 +17,9 @@
                         <br>
                     </div>
                 </div>
-               
+               <div *ngIf="note.labelname==param">
+                <app-display-data  [notes]="note"></app-display-data>
+               </div>
             </div>
         </div>
     </div>

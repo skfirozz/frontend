@@ -45,8 +45,10 @@
                             <mat-icon>view_agenda</mat-icon>
                         </button>
                     </div>
+                  <div class="profile">
                     <img *ngIf="userValues.profile!=null" src="assets/{{userValues.profile}}"
-                        (click)="OpenSignout(userValues)" class="image">
+                    (click)="OpenSignout(userValues)" class="image">
+                  </div>
                 </div>
             </div>
         </div>

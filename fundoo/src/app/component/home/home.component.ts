@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   findData(findValue){
     if(findValue!=null){
-      this.router.navigate(['fundoo/notes'], { queryParams: { page: 'search', searchValues: findValue } });
+      this.router.navigate(['fundoo/search'], { queryParams: { data: findValue} });
     }
   }
 

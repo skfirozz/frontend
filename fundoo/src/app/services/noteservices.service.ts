@@ -116,5 +116,9 @@ export class NoteservicesService {
   deleteReminder(arr){
       return this.httpclient.post<any>(environment.baseUrl + environment.deleteReminder,arr);
   }
+
+  search(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.searchData,arr);
+  }
   
 }
