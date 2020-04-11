@@ -21,15 +21,15 @@
                 <button mat-icon-button class="{{param}}" *ngIf="notes.isarchived; else showarchive"
                     (click)="archive(notes.id, notes.isarchived)" matTooltip="UnArchive">
                     <mat-icon>unarchive</mat-icon>
-                </button>            
-                    <ng-template #showarchive>
-                        <button mat-icon-button class="{{param}}" (click)="archive(notes.id, notes.isarchived)"
-                            matTooltip="Archive">
-                            <mat-icon>
-                                archive
-                            </mat-icon>
-                        </button>
-                    </ng-template>
+                </button>
+                <ng-template #showarchive>
+                    <button mat-icon-button class="{{param}}" (click)="archive(notes.id, notes.isarchived)"
+                        matTooltip="Archive">
+                        <mat-icon>
+                            archive
+                        </mat-icon>
+                    </button>
+                </ng-template>
                 <button mat-icon-button [matMenuTriggerFor]="more" class="visible" matTooltip="more">
                     <mat-icon>more_vert</mat-icon>
                 </button>
@@ -62,10 +62,12 @@
 </div>
 
 <ng-template #showtrash>
-    <button mat-menu-item class="{{param}}" (click)="delete(notes.id)" matTooltip="Delete forever">
-        <mat-icon>delete_forever</mat-icon>
-    </button>
-    <button mat-menu-item class="{{param}}" (click)="unTrash(notes.id,notes)" matTooltip="Restore">
-        <mat-icon>restore_from_trash</mat-icon>
-    </button>
+    <div fxLayout="row">
+        <button mat-menu-item class="{{param}}" class="trash" (click)="delete(notes.id)" matTooltip="Delete forever">
+            <mat-icon>delete_forever</mat-icon>
+        </button>
+        <button mat-menu-item class="{{param}}"  class="trash" (click)="unTrash(notes.id,notes)" matTooltip="Restore">
+            <mat-icon>restore_from_trash</mat-icon>
+        </button>
+    </div>
 </ng-template>

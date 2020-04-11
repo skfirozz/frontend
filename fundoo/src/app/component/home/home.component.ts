@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { FundooAccountServiceService } from 'src/app/fundoo-account-service.service';
-import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';

@@ -17,7 +17,7 @@ export class DisplaynotesComponent implements OnInit {
   param: any;
   labelNotes:any;
   gridView:any;
-  
+  reminder="Tomorrow 8:00 AM";
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 

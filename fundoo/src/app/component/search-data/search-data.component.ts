@@ -19,18 +19,19 @@ export class SearchDataComponent implements OnInit {
     this.router.queryParams.subscribe ( params => {
       this.searchedData = params["data"];
       console.log("---"+this.searchedData);
+      this.findSearchedValue();
     });
-    this.findSearchedValue();
+    
   }
 
   findSearchedValue() {
     // debugger;
-    // this.Note.search = this.searchedData;
+    this.Note.search = this.searchedData;
     this.Note.token = 1;
-    // this.noteservice.search(this.Note).subscribe(Response =>{
-      // this.search = Response.message;
+    this.noteservice.search(this.Note).subscribe(Response =>{
+      this.search=Response.data;
       console.log(this.Note);
-    // } );
-    
+      console.log(Response.data)
+    });
   }
 }

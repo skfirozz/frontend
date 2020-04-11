@@ -30,6 +30,7 @@
         <div fxLayout="row" *ngIf="notes.reminder!=null">
             <div class="labelVisibility">
                 {{notes.reminder}}
+
                 <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : notes.color}"
                     class="labelCancelVisibilty" style="border: none;outline: none;">
                     <mat-icon (click)="deleteReminder(notes.id)">close</mat-icon>
