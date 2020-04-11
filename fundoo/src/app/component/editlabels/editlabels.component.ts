@@ -17,7 +17,7 @@ export class EditlabelsComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService) { }
 
   ngOnInit(): void {
-    this.allLabels();
+    // this.allLabels();
   }
 
   createLabels(data) {
@@ -43,12 +43,12 @@ export class EditlabelsComponent implements OnInit {
   done() {
 
   }
-  allLabels() {
-    this.noteService.getallLabels().subscribe(Response => {
-      this.allLabelNames = Response.data;
-      console.log(Response.data);
-    })
-  }
+  // allLabels() {
+  //   this.noteService.getallLabels().subscribe(Response => {
+  //     this.allLabelNames = Response.data;
+  //     console.log(Response.data);
+  //   })
+  // }
 
   deleteLabel(id) {
     this.labelname.id = id;

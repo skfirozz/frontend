@@ -1,24 +1,26 @@
-<mat-card style="height:300px;width: 175px; background-color: whitesmoke;">
-    <mat-card-content>
-        <span mat-subheader style="display: block;">Note Labels</span> <br>
-        <div fxLayout="row">
-            <mat-icon mat-dialog-close matTooltip="cancel">close</mat-icon>
-            <input matInput style="border: none; outline: none;background-color: whitesmoke; width:3cm;height:0.7cm"
-                placeholder="Enter label name" matInput [(ngModel)]="nameLabel"> <br>
-            <mat-icon matTooltip="create"  mat-dialog-close (click)="createLabels(nameLabel)" >check</mat-icon>
-        </div>
-
-        <label *ngFor="let lab of allLabelNames" fxLayout="coloum">
+<div style="height:300px;width: 175px; background-color: whitesmoke;">
+    <mat-card>
+        <mat-card-content>
+            <span mat-subheader style="display: block;">Note Labels</span> <br>
             <div fxLayout="row">
-                <mat-icon matTooltip="Delete Label" (click)="deleteLabel(lab.id)"  mat-dialog-close> label</mat-icon>
-                <input style="border: none; outline: none; background-color: whitesmoke;width:3cm;" *ngIf="edit"
-                    value="{{lab.labelname}}">
-                <a *ngIf="!edit" style="width:3cm"> {{lab.labelname}}</a>
-                <mat-icon (click)=editLabel() matTooltip="Rename Label">edit</mat-icon>
+                <mat-icon mat-dialog-close matTooltip="cancel">close</mat-icon>
+                <input matInput style="border: none; outline: none;background-color: whitesmoke; width:3cm;height:0.7cm"
+                    placeholder="Enter label name" matInput [(ngModel)]="nameLabel"> <br>
+                <mat-icon matTooltip="create"  mat-dialog-close (click)="createLabels(nameLabel)" >check</mat-icon>
             </div>
-            <br>
-        </label>
-    </mat-card-content>
-    <mat-divider class="divider"></mat-divider>
-    <button mat-button mat-dialog-close matTooltip="close">Done</button>
-</mat-card>
+    
+            <label *ngFor="let lab of data.labels" fxLayout="coloum">
+                <div fxLayout="row">
+                    <mat-icon matTooltip="Delete Label" (click)="deleteLabel(lab.id)"  mat-dialog-close> label</mat-icon>
+                    <input style="border: none; outline: none; background-color: whitesmoke;width:3cm;" *ngIf="edit"
+                        value="{{lab.labelname}}">
+                    <a *ngIf="!edit" style="width:3cm"> {{lab.labelname}}</a>
+                    <mat-icon (click)=editLabel() matTooltip="Rename Label">edit</mat-icon>
+                </div>
+                <br>
+            </label>
+        </mat-card-content>
+        <mat-divider class="divider"></mat-divider>
+        <button mat-button mat-dialog-close matTooltip="close">Done</button>
+    </mat-card>
+</div>

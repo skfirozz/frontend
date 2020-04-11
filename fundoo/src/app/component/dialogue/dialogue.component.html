@@ -1,21 +1,23 @@
-<mat-card [ngStyle]="{'background-color' : data.note.color}" class="mat">
+<div [ngStyle]="{'background-color' : data.note.color}" class="mat">
+    <mat-card>
 
-    <div fxLayout="row">
+        <div fxLayout="row">
+            <div>
+                <strong> <input style="border: none; outline: none;" [ngStyle]="{'background-color' : data.note.color}"
+                        matInput type="text" class="ntitle" value="{{data.note.title}}" #title> </strong>
+            </div>
+            <app-pinned [notes]="data.note"></app-pinned>
+        </div>
+
         <div>
-            <strong> <input style="border: none; outline: none;" [ngStyle]="{'background-color' : data.note.color}"
-                    matInput type="text" class="ntitle" value="{{data.note.title}}" #title> </strong>
-        </div>
-        <app-pinned [notes]="data.note"></app-pinned>
-    </div>
+            <i> <input style="border: none; outline: none;" [ngStyle]="{'background-color' : data.note.color}" matInput
+                    type="text" class="titles" value="{{data.note.description}}" #description> </i>
 
-    <div>
-        <i> <input style="border: none; outline: none;" [ngStyle]="{'background-color' : data.note.color}" matInput
-                type="text" class="titles" value="{{data.note.description}}" #description> </i>
-
-        <div fxLayout="row" style="padding-top: 32px;">
-            <app-icons [notes]="data.note"></app-icons>
-            <button mat-button mat-dialog-close
-                (click)="updateNote(title.value, description.value, data.note.id)">Close</button>
+            <div fxLayout="row" style="padding-top: 32px;">
+                <app-icons [notes]="data.note"></app-icons>
+                <button mat-button mat-dialog-close
+                    (click)="updateNote(title.value, description.value, data.note.id)">Close</button>
+            </div>
         </div>
-    </div>
-</mat-card>
+    </mat-card>
+</div>
