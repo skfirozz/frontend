@@ -10,4 +10,5 @@ export class Note{
     isarchived:number;
     reminder:string;
     token:number;
+    search:number;
 }

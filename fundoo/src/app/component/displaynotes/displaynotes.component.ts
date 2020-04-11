@@ -11,17 +11,13 @@ import { Label } from 'src/app/model/label.model';
 })
 export class DisplaynotesComponent implements OnInit {
 
-  unPinNotes: Note[];
+ 
   allnotes:any;
-  pinnedNotes: any;
-  unpinnedNotes: any;
-  archive: any;
-  trash: any;
-  color: Note = new Note();
+  Note: Note = new Note();
   param: any;
   labelNotes:any;
   gridView:any;
-  //  @Input() note:Note= new Note();
+  search:any;
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 
@@ -31,6 +27,9 @@ export class DisplaynotesComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.param = params['page'];
       this.gridView=  params['view'];
+      if(this.param=='search'){
+        this.search=params['searchValues'];
+      }
     });
   }
 
@@ -39,6 +38,13 @@ export class DisplaynotesComponent implements OnInit {
     this.noteservice.getLabelNotes().subscribe(Response => {
       this.labelNotes=Response.data;
     })
+  }
+
+
+  findSearchedValue(){
+    this.Note.search=this.search;
+    this.Note.id=localStorage.token;
+    this.noteservice.
   }
 
 }

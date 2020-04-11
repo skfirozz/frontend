@@ -35,17 +35,15 @@ export class HomeComponent implements OnInit {
     this.userDatas();
   }
 
-  search(searchData) {
-    debugger;
-    if(searchData!=null){
-      console.log("value is null");
+  findData(findValue){
+    if(findValue!=null){
+      this.router.navigate(['fundoo/notes'], { queryParams: { page: 'search', searchValues: findValue } });
     }
-    else{
-      console.log(searchData);
-    }
-    
   }
 
+  reload() {
+    location.reload();
+  }
   getLabel() {
     // debugger;
     this.serviceobj.getallLabels().subscribe(response => {

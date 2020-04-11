@@ -8,11 +8,16 @@
                 <div>Fundoo</div>
             </div>
             <div class="searchWhole">
-                <div class="searchbar">                  
-                    <div>
-                        <input class="input" matInput type="searchbar" placeholder=" Search" value=""
-                            style="outline:none; color: rgb(218, 110, 110);" matInput #searchData>
-                          <button mat-icon-button (click)="searchData(searchData.value)"><mat-icon>search</mat-icon></button>
+                <div class="searchbar">
+                    <div class="searchIcon">
+                        <mat-icon matSuffix>search</mat-icon>
+                    </div>
+                    <div fxLayout="row">
+                        <input class="input"  value="" type="" placeholder="  Search"
+                            style="outline:none;" (keyup.enter)="findData(val.value)" #val>
+                        <button style="border: none;outline: none;background-color: white;" (click)="reload()">
+                            <mat-icon>close</mat-icon>
+                        </button>
                     </div>
                 </div>
 
