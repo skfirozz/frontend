@@ -2,7 +2,7 @@
     width:7cm;
     left:23%;
   }
-  .shownotes{
+.shownotes{
     margin-top:1%;
     bottom: 20%;
     padding-right: 20px;
@@ -50,6 +50,9 @@
 
 .labelCancelVisibilty{
     visibility: hidden;
+    background-color: rgb(214, 191, 191);
+    outline: none;
+    border: none;
 }
 
 .labelVisibility{
@@ -60,8 +63,7 @@
     background-color: rgb(214, 191, 191);
     border-radius: 30%;
     margin: 0 2px;
-    opacity: 40%;
-
+    opacity: 60%;
 }
 .labelVisibility:hover{
     .labelCancelVisibilty{

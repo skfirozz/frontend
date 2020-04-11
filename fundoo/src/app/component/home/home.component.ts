@@ -35,17 +35,11 @@ export class HomeComponent implements OnInit {
     this.userDatas();
   }
 
-  search() {
-    const data = {
-      searchData: this.searchData.value,
-    };
-    console.log(data);
-    this.serviceObject.geSearchValue(data).subscribe((result) => {
-      const temp = JSON.stringify(result);
-      const results = JSON.parse(temp);
-      this.router.navigate(['']);
-    });
-    this.serviceObject.geSearchValue(data);
+  search(searchData) {
+    if(searchData!=null){
+      
+    }
+    
   }
 
   getLabel() {

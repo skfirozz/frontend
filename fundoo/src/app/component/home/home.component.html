@@ -8,13 +8,11 @@
                 <div>Fundoo</div>
             </div>
             <div class="searchWhole">
-                <div class="searchbar">
-                    <div class="searchIcon">
-                        <mat-icon matSuffix>search</mat-icon>
-                    </div>
+                <div class="searchbar">                  
                     <div>
                         <input class="input" matInput type="searchbar" placeholder=" Search" value=""
-                            style="outline:none; color: darkgray;" #search>
+                            style="outline:none; color: darkgray;" matInput #searchData>
+                          <button mat-icon-button (click)="searchData(searchData.value)"><mat-icon  matSuffix>search</mat-icon></button>
                     </div>
                 </div>
 

@@ -50,4 +50,8 @@ export class CreatenoteComponent implements OnInit {
       this.popup = true;
     }
   }
+
+  removeLabel(){
+    this.label=null;
+  }
 }

@@ -43,13 +43,7 @@
 
 .input {
     width: 47em;
-   
     border-style: none;
-}
-
-.searchIcon {
-    display: flex;
-    align-items: center;
 }
 
 .example-container {
@@ -188,4 +182,7 @@
 .image{
     height: 2cm;
     width: 2cm;
+}
+.hidden{
+    visibility: hidden;
 }

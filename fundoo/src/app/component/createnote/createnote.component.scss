@@ -34,3 +34,22 @@
 .buttons{
     margin-right: 30%;
 }
+.labelVisibility{
+    border: none;
+    outline: none;
+    height: 30px;
+    width: auto;
+    background-color: rgb(214, 191, 191);
+    border-radius: 30%;
+    margin: 0 2px;
+    opacity: 60%;
+}
+.labelCancelVisibilty{
+    visibility: hidden;
+}
+.labelVisibility:hover{
+    .labelCancelVisibilty{
+        margin-top: auto;
+        visibility: visible;
+    }
+}

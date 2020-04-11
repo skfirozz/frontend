@@ -21,6 +21,13 @@
       <div class="icon" style="display:flex; justify-content: space-between; width: 100%;">
         <div>
         </div>
+        <div class="labelVisibility" *ngIf="label!=null">
+          {{label}}
+
+          <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <app-icons></app-icons>
           <div>
             
