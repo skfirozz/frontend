@@ -23,7 +23,7 @@ export class DisplayDataComponent implements OnInit {
   }
 
   ngOnInit() {
-  debugger;
+  // debugger;
   this.getLabel=this.param;
   }
 

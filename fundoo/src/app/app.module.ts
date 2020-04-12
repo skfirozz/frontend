@@ -97,7 +97,7 @@ import { SearchDataComponent } from './component/search-data/search-data.compone
     RouterModule.forRoot([])
 
   ],
-  entryComponents: [DialogueComponent,CollaboratorComponent,ReminderComponent],
+  entryComponents: [DialogueComponent,CollaboratorComponent,ReminderComponent,SignoutComponent],
   providers: [FundooAccountServiceService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })

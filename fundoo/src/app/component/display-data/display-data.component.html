@@ -16,7 +16,7 @@
 
         <div fxLayout="row" class="label">
             <div *ngFor="let label of labels">
-                <div *ngIf="label.noteid==notes.id||param==notes.labelname" fxLayout="row">
+                <div *ngIf="label.noteid==notes.id" fxLayout="row">
                     <div class="labelVisibility" >
                         {{label.labelname}}
                         <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel(label.id)">

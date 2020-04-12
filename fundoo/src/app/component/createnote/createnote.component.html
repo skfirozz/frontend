@@ -13,7 +13,7 @@
     </div>
   </mat-card>
 
-  <mat-card style=" width: 10cm; border-radius: 13px;box-shadow: 3px 3px 3px 3px;" *ngIf="popup" class="mat1-card"
+  <mat-card style=" width: 10cm;height:auto; border-radius: 13px;box-shadow: 3px 3px 3px 3px;" *ngIf="popup" class="mat1-card"
     fxLayout="column">
     <form [formGroup]="createNoteForm" (ngSubmit)="onSubmit()" noval>
       <input style="border: none;  height: 60px;" matInput type="text" class="input" placeholder="title"
@@ -22,9 +22,9 @@
       <input style="border: none;  height: 60px;" matInput type="text" class="input" placeholder="discription"
         formControlName="description">
 
-      <div class="icon" style="display:flex; justify-content: space-between; width: 100%;">
-        <div class="labelVisibility" *ngIf="label!=null">
-          {{label}} {{reminder}}
+      <div style="display:flex; justify-content: space-between; width: 100%;">
+        <div class="labelVisibility" *ngIf="label!=null||reminder!=null">
+          {{label}}{{reminder}}
           <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel()">
             <mat-icon>close</mat-icon>
           </button>
@@ -36,7 +36,6 @@
           <button style=" border-radius: 10px 10px 10px 10px; outline: none; background-color: rgb(255, 255, 255);"
             class="close">close</button>
         </mat-card-footer>
-
       </div>
     </form>
   </mat-card>

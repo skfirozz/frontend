@@ -3,11 +3,14 @@
         <div>
             <img src="assets/{{data.userValues.profile}}" class="image">
 
-            <div fxLaout="row">
-                <input  style="border: none; outline: none; width: 4cm;" placeholder="Change Profile" type="file" value="" #profile />
-                <button (click)="Upload(profile.value)">Upload</button>
+            <div class="container row">
+                <div class="col-md-6">
+                    <input type="file" (change)="onFileChanged($event)" class="input">
+                </div>
+                <div class="col-md-6">
+                    <input type="button" (click)="onUpload()" value="upload">
+                </div>
             </div>
-
         </div>
         <strong>{{data.userValues.name}}</strong>
     </div>

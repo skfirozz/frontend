@@ -10,7 +10,6 @@ import { ReminderComponent } from './component/reminder/reminder.component';
 import { SignoutComponent } from './component/signout/signout.component';
 import { SearchDataComponent } from './component/search-data/search-data.component';
 
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'date', component: ReminderComponent },

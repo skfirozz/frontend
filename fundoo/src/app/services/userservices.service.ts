@@ -18,4 +18,7 @@ export class UserservicesService {
   register(arr){
     return this.httpclient.post<any>(environment.baseUrl + environment.login, arr);
   }
+  uploadProfilePic(arr){
+    // return this.httpclient.post<any>(environment.baseUrl + environment., arr);
+  }
 }

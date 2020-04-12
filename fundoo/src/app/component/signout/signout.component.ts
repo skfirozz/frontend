@@ -10,16 +10,23 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 })
 export class SignoutComponent implements OnInit {
 
-  val:any;
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private router: Router,private noteService:NoteservicesService) { }
+  val: any;
+  selectedFile: File;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router: Router, private noteService: NoteservicesService) { }
 
   ngOnInit(): void {
+    this.selectedFile;
   }
 
-  Upload(profile)
-  {
-    this.val=profile;
-    console.log(profile);
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    console.log(this.selectedFile.name);
+    if(this.selectedFile.name!=null){
+      
+    }
   }
 
   SignOut() {
