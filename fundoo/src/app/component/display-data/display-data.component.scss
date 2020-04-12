@@ -2,19 +2,20 @@
     width:7cm;
     left:23%;
   }
-.shownotes{
+  .row{
+    width:7cm;
     margin-top:1%;
     bottom: 20%;
-    padding-right: 20px;
-  }
-.pin {
-    right: 0%;
 }
-.icon {
-    border-bottom-color: red;
-    margin: 0 6px;
+.column{
+      left:23%;
+      margin-top:1%;
+      bottom: 20%;
+      padding-right: 20px;
+      width: 15cm;
+  
 }
-.title{
+.pin{
     padding-left: 180px;
     visibility: hidden;
 }
@@ -23,7 +24,7 @@
     padding-bottom: 100px;
     padding-top: 9px;
 }
-.ntitle{
+.title{
     font-size: 20px;
     
 }
@@ -39,36 +40,35 @@
 .icons{
     visibility: hidden;
 }
-.shownotes:hover{
+.row:hover{
     .icons{
         visibility: visible;
     }
-    .title{
+    .pin{
         visibility: visible;;
     }
 }
-
-.pinned{
-    margin-right: 80px;
+.column:hover{
+    .icons{
+        visibility: visible;
+    }
+    .pin{
+        visibility: visible;;
+    }
 }
-
 .labelCancelVisibilty{
     visibility: hidden;
     background-color: rgb(214, 191, 191);
     outline: none;
     border: none;
 }
-
 .labelVisibility{
     border: none;
     outline: none;
     height: 1cm;
     width: auto -10%;
     background-color: rgb(214, 191, 191);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
     margin: 0 2px;
     opacity: 60%;
 }
@@ -76,6 +76,5 @@
     .labelCancelVisibilty{
         margin-top: auto;
         visibility: visible;
-    }
-    
+    }   
 }

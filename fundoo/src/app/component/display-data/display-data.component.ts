@@ -12,6 +12,7 @@ import { Label } from 'src/app/model/label.model';
 })
 export class DisplayDataComponent implements OnInit {
 
+  
   @Input() notes: Note = new Note();
   @Input() labels:any;
   @Input() param:any;
@@ -22,6 +23,8 @@ export class DisplayDataComponent implements OnInit {
   }
 
   ngOnInit() {
+  debugger;
+  this.getLabel=this.param;
   }
 
  

@@ -1,10 +1,10 @@
-<div class="shownotes">
-    <mat-card class="matcardnote" [ngStyle]="{'background-color':notes.color}">
+<div class={{param}}>
+    <mat-card class={{param}} [ngStyle]="{'background-color':notes.color}">
         <div fxLayout="row">
-            <div class="ntitle" (click)="OnClicktoUpdate(notes)">
+            <div class="title" (click)="OnClicktoUpdate(notes)">
                 {{notes.title}}
             </div>
-            <div class="title">
+            <div class="pin">
                 <app-pinned *ngIf="!notes.istrash" [notes]="notes"></app-pinned>
             </div>
         </div>
