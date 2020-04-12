@@ -30,8 +30,10 @@ export class DisplayDataComponent implements OnInit {
     if(note.istrash!=true)
     {
       const dialogRef = this.dialog.open(DialogueComponent, {
+        height: '30%',
+        width: '40%',
         data: { note: note },
-        panelClass: 'custom-dialog-container'
+        panelClass: 'backdropBackground',
       });
       dialogRef.afterClosed().subscribe(result => {
         note = result;

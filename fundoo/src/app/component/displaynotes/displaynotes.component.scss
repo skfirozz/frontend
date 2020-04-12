@@ -2,6 +2,7 @@
     height: 76%;
     width: 6cm;
     // background-color: red;
+    display: flex;
     border-radius: 0 10px 10px 0;
     margin: 0 6px;
     
@@ -9,6 +10,7 @@
 .column {
     height:76%;
     width: 15cm;
+    display: flex;
     border-radius: 0 10px 10px 0;
     margin-bottom: 0 auto;
     
@@ -35,4 +37,6 @@
 }
 .space {
     margin: 0 6px;
+   
+    flex-wrap: wrap;
 }

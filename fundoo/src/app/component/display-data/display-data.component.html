@@ -4,7 +4,7 @@
             <div class="ntitle" (click)="OnClicktoUpdate(notes)">
                 {{notes.title}}
             </div>
-            <div class="icons">
+            <div class="title">
                 <app-pinned *ngIf="!notes.istrash" [notes]="notes"></app-pinned>
             </div>
         </div>
@@ -16,14 +16,19 @@
 
         <div fxLayout="row" class="label">
             <div *ngFor="let label of labels">
-                <div *ngIf="label.noteid==notes.id" fxLayout="row">
-                    <div class="labelVisibility" >
+                <div *ngIf="label.noteid==notes.id;else second" fxLayout="row">
+                    <div class="labelVisibility">
                         {{label.labelname}}
                         <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel(label.id)">
                             <mat-icon>close</mat-icon>
                         </button>
                     </div>
                 </div>
+                <ng-template #second>
+                    <ng-container>
+                        {{notes.labelname}}
+                    </ng-container>
+                </ng-template>
             </div>
         </div>
 
