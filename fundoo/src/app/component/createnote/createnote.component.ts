@@ -56,5 +56,6 @@ export class CreatenoteComponent implements OnInit {
 
   removeLabel(){
     this.label=null;
+    this.reminder=null;
   }
 }
