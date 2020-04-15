@@ -48,6 +48,10 @@
                   <div class="profile">
                     <img *ngIf="userValues.profile!=null" src="assets/{{userValues.profile}}"
                     (click)="OpenSignout(userValues)" class="image">
+
+                    <button mat-icon-button *ngIf="userValues.profile==null" matTooltip="PROFILE" (click)="OpenSignout(userValues)">
+                        <mat-icon> account_circle</mat-icon>
+                    </button>              
                   </div>
                 </div>
             </div>

@@ -21,6 +21,10 @@ export class NoteservicesService {
     let token=localStorage.token;
     return this.httpclient.get<any>(environment.baseUrl + environment.info + "?token=" + token )
   }
+  updateProfile(arr){
+    return this.httpclient.post<any>(environment.baseUrl + environment.updateProfile ,arr);
+    
+  }
 
   createNote(arr) {
     return this.httpclient.post<any>(environment.baseUrl + environment.createNote, arr);

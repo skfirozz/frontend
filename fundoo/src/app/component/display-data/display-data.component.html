@@ -3,6 +3,7 @@
         <div fxLayout="row">
             <div class="ntitle" (click)="OnClicktoUpdate(notes)">
                 {{notes.title}}
+                
             </div>
             <div class="pin">
                 <app-pinned *ngIf="!notes.istrash" [notes]="notes"></app-pinned>

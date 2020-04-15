@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   }
 
   reload() {
-    location.reload();
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: this.grid } });
   }
   getLabel() {
     // debugger;

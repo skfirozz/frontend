@@ -12,13 +12,15 @@ export class SearchDataComponent implements OnInit {
   search: any;
   searchedData: any;
   Note: Note = new Note();
+  // param="row";
   constructor(private noteservice:NoteservicesService, private router : ActivatedRoute) { }
 
   ngOnInit(): void {
 
+    // debugger;
     this.router.queryParams.subscribe ( params => {
       this.searchedData = params["data"];
-      console.log("---"+this.searchedData);
+      console.log("hiiiiiiiiiiiiiiiii");
       this.findSearchedValue();
     });
     
@@ -27,9 +29,10 @@ export class SearchDataComponent implements OnInit {
   findSearchedValue() {
     // debugger;
     this.Note.search = this.searchedData;
-    this.Note.token = 1;
+    this.Note.token = localStorage.token;
     this.noteservice.search(this.Note).subscribe(Response =>{
       this.search=Response.data;
+      console.log("testing");
       console.log(this.Note);
       console.log(Response.data)
     });

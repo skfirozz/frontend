@@ -11,4 +11,5 @@ export class Note{
     reminder:string;
     token:number;
     search:number;
+    profilePic:string;
 }

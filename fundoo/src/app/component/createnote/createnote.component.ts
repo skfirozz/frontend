@@ -40,7 +40,7 @@ export class CreatenoteComponent implements OnInit {
       this.notes.title=this.createNoteForm.value.title;
       this.notes.description=this.createNoteForm.value.description;
       this.notes.labelname=this.label;
-      this.notes.color=null;
+      this.notes.color="blue";
       this.notes.ispinned=0;
       this.notes.reminder=this.reminder;
       this.notes.token=localStorage.token;

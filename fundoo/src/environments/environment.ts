@@ -13,6 +13,7 @@ export const environment = {
 
   info: "userDetails/",
   searchData: "searchData/",
+  updateProfile: "updateProfile/",
 
 
 
