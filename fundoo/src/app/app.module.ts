@@ -43,6 +43,7 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SearchDataComponent } from './component/search-data/search-data.component';
+// import {MatChipsModule} from '@angular/material/chips';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
 @NgModule({
@@ -73,6 +74,7 @@ import { SearchDataComponent } from './component/search-data/search-data.compone
     MatFormFieldModule,
     MatSelectModule,
     AppRoutingModule,
+    // MatChipsModule,
     MatMenuModule,
     FlexLayoutModule,
     MatCardModule,

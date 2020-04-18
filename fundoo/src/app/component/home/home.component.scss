@@ -179,11 +179,12 @@
        height: 2cm;
        width: 2cm;
 }
-.image{
-    height: 2cm;
-    width: 2cm;
-}
+
 .hidden{
     visibility: hidden;
     border-radius: 10px;
 }
+img {
+    height:1cm;
+    border-radius: 50%;
+  }

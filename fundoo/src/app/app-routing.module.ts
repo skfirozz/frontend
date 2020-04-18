@@ -13,7 +13,7 @@ import { SearchDataComponent } from './component/search-data/search-data.compone
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'date', component: ReminderComponent },
-  { path: 'reigister', component: RegisterComponent },
+  { path: '', component: RegisterComponent },
   { path: 'out', component: SignoutComponent },
   { path: 'forgot', component: ForgotComponent },
   {

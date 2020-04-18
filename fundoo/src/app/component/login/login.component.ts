@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', response.token);
         this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: 'row' } });
       }
-
       else {
         console.log("invalid user credentials");
       }
