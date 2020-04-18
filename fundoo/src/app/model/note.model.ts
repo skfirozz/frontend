@@ -9,6 +9,7 @@ export class Note{
     istrash:number;
     isarchived:number;
     reminder:string;
+    collaborator:string;
     token:number;
     search:number;
     profilePic:string;

@@ -1,41 +1,83 @@
-<div class="main">
-  <mat-card style=" width: 10cm; border-radius: 13px;box-shadow: 0px 2px 5px 3px;" *ngIf="!popup" (click)="onPopup()"
-    class="mat-card" fxLayout="row">
-
-    <input matInput class="searchBar" placeholder="take a note...">
-    <div class="buttons" fxLayout="row">
-      <button mat-icon-button class="closedmaticons" matTooltip="New note with drawing">
-        <mat-icon>brush</mat-icon>
-      </button>
-      <button mat-icon-button class="closedmaticons" matTooltip="New note with image">
-        <mat-icon>image</mat-icon>
-      </button>
-    </div>
+<div>
+  <mat-card (click)="onOpen()" *ngIf="!popup" class="closedmatcard">
+    <input matInput class="searchbar" placeholder="Take a note..."><button mat-icon-button class="closedmaticons"
+      matTooltip="New list">
+      <mat-icon>check_box</mat-icon>
+    </button>
+    <button mat-icon-button class="closedmaticons" matTooltip="New note with drawing">
+      <mat-icon>brush</mat-icon>
+    </button>
+    <button mat-icon-button class="closedmaticons" matTooltip="New note with image">
+      <mat-icon>image</mat-icon>
+    </button>
   </mat-card>
 
-  <mat-card style=" width: 10cm;height:auto; border-radius: 13px;box-shadow: 3px 3px 3px 3px;" *ngIf="popup" class="mat1-card"
-    fxLayout="column">
-    <form [formGroup]="createNoteForm" (ngSubmit)="onSubmit()" noval>
-      <input style="border: none;  height: 60px;" matInput type="text" class="input" placeholder="title"
-        formControlName="title">
-      <br>
-      <input style="border: none;  height: 60px;" matInput type="text" class="input" placeholder="discription"
-        formControlName="description">
-
-      <div style="display:flex; justify-content: space-between; width: 100%;">
-        <div class="labelVisibility" *ngIf="label!=null||reminder!=null">
-          {{label}}{{reminder}}
-          <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel()">
-            <mat-icon>close</mat-icon>
+  <mat-card *ngIf="popup" class="openedmatcard" [ngStyle]="{'background-color':noteColor}">
+    <form [formGroup]="createNoteForm">
+      <div style="display: flex;flex-direction: row;align-items: center;">
+        <input type="text" placeholder="Title" class="input" formControlName="title"
+          [ngStyle]="{'background-color':noteColor}">
+      </div>
+      <div>
+        <input type="text" placeholder="description" class="input" formControlName="description"
+          [ngStyle]="{'background-color':noteColor}">
+      </div>
+      <div class="labelVisibility" *ngIf="label!=null||reminder!=null">
+        {{label}}{{reminder}}
+        <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel()"
+          [ngStyle]="{'background-color':noteColor}">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+      <div fxLayout="row">
+        <a>
+          <button mat-icon-button (click)="setReminder()" matTooltip="Remind Me">
+            <mat-icon>add_alert</mat-icon>
           </button>
-        </div>
-        <br>
-        <mat-card-footer class="icons" fxLayout="row">
-          <app-icons></app-icons>
+          <button mat-icon-button matTooltip="collaborator" (click)="setCollaborator()">
+            <mat-icon>person_add</mat-icon>
+          </button>
 
-          <button style=" border-radius: 10px 10px 10px 10px; outline: none; background-color: rgb(255, 255, 255);"
-            class="close">close</button>
-        </mat-card-footer>
+          <button mat-icon-button [matMenuTriggerFor]="colorlist" matTooltip="Add Color">
+            <mat-icon>palette
+            </mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Add image">
+            <mat-icon>image</mat-icon>
+          </button>
+
+
+          <button mat-icon-button *ngIf="isarchive; else showarchive" (click)="archive()" matTooltip="UnArchive">
+            <mat-icon>unarchive</mat-icon>
+          </button>
+          <ng-template #showarchive>
+            <button mat-icon-button (click)="archive()" matTooltip="Archive">
+              <mat-icon>
+                archive
+              </mat-icon>
+            </button>
+          </ng-template>
+          <button mat-icon-button class="visible" matTooltip="more">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <button style="background-color: white;border:none;outline: none;;" (click)="createNote()">close</button>
+        </a>
+      </div>
+
+      <div fxLayout="row">
+        <mat-menu #colorlist="matMenu" [overlapTrigger]="false">
+          <ng-template matMenuContent>
+            <div>
+              <div fxLayout="row" fxLayoutGap="10px" style="margin-top: 1px" *ngFor="let colors of arrayofColors">
+                <div *ngFor="let color of colors">
+                  <button [ngStyle]="{'background-color': color.color}" (click)="setColor(color.color)"
+                    matTooltip="{{ color.name }}" mat-mini-fab></button>
+
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </mat-menu>
       </div>
     </form>
   </mat-card>

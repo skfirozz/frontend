@@ -1,58 +1,73 @@
-.main {
-    display: flex;
-    justify-content: center;
+.searchbar {
+    background-color: white;
+    margin: 0 0;
+    height: 25px;
     width: 100%;
-    margin-top: 4%;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border:none;
+    outline: none;
+  }
+.closedmatcard{
+    width:42%;
+    height:3px;
+    position:sticky;
+    left:25%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    z-index:1000;
+    top: 20px;
 }
-
-.input {
-    outline: black;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: medium;
+.openedmatcard{
+    width:42%;
+    height:auto;
+    left:25%;
+    background-color:white;
+    align-items: center;
+    top:20px;
 }
-
-
-.searchBar {
+.input{
+    width:95%;
+    height:10px;
     border: none;
     outline: none;
+    background-color:white;
+    margin-bottom: 10px;
+    position: relative;
 }
-
-.iconlist {
-    margin-top: 3%;
+.threedots{
+    transform: rotate(90deg);
 }
-
-.close:hover {
-    background-color: rgb(196, 178, 161);
+.close{
+    margin-left: 20%;
+    border:none;
     outline: none;
 }
-
-.close:active {
-    border: none;
-    outline: none;
-    border-radius: 10px 10px 10px 10px;
+.expandedicons{
+    width:11%;
 }
-.buttons{
-    margin-right: 30%;
+mat-icon{
+    opacity: 0.7;
+    font-size: 17px;
 }
-.labelVisibility{
-    border: none;
-    outline: none;
-    height: 1cm;
-    width: auto;
-    background-color: rgb(214, 191, 191);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin: 0 2px;
-    opacity: 60%;
+.openedmatcard.icons{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: stretch;
 }
-.labelCancelVisibilty{
-    visibility: hidden;
+#auto-width {
+    width: calc(100% - 200px);
 }
-.labelVisibility:hover{
-    .labelCancelVisibilty{
-        margin-top: auto;
-        visibility: visible;
+.openedmatcard{
+    .mat-card-footer {
+        margin: 0 -16px -16px -16px;
+        display: flex;
+        flex-direction: row;
+        width:30%;
     }
 }

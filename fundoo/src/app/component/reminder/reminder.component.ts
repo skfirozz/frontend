@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { Note } from 'src/app/model/note.model';
 
@@ -15,7 +15,8 @@ export class ReminderComponent implements OnInit {
   reminder: Note = new Note();
   day = "Today";
   todayString: string = new Date().toDateString();
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService,
+    public dialogRef: MatDialogRef<ReminderComponent>) { }
   ngOnInit(): void {
   }
 
@@ -29,20 +30,26 @@ export class ReminderComponent implements OnInit {
 
   save(date, noteId) {
     // debugger;
-    let str:any;
+    let str: any;
     if (date != "") {
       let v = new Date(date);
       str = v.toDateString();
     }
-    else{
-      str=this.day;
-    }
+    else  str = this.day;
     this.reminder.reminder = str + " " + this.time;
-    this.reminder.id = noteId;
-    console.log(this.reminder);
-    this.noteService.addReminder(this.reminder).subscribe( response => {
-      console.log(response.message);
-      location.reload();
-    })
+    if (noteId != null) {
+      this.reminder.id = noteId;
+      this.noteService.addReminder(this.reminder).subscribe(response => {
+        console.log(response.message);
+        location.reload();
+      })
+    }
+    else if (noteId == null) {
+      // debugger;
+      this.dialogRef.close({ reminder: this.reminder.reminder });
+    }
+    else
+      console.log("error");
   }
+
 }

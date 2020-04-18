@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { Note } from 'src/app/model/note.model';
 
@@ -10,30 +10,34 @@ import { Note } from 'src/app/model/note.model';
 })
 export class CollaboratorComponent implements OnInit {
 
-  userData:any;
-  colData:Note=new Note();
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService:NoteservicesService) { }
+  userData: any;
+  colData: Note = new Note();
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService, 
+  public dialogRef: MatDialogRef<CollaboratorComponent>) { }
 
-  ngOnInit(){
-  this.userValues();
+  ngOnInit() {
+    this.userValues();
   }
 
-  userValues(){
+  userValues() {
     // debugger;
-    this.noteService.userValues().subscribe( Response => {
-      this.userData=Response.data
+    this.noteService.userValues().subscribe(Response => {
+      this.userData = Response.data
       console.log(Response.data);
     });
   }
 
-  save(email,noteId){
-    this.colData.id=noteId;
-    if(email!=null){
-    this.colData.email=email;
-    this.noteService.addCollaborator(this.colData).subscribe(Response => console.log(Response.message)); 
-    location.reload(); 
-  }
+  save(email, noteId) {
+    this.colData.id = noteId;
+    if (email != null && noteId != null) {
+      this.colData.email = email;
+      this.noteService.addCollaborator(this.colData).subscribe(Response => console.log(Response.message));
+      location.reload();
+    }
+    else if (email != null && noteId == null) {
+      this.dialogRef.close({ email: email });
+    }
     else
-    console.log("error");
+      console.log("error");
   }
 }

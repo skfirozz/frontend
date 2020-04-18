@@ -1,10 +1,13 @@
 .row{
     width: 7cm;
-    padding-right: 30px;
+    margin-right: 25px;
+    border-radius: 5%;
   }
 .column{
     margin-top:1%;
     bottom: 20%;
+    border-radius: 5%;
+    margin-bottom: 20px;
   }
 .pin {
     padding-left: 180px;
@@ -36,7 +39,7 @@
     margin: 0 2px;
 }
 .icons{
-    visibility: visible;
+    visibility: hidden;
 }
 .row:hover{
     .icons{

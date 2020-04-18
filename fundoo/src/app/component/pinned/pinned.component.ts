@@ -17,13 +17,16 @@ export class PinnedComponent implements OnInit {
   }
 
   pin(noteId: number, notes) {
-    debugger;
+    // debugger;
     this.color.id = noteId;
     if(notes==0)
     this.color.ispinned=1;
     else this.color.ispinned=0;
-    this.noteservice.updatePin(this.color).subscribe( Response => console.log(Response.message));
-    location.reload();
+    this.noteservice.updatePin(this.color).subscribe( Response => {
+      console.log(Response.message)
+      location.reload();
+    });
+    
   }
 
 }

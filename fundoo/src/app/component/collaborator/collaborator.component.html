@@ -1,4 +1,4 @@
-<mat-card style="height:145px;width: 380px; background-color: #e4f0e4;">
+<mat-card style="height:auto;width: 380px; ">
     <mat-card-title>
         <strong>Collaborators</strong>
     </mat-card-title>
@@ -6,11 +6,12 @@
     <br>
     <div>
         <div fxLayout="row">
-            <img *ngIf="userData.profile!=null" style="border: none; width: 150%; " src={{userData.profile}} height="65%">
+            <img *ngIf="userData.profileImage!=null" src="assets/{{userData.profileImage}}">
           <strong>{{userData.name}}</strong>(Owner)
         </div>
         {{userData.email}}
     </div>
+    
 
     <input matInput class="inputs" placeholder="user Email" value=""
         #email> <br>

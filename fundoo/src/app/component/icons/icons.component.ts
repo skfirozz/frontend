@@ -14,7 +14,7 @@ import { CollaboratorComponent } from '../collaborator/collaborator.component';
 })
 export class IconsComponent implements OnInit {
 
-  @Input() param:any;
+  @Input() param: any;
   @Input() notes: Note = new Note();
   @Output() outputProperty = new EventEmitter<any>();
   value: Label = new Label();
@@ -30,8 +30,8 @@ export class IconsComponent implements OnInit {
     this.color.istrash = 0;
     this.noteservice.updateTrash(this.color).subscribe(response => {
       console.log(response.message);
+      location.reload();
     })
-    location.reload();
   }
 
   delete(noteId: number) {
@@ -39,33 +39,36 @@ export class IconsComponent implements OnInit {
     this.color.id = noteId;
     this.noteservice.deleteNotes(this.color).subscribe(response => {
       console.log(response.message);
+      location.reload();
     })
-    location.reload();
   }
 
   archive(noteId: number, notes) {
     // debugger;
     this.color.id = noteId;
-    if(notes==0)
-      this.color.isarchived=1;  
+    if (notes == 0)
+      this.color.isarchived = 1;
     else
-    this.color.isarchived=0;
-    this.noteservice.updateArchive(this.color).subscribe( Response => console.log(Response.message));
-    location.reload();
+      this.color.isarchived = 0;
+    this.noteservice.updateArchive(this.color).subscribe(Response => {
+      console.log(Response.message)
+      location.reload();
+    });
   }
 
   //working
   trash(noteId: number, notes) {
     this.color.id = noteId;
-    if (notes.istrash) 
+    if (notes.istrash)
       this.color.istrash = 0;
-    else 
+    else
       this.color.istrash = 1;
 
-      this.noteservice.updateTrash(this.color).subscribe(response => {
-        console.log(response.message);
-      })
-    location.reload();
+    this.noteservice.updateTrash(this.color).subscribe(response => {
+      console.log(response.message); 
+      location.reload();
+    })
+
   }
 
   //working
@@ -75,8 +78,8 @@ export class IconsComponent implements OnInit {
     this.color.color = colorname;
     this.noteservice.setColor(this.color).subscribe(response => {
       console.log(response.message);
+      location.reload();
     })
-    location.reload();
   }
 
   addLabel(labels) {
@@ -84,7 +87,7 @@ export class IconsComponent implements OnInit {
     console.log(labels);
     this.value.noteid = labels;
     const dialogRef = this.dialog.open(EditlabelsComponent, {
-      data: { labels:labels },
+      data: { labels: labels },
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -104,12 +107,12 @@ export class IconsComponent implements OnInit {
     });
   }
 
-  collaborator(id){
+  collaborator(id) {
     this.dialog.open(CollaboratorComponent, {
-      data : { notes : id },
+      data: { notes: id },
       panelClass: 'custom-dialog-container'
     });
-}
+  }
 
   arrayofColors = [
     [

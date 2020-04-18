@@ -51,15 +51,15 @@ export class DisplayDataComponent implements OnInit {
     this.color.id=id;
     this.noteservice.deleteReminder(this.color).subscribe( Response => {
       console.log(Response.message);
+      location.reload();
     })
-    location.reload();
   }
 
   removeLabel(id){
     this.color.id=id;
     this.noteservice.deleteLabel(this.color).subscribe( Response => {
-      console.log("--------------------");
       console.log(Response.message)
+      location.reload();
     })
     // location.reload();
   }
