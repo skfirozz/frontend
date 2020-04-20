@@ -1,3 +1,9 @@
-<div *ngFor="let one of search">
-    <app-display-data [notes]="one"></app-display-data>
+<div style="flex-wrap: wrap;">
+    <br>
+    <div class="row" fxLayout="row"  fxFlexOffset="15"
+        style="box-sizing: border-box; display: flex; margin-left: 5%;">
+        <div *ngFor="let one of search" class="space">
+            <app-display-data  [param]="gridView" [notes]="one"></app-display-data>
+        </div>
+    </div>
 </div>

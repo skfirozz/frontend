@@ -15,12 +15,13 @@ export class SearchDataComponent implements OnInit {
   // param="row";
   constructor(private noteservice:NoteservicesService, private router : ActivatedRoute) { }
 
+  gridView:string="row";
+
   ngOnInit(): void {
 
     // debugger;
     this.router.queryParams.subscribe ( params => {
       this.searchedData = params["data"];
-      console.log("hiiiiiiiiiiiiiiiii");
       this.findSearchedValue();
     });
     

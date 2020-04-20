@@ -16,12 +16,12 @@ import { SignoutComponent } from '../signout/signout.component';
 export class HomeComponent implements OnInit {
 
   searchData = new FormControl('', [
-  Validators.required,]);
+    Validators.required,]);
   labels: Label = new Label();
   labelOper: boolean = false;
   labelName: any;
   allNotes: any;
-  userValues:any;
+  userValues: any;
 
   view: boolean = false;
   grid = "row";
@@ -34,9 +34,9 @@ export class HomeComponent implements OnInit {
     this.userDatas();
   }
 
-  findData(findValue){
-    if(findValue!=null){
-      this.router.navigate(['fundoo/search'], { queryParams: { data: findValue} });
+  findData(findValue) {
+    if (findValue != null) {
+      this.router.navigate(['fundoo/search'], { queryParams: { data: findValue } });
     }
   }
 
@@ -48,15 +48,15 @@ export class HomeComponent implements OnInit {
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
       console.log('checcking');
-      console.log( response.data);
+      console.log(response.data);
     })
   }
 
   labelOperation(label) {
-    // debugger;
+    debugger;
     this.labelName = label;
     this.labelOper == true
-    this.router.navigate(['fundoo/labels'], { queryParams: { page: label , view: this.grid } });
+    this.router.navigate(['fundoo/labels'], { queryParams: { page: label, view: this.grid } });
     console.log('working');
   }
 
@@ -65,15 +65,15 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: this.grid } });
   }
   showArchive() {
-    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'archive',view: this.grid } });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'archive', view: this.grid } });
   }
 
   showTrash() {
-    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'trash',view: this.grid } });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'trash', view: this.grid } });
   }
 
   showReminder() {
-    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'reminder',view: this.grid } });
+    this.router.navigate(['fundoo/notes'], { queryParams: { page: 'reminder', view: this.grid } });
   }
 
 
@@ -91,25 +91,24 @@ export class HomeComponent implements OnInit {
 
   gridView() {
     // debugger;
-    if(this.view==true){
-      this.view=false;
-      this.grid="row";
+    if (this.view == true) {
+      this.view = false;
+      this.grid = "row";
     }
-    else{
-      this.view=true;
-      this.grid="column";
+    else {
+      this.view = true;
+      this.grid = "column";
     }
     this.activateRoute.queryParams.subscribe(params => {
       // debugger;
-      let page= params['page'] || '';
+      let page = params['page'] || '';
       this.router.navigate(['fundoo/notes'], { queryParams: { page: page, view: this.grid } });
     });
     console.log(this.view);
   }
 
 
-  OpenSignout(userValues)
-  {
+  OpenSignout(userValues) {
     const dialogRef = this.dialog.open(SignoutComponent, {
       data: { userValues: userValues },
       panelClass: 'custom-dialog-container'
@@ -119,8 +118,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  userDatas()
-  {
-    this.serviceobj.userValues().subscribe( Response => this.userValues=Response.data);
+  userDatas() {
+    this.serviceobj.userValues().subscribe(Response => this.userValues = Response.data);
   }
 }
