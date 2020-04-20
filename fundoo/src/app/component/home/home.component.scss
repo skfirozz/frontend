@@ -60,7 +60,7 @@
 }
 
 .example-sidenav {
-    width: 200px;
+    width: auto;
 }
 
 .maindiv {
@@ -187,4 +187,7 @@
 img {
     height:1cm;
     border-radius: 50%;
+  }
+  .margin {
+      margin: 1cm;
   }

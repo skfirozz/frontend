@@ -77,7 +77,6 @@ export class CreatenoteComponent implements OnInit {
   }
 
   setReminder(){
-    debugger;
     let labels:Note=new Note();
     labels.id=this.id;
     const dialogRef = this.dialog.open(ReminderComponent, {
@@ -85,9 +84,7 @@ export class CreatenoteComponent implements OnInit {
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log("reminder")
       this.reminder=result.reminder;
-      console.log(this.reminder);
     });
   }
 
@@ -97,7 +94,6 @@ export class CreatenoteComponent implements OnInit {
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result.email);
       this.collaborator=result.email;
     });
   }

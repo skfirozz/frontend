@@ -66,7 +66,7 @@
         <button mat-menu-item class="{{param}}" class="trash" (click)="delete(notes.id)" matTooltip="Delete forever">
             <mat-icon>delete_forever</mat-icon>
         </button>
-        <button mat-menu-item class="{{param}}"  class="trash" (click)="unTrash(notes.id,notes)" matTooltip="Restore">
+        <button mat-menu-item class="{{param}}"  class="trash" (click)="trash(notes.id, notes.istrash)" matTooltip="Restore">
             <mat-icon>restore_from_trash</mat-icon>
         </button>
     </div>

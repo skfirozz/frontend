@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA , MatDialogRef} from '@angular/material/dialog';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { Label } from 'src/app/model/label.model';
 
@@ -14,14 +14,13 @@ export class EditlabelsComponent implements OnInit {
   edit: boolean = false;
   nameLabel: any;
   labelname: Label = new Label();
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private noteService: NoteservicesService,
+  public dialogRef: MatDialogRef<EditlabelsComponent>) { }
 
   ngOnInit(): void {
-    // this.allLabels();
   }
 
   createLabels(data) {
-    // debugger;
     if (data != null) {
       this.labelname.labelname = data;
       if (this.data.labels.id == null)
@@ -30,18 +29,11 @@ export class EditlabelsComponent implements OnInit {
         this.labelname.noteid = this.data.labels.id;
       }
       this.labelname.token=localStorage.token;
-      this.noteService.createLabel(this.labelname).subscribe(response => {
-      location.reload();
-      
-      });
+      this.dialogRef.close({ editLabel: this.labelname });
     }
     else if (data == null) {
       console.log("Label is empty..");
     }
-  }
-
-  done() {
-
   }
   // allLabels() {
   //   this.noteService.getallLabels().subscribe(Response => {
@@ -56,7 +48,6 @@ export class EditlabelsComponent implements OnInit {
       console.log(response.message);
     })
     console.log("your output: " + id);
-    location.reload();
   }
 
   editLabel() {

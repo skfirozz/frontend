@@ -6,10 +6,10 @@
                 
             </div>
             <div class="pin">
-                <app-pinned *ngIf="!notes.istrash" [notes]="notes"></app-pinned>
+                <app-pinned *ngIf="!notes.istrash" [notes]="notes" (output)="outputFunction($event)"></app-pinned>
             </div>
         </div>
-
+        
 
         <div class="titles" style="padding: 0px;" (click)="OnClicktoUpdate(notes)">
             {{notes.description}}
@@ -41,7 +41,7 @@
 
 
         <mat-card-footer class="icons">
-            <app-icons [param]="param" [notes]="notes"></app-icons>
+            <app-icons [param]="param" [notes]="notes"  (output)="outputFunction($event)"></app-icons>
         </mat-card-footer>
     </mat-card>
 </div>

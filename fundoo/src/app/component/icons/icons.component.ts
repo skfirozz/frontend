@@ -16,7 +16,7 @@ export class IconsComponent implements OnInit {
 
   @Input() param: any;
   @Input() notes: Note = new Note();
-  @Output() outputProperty = new EventEmitter<any>();
+  @Output() output: EventEmitter<any> = new EventEmitter();
   value: Label = new Label();
   constructor(public dialog: MatDialog, private noteservice: NoteservicesService) { }
   color: Note = new Note();
@@ -25,26 +25,25 @@ export class IconsComponent implements OnInit {
 
 
   unTrash(noteId: number, notes) {
-    // debugger;
     this.color.id = noteId;
     this.color.istrash = 0;
     this.noteservice.updateTrash(this.color).subscribe(response => {
       console.log(response.message);
-      location.reload();
+      this.getOutput();
     })
   }
 
+
+
   delete(noteId: number) {
-    // debugger;
     this.color.id = noteId;
     this.noteservice.deleteNotes(this.color).subscribe(response => {
       console.log(response.message);
-      location.reload();
+      this.getOutput();
     })
   }
 
   archive(noteId: number, notes) {
-    // debugger;
     this.color.id = noteId;
     if (notes == 0)
       this.color.isarchived = 1;
@@ -52,38 +51,37 @@ export class IconsComponent implements OnInit {
       this.color.isarchived = 0;
     this.noteservice.updateArchive(this.color).subscribe(Response => {
       console.log(Response.message)
-      location.reload();
+      this.getOutput();
     });
   }
 
-  //working
+  getOutput() {
+    this.output.emit("ok");
+  }
+
   trash(noteId: number, notes) {
     this.color.id = noteId;
-    if (notes.istrash)
+    if (notes==1)
       this.color.istrash = 0;
     else
       this.color.istrash = 1;
-
-    this.noteservice.updateTrash(this.color).subscribe(response => {
-      console.log(response.message); 
-      location.reload();
+      this.noteservice.updateTrash(this.color).subscribe(response => {
+      console.log(response.message);
+      this.getOutput();
     })
 
   }
 
-  //working
   setcolor(noteId, colorname) {
     this.color.id = noteId;
-    // debugger;
     this.color.color = colorname;
     this.noteservice.setColor(this.color).subscribe(response => {
       console.log(response.message);
-      location.reload();
+      this.getOutput();
     })
   }
 
   addLabel(labels) {
-
     console.log(labels);
     this.value.noteid = labels;
     const dialogRef = this.dialog.open(EditlabelsComponent, {
@@ -91,41 +89,48 @@ export class IconsComponent implements OnInit {
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      labels = result;
+      this.noteservice.createLabel(result.editLabel).subscribe(Response => {
+        this.getOutput();
+      })
     });
   }
 
   reminder(labels) {
-    // debugger;
-    console.log(labels);
     const dialogRef = this.dialog.open(ReminderComponent, {
       data: { labels: labels },
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      labels = result;
+      this.noteservice.addReminder(result.reminder).subscribe(Response => {
+        this.getOutput();
+      });
     });
   }
 
   collaborator(id) {
-    this.dialog.open(CollaboratorComponent, {
+    const dialogRef = this.dialog.open(CollaboratorComponent, {
       data: { notes: id },
       panelClass: 'custom-dialog-container'
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.noteservice.addCollaborator(result.collaborateData).subscribe(Response => {
+        this.getOutput();
+      });
     });
   }
 
   arrayofColors = [
     [
       { color: "rgb(255,255,255)", name: "white" },
-      { color: "rgb(255,0,0)", name: "red" },
-      { color: "rgb(255,165,0)", name: "orange" },
-      { color: "rgb(255,255,0)", name: "yellow" }
+      { color: "#e07663", name: "red" },
+      { color: "#e9a065", name: "orange" },
+      { color: "#d2e46b", name: "yellow" }
     ],
     [
-      { color: "rgb(0,128,0)", name: "green" },
+      { color: "#79e46b", name: "green" },
       { color: "rgb(0,128,128)", name: "teal" },
-      { color: "rgb(0,0,255)", name: "blue" },
-      { color: "rgb(0,0,139)", name: "dark blue" }
+      { color: "#70e2e6", name: "light blue" },
+      { color: "#6a9ac2", name: " blue" }
     ],
     [
       { color: "rgb(128,0,128)", name: "purple" },

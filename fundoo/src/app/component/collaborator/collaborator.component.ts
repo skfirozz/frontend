@@ -20,7 +20,6 @@ export class CollaboratorComponent implements OnInit {
   }
 
   userValues() {
-    // debugger;
     this.noteService.userValues().subscribe(Response => {
       this.userData = Response.data
       console.log(Response.data);
@@ -31,8 +30,7 @@ export class CollaboratorComponent implements OnInit {
     this.colData.id = noteId;
     if (email != null && noteId != null) {
       this.colData.email = email;
-      this.noteService.addCollaborator(this.colData).subscribe(Response => console.log(Response.message));
-      location.reload();
+      this.dialogRef.close({ collaborateData: this.colData });
     }
     else if (email != null && noteId == null) {
       this.dialogRef.close({ email: email });

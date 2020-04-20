@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 
@@ -10,6 +10,7 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 export class PinnedComponent implements OnInit {
 
   @Input() notes:any;
+  @Output() output:EventEmitter<any>= new EventEmitter();
   color:Note =new Note();
   constructor(private noteservice:NoteservicesService) { }
 
@@ -24,7 +25,7 @@ export class PinnedComponent implements OnInit {
     else this.color.ispinned=0;
     this.noteservice.updatePin(this.color).subscribe( Response => {
       console.log(Response.message)
-      location.reload();
+      this.output.emit("ok");
     });
     
   }

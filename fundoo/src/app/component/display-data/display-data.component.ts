@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Note } from 'src/app/model/note.model';
 import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,6 +16,7 @@ export class DisplayDataComponent implements OnInit {
   @Input() notes: Note = new Note();
   @Input() labels:any;
   @Input() param:any;
+  @Output() output:EventEmitter<any>= new EventEmitter();
   color: Note = new Note();
   edit: boolean = false;
   getLabel:any;
@@ -29,14 +30,13 @@ export class DisplayDataComponent implements OnInit {
 
  
   OnClicktoUpdate(note) {
-    console.log("notes :" + note);
     if(note.istrash!=true)
     {
       const dialogRef = this.dialog.open(DialogueComponent, {
-        height: '30%',
+        height: 'auto',
         width: '40%',
         data: { note: note },
-        panelClass: 'backdropBackground',
+        panelClass: 'custom-dialog-container',
       });
       dialogRef.afterClosed().subscribe(result => {
         note = result;
@@ -62,6 +62,10 @@ export class DisplayDataComponent implements OnInit {
       location.reload();
     })
     // location.reload();
+  }
+
+  outputFunction(value){
+    this.output.emit(value);
   }
 
 }

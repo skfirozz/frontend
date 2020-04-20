@@ -32,10 +32,16 @@ export class DisplaynotesComponent implements OnInit {
     });
   }
 
+  
   getLabelNote()
   {
     this.noteservice.getLabelNotes().subscribe(Response => {
       this.labelNotes=Response.data;
     })
+  }
+
+  getUpdatedNotes(value){
+    // debugger;
+    this.ngOnInit();
   }
 }

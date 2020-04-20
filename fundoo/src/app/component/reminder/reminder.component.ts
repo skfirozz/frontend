@@ -29,7 +29,6 @@ export class ReminderComponent implements OnInit {
   }
 
   save(date, noteId) {
-    // debugger;
     let str: any;
     if (date != "") {
       let v = new Date(date);
@@ -39,13 +38,10 @@ export class ReminderComponent implements OnInit {
     this.reminder.reminder = str + " " + this.time;
     if (noteId != null) {
       this.reminder.id = noteId;
-      this.noteService.addReminder(this.reminder).subscribe(response => {
-        console.log(response.message);
-        location.reload();
-      })
+        console.log("okkkk");
+        this.dialogRef.close({ reminder: this.reminder });
     }
     else if (noteId == null) {
-      // debugger;
       this.dialogRef.close({ reminder: this.reminder.reminder });
     }
     else

@@ -13,11 +13,8 @@
                         <mat-icon matSuffix>search</mat-icon>
                     </div>
                     <div fxLayout="row">
-                        <input class="input"  value="" type="" placeholder="  Search"
-                            style="outline:none;" (keyup.enter)="findData(val.value)" #val>
-                        <button style="border: none;outline: none;background-color: white;" (click)="reload()">
-                            <mat-icon>close</mat-icon>
-                        </button>
+                        <input class="input" value="" type="" placeholder="  Search" style="outline:none;"
+                            (keyup.enter)="findData(val.value)" #val>
                     </div>
                 </div>
 
@@ -45,14 +42,15 @@
                             <mat-icon>view_agenda</mat-icon>
                         </button>
                     </div>
-                  <div class="profile">
-                    <img *ngIf="userValues.profileImage!=null" src="assets/{{userValues.profileImage}}"
-                    (click)="OpenSignout(userValues)" class="image">
+                    <div class="profile">
+                        <img *ngIf="userValues.profileImage!=null" src="assets/{{userValues.profileImage}}"
+                            (click)="OpenSignout(userValues)" class="image">
 
-                    <button mat-icon-button *ngIf="userValues.profileImage==null" matTooltip="PROFILE" (click)="OpenSignout(userValues)">
-                        <mat-icon> account_circle</mat-icon>
-                    </button>              
-                  </div>
+                        <button mat-icon-button *ngIf="userValues.profileImage==null" matTooltip="PROFILE"
+                            (click)="OpenSignout(userValues)">
+                            <mat-icon> account_circle</mat-icon>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,10 +64,10 @@
         <mat-drawer #drawer class="example-sidenav" mode="side">
             <mat-nav-list>
                 <a mat-list-item matTooltip="notes" (click)="showNote()">
-                    <mat-icon>lightbulb_outline</mat-icon>Notes
+                    <mat-icon>lightbulb_outline</mat-icon> <a class="margin">Notes</a>
                 </a> <br>
                 <a mat-list-item (click)="showReminder()" matTooltip="reminder">
-                    <mat-icon>notifications</mat-icon>Reminders
+                    <mat-icon>notifications</mat-icon> <a class="margin">Reminders</a>
                 </a>
 
                 <mat-divider class="divider"></mat-divider>
@@ -77,14 +75,14 @@
                 <label>Labels</label><br>
                 <div *ngFor="let notes of labels">
                     <a mat-list-item matTooltip={{notes.labelname}} (click)="labelOperation(notes.labelname)">
-                        <mat-icon>label</mat-icon>{{notes.labelname}}
+                        <mat-icon>label</mat-icon><a class="margin">{{notes.labelname}}</a>
                     </a> <br>
                 </div>
 
                 <div>
 
                     <a mat-list-item matTooltip="notes" (click)="editlabels(labels)">
-                        <mat-icon>edit</mat-icon>Edit Labels
+                        <mat-icon>edit</mat-icon><a class="margin">Edit Labels</a>
                     </a>
                 </div>
                 <br>
@@ -92,11 +90,11 @@
                 <mat-divider class="divider"></mat-divider>
 
                 <a mat-list-item (click)="showArchive()" matTooltip="archive">
-                    <mat-icon>archive</mat-icon>Archive
+                    <mat-icon>archive</mat-icon><a class="margin">Archive</a>
                 </a> <br>
 
                 <a mat-list-item (click)="showTrash()" matTooltip="trash">
-                    <mat-icon>delete</mat-icon>Trash
+                    <mat-icon>delete</mat-icon><a class="margin">Trash</a>
                 </a> <br>
 
             </mat-nav-list>

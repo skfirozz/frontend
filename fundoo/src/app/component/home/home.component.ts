@@ -16,7 +16,7 @@ import { SignoutComponent } from '../signout/signout.component';
 export class HomeComponent implements OnInit {
 
   searchData = new FormControl('', [
-    Validators.required,]);
+  Validators.required,]);
   labels: Label = new Label();
   labelOper: boolean = false;
   labelName: any;
@@ -53,7 +53,6 @@ export class HomeComponent implements OnInit {
   }
 
   labelOperation(label) {
-    debugger;
     this.labelName = label;
     this.labelOper == true
     this.router.navigate(['fundoo/labels'], { queryParams: { page: label, view: this.grid } });
@@ -78,7 +77,6 @@ export class HomeComponent implements OnInit {
 
 
   editlabels(labels) {
-    // debugger;
     console.log(labels);
     const dialogRef = this.dialog.open(EditlabelsComponent, {
       data: { labels: labels },
