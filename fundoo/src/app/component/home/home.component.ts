@@ -16,7 +16,7 @@ import { SignoutComponent } from '../signout/signout.component';
 export class HomeComponent implements OnInit {
 
   searchData = new FormControl('', [
-  Validators.required,]);
+    Validators.required,]);
   labels: Label = new Label();
   labelOper: boolean = false;
   labelName: any;
@@ -35,20 +35,18 @@ export class HomeComponent implements OnInit {
   }
 
   findData(findValue) {
-    if (findValue != null) {
+    if (findValue != '') {
       this.router.navigate(['fundoo/search'], { queryParams: { data: findValue } });
     }
+
   }
 
   reload() {
     this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: this.grid } });
   }
   getLabel() {
-    // debugger;
     this.serviceobj.getallLabels().subscribe(response => {
       this.labels = response.data;
-      console.log('checcking');
-      console.log(response.data);
     })
   }
 
@@ -56,7 +54,6 @@ export class HomeComponent implements OnInit {
     this.labelName = label;
     this.labelOper == true
     this.router.navigate(['fundoo/labels'], { queryParams: { page: label, view: this.grid } });
-    console.log('working');
   }
 
 
@@ -77,18 +74,19 @@ export class HomeComponent implements OnInit {
 
 
   editlabels(labels) {
-    console.log(labels);
     const dialogRef = this.dialog.open(EditlabelsComponent, {
       data: { labels: labels },
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      labels = result;
+      this.serviceobj.deleteLabel(result.delteLabel).subscribe(response => {
+        this.ngOnInit();
+    //call the function to create label
     });
-  }
+  });
+}
 
   gridView() {
-    // debugger;
     if (this.view == true) {
       this.view = false;
       this.grid = "row";
@@ -98,11 +96,9 @@ export class HomeComponent implements OnInit {
       this.grid = "column";
     }
     this.activateRoute.queryParams.subscribe(params => {
-      // debugger;
       let page = params['page'] || '';
       this.router.navigate(['fundoo/notes'], { queryParams: { page: page, view: this.grid } });
     });
-    console.log(this.view);
   }
 
 

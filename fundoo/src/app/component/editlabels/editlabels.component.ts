@@ -23,13 +23,14 @@ export class EditlabelsComponent implements OnInit {
   createLabels(data) {
     if (data != null) {
       this.labelname.labelname = data;
-      if (this.data.labels.id == null)
-        this.labelname.noteid = null;
+      this.labelname.token=localStorage.token;
+      if (this.data.labels.id == null){
+        this.dialogRef.close({ createLabel: this.labelname });
+      }
       else {
         this.labelname.noteid = this.data.labels.id;
+        this.dialogRef.close({ editLabel: this.labelname });
       }
-      this.labelname.token=localStorage.token;
-      this.dialogRef.close({ editLabel: this.labelname });
     }
     else if (data == null) {
       console.log("Label is empty..");
@@ -44,10 +45,7 @@ export class EditlabelsComponent implements OnInit {
 
   deleteLabel(id) {
     this.labelname.id = id;
-    this.noteService.deleteLabel(this.labelname).subscribe(response => {
-      console.log(response.message);
-    })
-    console.log("your output: " + id);
+    this.dialogRef.close({ delteLabel: this.labelname });
   }
 
   editLabel() {
