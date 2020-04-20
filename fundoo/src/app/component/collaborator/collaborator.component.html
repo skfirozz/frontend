@@ -7,19 +7,18 @@
     <div>
         <div fxLayout="row">
             <img *ngIf="userData.profileImage!=null" src="assets/{{userData.profileImage}}">
-          <strong>{{userData.name}}</strong>(Owner)
+            <strong>{{userData.name}}</strong>(Owner)
         </div>
         {{userData.email}}
     </div>
-    
 
-    <input matInput class="inputs" placeholder="user Email" value=""
-        #email> <br>
+
+    <input matInput class="inputs" placeholder="user Email" value="" #email> <br>
     <mat-divider class="divider"></mat-divider>
 
     <div fxLayout="row">
-
-        <button mat-raised-button mat-dialog-close class="button" >Cancel</button>
+        <br>
+        <button mat-raised-button mat-dialog-close class="button">Cancel</button>
 
         <button mat-dialog-close mat-raised-button class="button" (click)="save(email.value, data.notes)">Save</button>
     </div>

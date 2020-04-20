@@ -61,11 +61,11 @@ export class IconsComponent implements OnInit {
 
   trash(noteId: number, notes) {
     this.color.id = noteId;
-    if (notes==1)
+    if (notes == 1)
       this.color.istrash = 0;
     else
       this.color.istrash = 1;
-      this.noteservice.updateTrash(this.color).subscribe(response => {
+    this.noteservice.updateTrash(this.color).subscribe(response => {
       console.log(response.message);
       this.getOutput();
     })
@@ -109,6 +109,8 @@ export class IconsComponent implements OnInit {
 
   collaborator(id) {
     const dialogRef = this.dialog.open(CollaboratorComponent, {
+      height: 'auto',
+      width: '40%',
       data: { notes: id },
       panelClass: 'custom-dialog-container'
     });

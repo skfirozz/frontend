@@ -51,13 +51,6 @@
     height: 100vh;
 }
 
-.example-sidenav-content {
-    display: flex;
-    width: 400vw;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-}
 
 .example-sidenav {
     width: auto;
@@ -67,106 +60,6 @@
     display: inline;
 }
 
-.notesdiv {
-    display: grid;
-    padding: 10px;
-    border-bottom: thick double #bfc1c2;
-}
-
-.lebelmain {
-    display: grid;
-    padding: 10px;
-    border-bottom: thick double #bfc1c2;
-}
-
-.labelbutton {
-    display: flex;
-    justify-content: center;
-    border: none;
-}
-
-.labels1 {
-    display: flex;
-    justify-content: center;
-    color: lightslategrey;
-}
-
-.labelmain {
-    color: grey;
-    font: small-caps;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: small;
-}
-
-.trashmain {
-    display: grid;
-    padding: 10px;
-    border-bottom: thick double #bfc1c2;
-}
-
-.notes:hover {
-    display: flex;
-    align-items: center;
-    border: 1px solid grey;
-    background-color: lightsalmon;
-    padding-bottom: inherit;
-    border-radius: 0 10px 10px 0;
-}
-
-.remainder:hover {
-    display: flex;
-    align-items: center;
-    border: 1px solid grey;
-    background-color: lightsalmon;
-    padding-bottom: inherit;
-    border-radius: 0 10px 10px 0;
-}
-
-.label:hover {
-    display: flex;
-    align-items: center;
-    border: 1px solid grey;
-    background-color: lightsalmon;
-    padding-bottom: inherit;
-    border-radius: 0 10px 10px 0;
-}
-
-.archive:hover {
-    display: flex;
-    align-items: center;
-    background-color: lightsalmon;
-    border: 1px solid grey;
-    padding-bottom: inherit;
-    border-radius: 0 10px 10px 0;
-}
-
-.trash:hover {
-    display: flex;
-    align-items: center;
-    border: 1px solid grey;
-    background-color: lightsalmon;
-    padding-bottom: inherit;
-    border-radius: 0 10px 10px 0;
-}
-
-.createnote {
-    display: inline;
-    justify-content: center;
-}
-.navibutton {
-   width:  130%;
-   height: 80%;
-}
-.account {
-    width: 80%;
-    height: 70%;
-}
-.lab{
-    height: 7cm;
-    width: 7cm;
-    margin: 0 auto;
-    align-content: center;
-}
 .signout{
     height: 10cm;
     width: 6cm;

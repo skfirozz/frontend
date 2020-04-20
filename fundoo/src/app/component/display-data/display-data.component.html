@@ -1,47 +1,39 @@
-<div class={{param}}>
-    <mat-card class={{param}} [ngStyle]="{'background-color':notes.color}">
-        <div fxLayout="row">
-            <div class="ntitle" (click)="OnClicktoUpdate(notes)">
-                {{notes.title}}
-                
-            </div>
-            <div class="pin">
-                <app-pinned *ngIf="!notes.istrash" [notes]="notes" (output)="outputFunction($event)"></app-pinned>
-            </div>
-        </div>
-        
+<mat-card class={{param}} [ngStyle]="{'background-color':notes.color}">
+    <div class="pin">
+        <app-pinned *ngIf="!notes.istrash" [notes]="notes" (output)="outputFunction($event)"></app-pinned>
+    </div>
+    <div class="ntitle" (click)="OnClicktoUpdate(notes)">
+            {{notes.title}}
 
-        <div class="titles" style="padding: 0px;" (click)="OnClicktoUpdate(notes)">
-            {{notes.description}}
         </div>
+    <div class="titles" style="padding: 0px;" (click)="OnClicktoUpdate(notes)">
+        {{notes.description}}
+    </div>
 
-        <div fxLayout="row" class="label">
-            <div *ngFor="let label of labels">
-                <div *ngIf="label.noteid==notes.id" fxLayout="row">
-                    <div class="labelVisibility" >
-                        {{label.labelname}}
-                        <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel(label.id)">
-                            <mat-icon>close</mat-icon>
-                        </button>
-                    </div>
+    <div fxLayout="row" class="label">
+        <div *ngFor="let label of labels">
+            <div *ngIf="label.noteid==notes.id" fxLayout="row">
+                <div class="labelVisibility">
+                    {{label.labelname}}
+                    <button matTooltip="Remove label" class="labelCancelVisibilty" (click)="removeLabel(label.id)">
+                        <mat-icon>close</mat-icon>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div fxLayout="row" *ngIf="notes.reminder!=null">
-            <div class="labelVisibility">
-                {{notes.reminder}}
+    <div fxLayout="row" *ngIf="notes.reminder!=null">
+        <div class="labelVisibility">
+            {{notes.reminder}}
 
-                <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : notes.color}"
-                    class="labelCancelVisibilty" style="border: none;outline: none;border-radius: 20px;">
-                    <mat-icon (click)="deleteReminder(notes.id)">close</mat-icon>
-                </button>
-            </div>
+            <button matTooltip="Delete Reminder" [ngStyle]="{'background-color' : notes.color}"
+                class="labelCancelVisibilty" style="border: none;outline: none;border-radius: 20px;">
+                <mat-icon (click)="deleteReminder(notes.id)">close</mat-icon>
+            </button>
         </div>
-
-
-        <mat-card-footer class="icons">
-            <app-icons [param]="param" [notes]="notes"  (output)="outputFunction($event)"></app-icons>
-        </mat-card-footer>
-    </mat-card>
-</div>
+    </div>
+    <mat-card-footer class="icons">
+        <app-icons [param]="param" [notes]="notes" (output)="outputFunction($event)"></app-icons>
+    </mat-card-footer>
+</mat-card>

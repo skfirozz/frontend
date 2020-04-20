@@ -7,7 +7,7 @@
     <div style="flex-wrap: wrap;">
         <div class={{gridView}} fxLayout={{gridView}} fxFlexOffset="15"
             style="box-sizing: border-box; display: flex; margin-left: 5%;">
-            <div *ngFor="let note of allnotes" class="space">
+            <div *ngFor="let note of allnotes" >
                 <app-display-data *ngIf="!note.istrash&&!note.isarchived&&note.ispinned==1" [param]="gridView"
                     [labels]="labelNotes" [notes]="note" (output)=getUpdatedNotes($event)></app-display-data>
             </div>
@@ -22,7 +22,7 @@
     <div style="flex-wrap: wrap;">
         <div class={{gridView}} fxLayout={{gridView}} fxFlexOffset="15"
             style="box-sizing: border-box; display: flex; margin-left: 5%;">
-            <div *ngFor="let note of allnotes" class="space">
+            <div *ngFor="let note of allnotes" >
                 <app-display-data *ngIf="!note.istrash&&!note.isarchived&&!note.ispinned" [param]="gridView"
                     [labels]="labelNotes" [notes]="note" (output)=getUpdatedNotes($event)>
                 </app-display-data>
