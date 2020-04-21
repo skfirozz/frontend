@@ -1,6 +1,6 @@
 <div *ngIf="param=='notes'">
     <br>
-    <app-createnote></app-createnote>
+    <app-createnote (output)=getUpdatedNotes($event)></app-createnote>
     <div style="padding-left: 255px;">
         <h5>PINNED</h5>
     </div>
@@ -13,6 +13,61 @@
             </div>
         </div>
     </div>
+
+    <!-- <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {
+     // box-sizing: border-box;
+    }
+    
+    /* Create three equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 5cm;
+      margin-left:1cm;
+      padding: 10px;
+      margin-buttom:1cm;
+      height: 4cm; /* Should be removed. Only for demonstration */
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <h2>Three Equal Columns</h2>
+    
+    <div class="row">
+      <div class="column" style="background-color:#aaa;">
+        <h2>Column 1</h2>
+        <p>Some text..</p>
+      </div>
+      <div class="column" style="background-color:#bbb;">
+        <h2>Column 2</h2>
+        <p>Some text..</p>
+      </div>
+      <div class="column" style="background-color:#ccc;">
+        <h2>Column 3</h2>
+        <p>Some text..</p>
+      </div>
+       <div class="column" style="background-color:#ccc;">
+        <h2>Column 3</h2>
+        <p>Some text..</p>
+      </div>
+    </div>
+    
+    </body>
+    </html> -->
+    
+
 
     <!-- <div class="flex-row-container">
         <div *ngFor="let note of allnotes">
@@ -70,7 +125,7 @@
 
 <div *ngIf="param=='reminder'">
     <br>
-    <app-createnote [reminder]="reminder"></app-createnote>
+    <app-createnote [reminder]="reminder" (output)=getUpdatedNotes($event)></app-createnote>
     <br>
     <div style="flex-wrap: wrap;">
         <div class={{gridView}} fxLayout={{gridView}} fxFlexOffset="15"

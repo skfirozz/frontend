@@ -18,6 +18,15 @@ export class IconsComponent implements OnInit {
   @Input() notes: Note = new Note();
   @Output() output: EventEmitter<any> = new EventEmitter();
   value: Label = new Label();
+
+
+  time = "8:00 AM";
+  repeat = "daily";
+  reminder: Note = new Note();
+  day = "Today";
+  todayString: string = new Date().toDateString();
+
+
   constructor(public dialog: MatDialog, private noteservice: NoteservicesService) { }
   color: Note = new Note();
   ngOnInit(): void {
@@ -95,22 +104,33 @@ export class IconsComponent implements OnInit {
     });
   }
 
-  reminder(labels) {
-    const dialogRef = this.dialog.open(ReminderComponent, {
-      data: { labels: labels },
-      panelClass: 'custom-dialog-container'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      this.noteservice.addReminder(result.reminder).subscribe(Response => {
+  setTime(value){
+    this.time=value;
+  }
+
+  setRepitation(value){
+    this.repeat=value;
+  }
+
+  save(date,noteid){
+    let str: any;
+    if (date != "") {
+      let v = new Date(date);
+      str = v.toDateString();
+    }
+    else  str = this.day;
+    this.reminder.reminder = str + " " + this.time;
+    if(noteid!=undefined){
+      this.reminder.id= noteid;
+      this.noteservice.addReminder(this.reminder).subscribe(Response => {
+        console.log(Response);
         this.getOutput();
-      });
-    });
+      })
+    }
   }
 
   collaborator(id) {
     const dialogRef = this.dialog.open(CollaboratorComponent, {
-      height: 'auto',
-      width: '40%',
       data: { notes: id },
       panelClass: 'custom-dialog-container'
     });
