@@ -11,37 +11,35 @@ import { Label } from 'src/app/model/label.model';
 })
 export class DisplaynotesComponent implements OnInit {
 
- 
-  allnotes:any;
+
+  allnotes: any;
   Note: Note = new Note();
   param: any;
-  labelNotes:any;
-  gridView:any;
-  reminder:any;
+  labelNotes: any;
+  gridView: any;
+  reminder: any;
+
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
-    this.reminder="Tomorrow 8:00 AM";
+    this.reminder = "Tomorrow 8:00 AM";
     this.getLabelNote();
-    this.noteservice.getAllNotes().subscribe( Response => this.allnotes=Response.data);
+    this.noteservice.getAllNotes().subscribe(Response => this.allnotes = Response.data);
     this.route.queryParams.subscribe(params => {
       this.param = params['page'];
-      this.gridView=  params['view'];
-      
+      this.gridView = params['view'];
     });
   }
 
-  
-  getLabelNote()
-  {
+  getLabelNote() {
     this.noteservice.getLabelNotes().subscribe(Response => {
-      this.labelNotes=Response.data;
+      this.labelNotes = Response.data;
     })
   }
 
-  getUpdatedNotes(value){
-    // debugger;
+  
+  getUpdatedNotes(value) {
     this.ngOnInit();
   }
 }

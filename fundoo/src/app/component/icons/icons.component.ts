@@ -16,6 +16,7 @@ export class IconsComponent implements OnInit {
 
   @Input() param: any;
   @Input() notes: Note = new Note();
+  uniquLabels: any;
   @Output() output: EventEmitter<any> = new EventEmitter();
   value: Label = new Label();
 
@@ -140,6 +141,20 @@ export class IconsComponent implements OnInit {
       });
     });
   }
+
+
+
+  getUniqueLableNames() {
+    this.noteservice.getallLabels().subscribe(Response => { 
+      this.uniquLabels = Response.data
+    })
+  }
+
+
+  listOfLabelsToAdd(labelname){
+    console.log(labelname);
+  }
+
 
   arrayofColors = [
     [

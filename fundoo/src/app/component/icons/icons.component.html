@@ -2,7 +2,7 @@
     <div style="padding-left: 15px;padding-top: 10px;" fxLayout="row">
         <div class="colorlist">
             <a>
-                <button mat-icon-button  [matMenuTriggerFor]="remind"  matTooltip="Remind Me" class="{{param}}">
+                <button mat-icon-button [matMenuTriggerFor]="remind" matTooltip="Remind Me" class="{{param}}">
                     <mat-icon>add_alert</mat-icon>
                 </button>
                 <button mat-icon-button matTooltip="collaborator" (click)="collaborator(notes.id)" class="{{param}}">
@@ -61,10 +61,10 @@
                     Pick date & time
                 </div>
                 <mat-form-field>
-                    <input matInput [matDatepicker]="date"  value="matDatepicker" #picdate>
+                    <input matInput [matDatepicker]="date" value="matDatepicker" #picdate>
                     <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
                     <mat-datepicker #date></mat-datepicker>
-                  </mat-form-field>
+                </mat-form-field>
                 <br>
                 <mat-form-field appearance="fill" class="color">
                     <mat-label>8:00 AM</mat-label>
@@ -87,19 +87,19 @@
                         <mat-option value="yearly" (click)="setRepitation(j.value)" #j>Yearly</mat-option>
                     </mat-select>
                 </mat-form-field>
-                <button  mat-raised-button  mat-dialog-close (click)="save(picdate.value,notes.id)" >Save</button>
+                <button mat-raised-button mat-dialog-close (click)="save(picdate.value,notes.id)">Save</button>
             </mat-card>
         </mat-menu>
 
 
         <mat-menu #more="matMenu">
             <button mat-menu-item (click)="trash(notes.id, notes.istrash)">Delete Note</button>
-            <button mat-menu-item [matMenuTriggerFor]="addLabel">Add Label</button>
+            <button mat-menu-item [matMenuTriggerFor]="addLabel" (click)="getUniqueLableNames()">Add Label</button>
             <button mat-menu-item>Add Drawing</button>
         </mat-menu>
         <mat-menu #addLabel="matMenu">
-            <div *ngFor="let label of ">
-
+            <div *ngFor="let label of uniquLabels ">
+                <mat-checkbox class="example-margin">{{label.labelname}}</mat-checkbox>
             </div>
         </mat-menu>
 
@@ -111,7 +111,8 @@
         <button mat-menu-item class="{{param}}" class="trash" (click)="delete(notes.id)" matTooltip="Delete forever">
             <mat-icon>delete_forever</mat-icon>
         </button>
-        <button mat-menu-item class="{{param}}"  class="trash" (click)="trash(notes.id, notes.istrash)" matTooltip="Restore">
+        <button mat-menu-item class="{{param}}" class="trash" (click)="trash(notes.id, notes.istrash)"
+            matTooltip="Restore">
             <mat-icon>restore_from_trash</mat-icon>
         </button>
     </div>

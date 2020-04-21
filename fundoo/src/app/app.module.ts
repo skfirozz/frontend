@@ -29,6 +29,7 @@ import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { ReminderComponent } from './component/reminder/reminder.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { IconsComponent } from './component/icons/icons.component';
@@ -76,6 +77,7 @@ import { SearchDataComponent } from './component/search-data/search-data.compone
     AppRoutingModule,
     // MatChipsModule,
     MatMenuModule,
+    MatCheckboxModule,
     FlexLayoutModule,
     MatCardModule,
     MatDatepickerModule,
