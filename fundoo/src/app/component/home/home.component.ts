@@ -79,12 +79,22 @@ export class HomeComponent implements OnInit {
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.serviceobj.deleteLabel(result.delteLabel).subscribe(response => {
-        this.ngOnInit();
-    //call the function to create label
+      if (result.delteLabel) {
+        // debugger;
+        this.serviceobj.deleteLabel(result.delteLabel).subscribe(response => {
+          this.ngOnInit();
+          console.log(response);
+        });
+      }
+      else if(result.createLabel){
+        // debugger;
+        this.serviceobj.createLabel(result.createLabel).subscribe(response => {
+          this.ngOnInit();
+          console.log(response);
+        });
+      }
     });
-  });
-}
+  }
 
   gridView() {
     if (this.view == true) {

@@ -24,7 +24,8 @@ export class EditlabelsComponent implements OnInit {
     if (data != null) {
       this.labelname.labelname = data;
       this.labelname.token=localStorage.token;
-      if (this.data.labels.id == null){
+      if (this.data.labels.id == undefined){
+        this.labelname.noteid=null;
         this.dialogRef.close({ createLabel: this.labelname });
       }
       else {
