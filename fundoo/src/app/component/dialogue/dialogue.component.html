@@ -15,7 +15,7 @@
                 value="{{data.note.description}}" #description> </i>
 
         <div fxLayout="row" style="padding-top: 32px;">
-            <app-icons [notes]="data.note"></app-icons>
+            <app-icons  [notes]="data.note" (output)="outputFunction($event)"></app-icons>
             <button mat-button mat-dialog-close
                 (click)="updateNote(title.value, description.value, data.note.id)">Close</button>
         </div>

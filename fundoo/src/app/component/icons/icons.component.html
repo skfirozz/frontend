@@ -5,7 +5,7 @@
                 <button mat-icon-button [matMenuTriggerFor]="remind" matTooltip="Remind Me" class="{{param}}">
                     <mat-icon>add_alert</mat-icon>
                 </button>
-                <button mat-icon-button matTooltip="collaborator" (click)="collaborator(notes.id)" class="{{param}}">
+                <button mat-icon-button matTooltip="collaborator" (click)="collaborator(notes)" class="{{param}}">
                     <mat-icon>person_add</mat-icon>
                 </button>
 
@@ -98,9 +98,16 @@
             <button mat-menu-item>Add Drawing</button>
         </mat-menu>
         <mat-menu #addLabel="matMenu">
-            <div *ngFor="let label of uniquLabels ">
-                <mat-checkbox class="example-margin">{{label.labelname}}</mat-checkbox>
+            <!-- <div *ngFor="let label of uniquLabels ">
+                <mat-checkbox class="example-margin" name="labelList[]" value={{label.labelname}}>{{label.labelname}}</mat-checkbox>
             </div>
+            <input type="submit" (click)="addLabels()" value="add Labels"/> -->
+            <mat-card>
+                Label Note
+                <input matInput class="inputs" placeholder="new Label" value="" #label> <br>
+                <mat-divider class="divider"></mat-divider>
+                <button  mat-button (click)="addLabels(label.value,notes.id)">+ Create {{label.value}}</button>
+            </mat-card>
         </mat-menu>
 
     </div>

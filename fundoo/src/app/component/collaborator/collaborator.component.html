@@ -11,6 +11,15 @@
         </div>
         {{userData.email}}
     </div>
+    <div fxLayout="row" *ngIf="data.notes.collaborator!=null">
+        <div >
+            {{data.notes.collaborator}}
+        </div>
+        <div class="distance">
+            <mat-icon matTooltip="Delete Collaboration"  (click)="deleteCollaboration(data.notes.id)"> close</mat-icon>
+        </div>
+            
+    </div>
 
 
     <input matInput class="inputs" placeholder="user Email" value="" #email> <br>
@@ -20,6 +29,6 @@
         <br>
         <button mat-raised-button mat-dialog-close class="button">Cancel</button>
 
-        <button mat-dialog-close mat-raised-button class="button" (click)="save(email.value, data.notes)">Save</button>
+        <button mat-dialog-close mat-raised-button class="button" (click)="save(email.value, data.notes.id)">Save</button>
     </div>
 </mat-card>

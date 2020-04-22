@@ -17,12 +17,12 @@ export class CollaboratorComponent implements OnInit {
 
   ngOnInit() {
     this.userValues();
+    // console.log(this.data);
   }
 
   userValues() {
     this.noteService.userValues().subscribe(Response => {
       this.userData = Response.data
-      console.log(Response.data);
     });
   }
 
@@ -37,5 +37,10 @@ export class CollaboratorComponent implements OnInit {
     }
     else
       console.log("error");
+  }
+
+  deleteCollaboration(id){
+    this.colData.id=id
+    this.dialogRef.close({ deleteCol: this.colData });
   }
 }

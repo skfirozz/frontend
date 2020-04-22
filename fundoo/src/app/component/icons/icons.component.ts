@@ -16,6 +16,7 @@ export class IconsComponent implements OnInit {
 
   @Input() param: any;
   @Input() notes: Note = new Note();
+  
   uniquLabels: any;
   @Output() output: EventEmitter<any> = new EventEmitter();
   value: Label = new Label();
@@ -130,19 +131,40 @@ export class IconsComponent implements OnInit {
     }
   }
 
-  collaborator(id) {
+  collaborator(notes) {
     const dialogRef = this.dialog.open(CollaboratorComponent, {
-      data: { notes: id },
+      data: { notes: notes },
       panelClass: 'custom-dialog-container'
     });
     dialogRef.afterClosed().subscribe(result => {
-      this.noteservice.addCollaborator(result.collaborateData).subscribe(Response => {
-        this.getOutput();
-      });
+      if(result.collaborateData){
+        this.noteservice.addCollaborator(result.collaborateData).subscribe(Response => {
+          console.log(Response);
+          this.getOutput();
+        });
+      }
+      else if(result.deleteCol){
+        this.noteservice.deleteCollaboration(result.deleteCol).subscribe(Response => {
+          console.log(Response);
+          this.getOutput();
+          
+        });
+      }
     });
   }
 
-
+  addLabels(labelname, id)
+  {
+    if(labelname!=''){
+      this.value.labelname= labelname;
+      this.value.token=localStorage.token;
+      this.value.noteid=id;
+      this.noteservice.createLabel(this.value).subscribe( Response => {
+       console.log(Response);
+       this.getOutput();
+     })
+    }
+  }
 
   getUniqueLableNames() {
     this.noteservice.getallLabels().subscribe(Response => { 

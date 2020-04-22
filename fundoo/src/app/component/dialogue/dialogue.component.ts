@@ -1,7 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Inject, Output, EventEmitter } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Note } from 'src/app/model/note.model';
-import { NoteservicesService } from 'src/app/services/noteservices.service';
 
 @Component({
   selector: 'app-dialogue',
@@ -10,21 +9,21 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 })
 export class DialogueComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private service : NoteservicesService ) { }
+  @Output() output: EventEmitter<any> = new EventEmitter();
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public dialogRef: MatDialogRef<DialogueComponent>) { }
 
-  passData: Note=new Note();
+  passData: Note = new Note();
   ngOnInit(): void {
   }
 
   updateNote(title, description, noteId) {
-    debugger;
-    this.passData.id=noteId;
-    this.passData.description=description;
-    this.passData.title=title;
-    // console.log(this.passData);
-    this.service.UpdateNotes(this.passData).subscribe(response => {
-      location.reload();
-      console.log(response.message);
-    });
+    this.passData.id = noteId;
+    this.passData.description = description;
+    this.passData.title = title;
+    this.dialogRef.close({ updateData: this.passData });
+  }
+
+  outputFunction(value) {
+    this.dialogRef.close({ resu: value });
   }
 }

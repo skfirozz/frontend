@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';
 import { Label } from 'src/app/model/label.model';
 import { SignoutComponent } from '../signout/signout.component';
+import { Note } from 'src/app/model/note.model';
 
 @Component({
   selector: 'app-home',
@@ -16,12 +17,14 @@ import { SignoutComponent } from '../signout/signout.component';
 export class HomeComponent implements OnInit {
 
   searchData = new FormControl('', [
-    Validators.required,]);
+  Validators.required,]);
   labels: Label = new Label();
+  profileData: Note = new Note();
   labelOper: boolean = false;
   labelName: any;
   allNotes: any;
   userValues: any;
+  selectedFile: File;
 
   view: boolean = false;
   grid = "row";
@@ -30,6 +33,7 @@ export class HomeComponent implements OnInit {
   constructor(public dialog: MatDialog, private serviceobj: NoteservicesService, private router: Router, private activateRoute: ActivatedRoute, private serviceObject: FundooAccountServiceService) { }
 
   ngOnInit() {
+    this.selectedFile;
     this.getLabel();
     this.userDatas();
   }
@@ -38,7 +42,28 @@ export class HomeComponent implements OnInit {
     if (findValue != '') {
       this.router.navigate(['fundoo/search'], { queryParams: { data: findValue } });
     }
+  }
 
+  public onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    console.log(this.selectedFile.name);
+    if (this.selectedFile.name != null) {
+      this.profileData.token = localStorage.token;
+      this.profileData.profilePic = this.selectedFile.name;
+      this.serviceobj.updateProfile(this.profileData).subscribe(Response => {
+        console.log(Response.message);
+        this.ngOnInit();
+      })
+    }
+  }
+
+  SignOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
+    console.log('logout successful');
   }
 
   reload() {
@@ -80,7 +105,6 @@ export class HomeComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result.delteLabel) {
-        // debugger;
         this.serviceobj.deleteLabel(result.delteLabel).subscribe(response => {
           this.ngOnInit();
           console.log(response);
