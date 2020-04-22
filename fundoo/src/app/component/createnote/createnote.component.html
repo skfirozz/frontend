@@ -57,7 +57,7 @@
               </mat-icon>
             </button>
           </ng-template>
-          <button mat-icon-button class="visible" matTooltip="more">
+          <button mat-icon-button class="visible"  [matMenuTriggerFor]="addLabel" matTooltip="more">
             <mat-icon>more_vert</mat-icon>
           </button>
           <button style="background-color: white;border:none;outline: none;;" (click)="createNote()">close</button>
@@ -117,6 +117,12 @@
         </mat-card>
     </mat-menu>
 
+    <mat-menu #addLabel="matMenu">
+      <mat-card>
+          Label Note
+         
+      </mat-card>
+  </mat-menu>
     </form>
   </mat-card>
 </div>
