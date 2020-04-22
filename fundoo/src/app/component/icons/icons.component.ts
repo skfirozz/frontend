@@ -92,19 +92,19 @@ export class IconsComponent implements OnInit {
     })
   }
 
-  addLabel(labels) {
-    console.log(labels);
-    this.value.noteid = labels;
-    const dialogRef = this.dialog.open(EditlabelsComponent, {
-      data: { labels: labels },
-      panelClass: 'custom-dialog-container'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      this.noteservice.createLabel(result.editLabel).subscribe(Response => {
-        this.getOutput();
-      })
-    });
-  }
+  // addLabel(labels) {
+  //   console.log(labels);
+  //   this.value.noteid = labels;
+  //   const dialogRef = this.dialog.open(EditlabelsComponent, {
+  //     data: { labels: labels },
+  //     panelClass: 'custom-dialog-container'
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     this.noteservice.createLabel(result.editLabel).subscribe(Response => {
+  //       this.getOutput();
+  //     })
+  //   });
+  // }
 
   setTime(value){
     this.time=value;

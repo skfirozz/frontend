@@ -44,6 +44,7 @@ import { EditlabelsComponent } from './component/editlabels/editlabels.component
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SearchDataComponent } from './component/search-data/search-data.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 // import {MatChipsModule} from '@angular/material/chips';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -66,6 +67,7 @@ import { SearchDataComponent } from './component/search-data/search-data.compone
     PinnedComponent,
     EditlabelsComponent,
     SearchDataComponent,
+    ResetPasswordComponent,
   ],
  
   imports: [

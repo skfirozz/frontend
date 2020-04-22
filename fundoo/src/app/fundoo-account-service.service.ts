@@ -25,7 +25,6 @@ export class FundooAccountServiceService {
   }
 
   geSearchValue(arr) {
-
     return this.http.post(this.baseUrl + 'search', arr);
   }
 }

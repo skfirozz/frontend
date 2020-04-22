@@ -41,4 +41,8 @@ export class LabelnotesComponent implements OnInit {
       console.log("------------------");
     })
   }
+
+  getUpdatedNotes(value){
+    this.ngOnInit();
+  }
 }

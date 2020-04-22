@@ -25,9 +25,9 @@ export class ForgotComponent implements OnInit {
     this.serviceObject.getForgotValue(data).subscribe((result) => {
       const temp = JSON.stringify(result);
       const results = JSON.parse(temp);
-      // console.log(results.message, ':', results);
-      this.router.navigate(['/dashboard']);
+      console.log(result);
+      // this.router.navigate(['/dashboard']);
     });
-    this.serviceObject.getForgotValue(data);
+    // this.serviceObject.getForgotValue(data);
   }
 }

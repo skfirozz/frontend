@@ -7,10 +7,12 @@ import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { SearchDataComponent } from './component/search-data/search-data.component';
+import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: RegisterComponent },
+  { path: 'resetPassword/:id', component: ResetPasswordComponent },
   { path: 'forgot', component: ForgotComponent },
   {
     path: 'fundoo', component: HomeComponent,

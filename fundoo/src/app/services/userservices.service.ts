@@ -21,4 +21,8 @@ export class UserservicesService {
   uploadProfilePic(arr){
     // return this.httpclient.post<any>(environment.baseUrl + environment., arr);
   }
+
+  resetPassword(password,token){
+   return  this.httpclient.post<any>(environment.baseUrl + environment.reset +"/"+ token, password);
+  }
 }

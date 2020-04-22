@@ -9,6 +9,7 @@ export const environment = {
   login : "login",
   register : "register",
   forgot : "forgot",
+  reset: "resetPassword",
 
 
   info: "userDetails/",

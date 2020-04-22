@@ -30,16 +30,16 @@ export class LoginComponent implements OnInit {
     this.userdata.password = this.password.value;
     console.log(this.userdata);
     this.userServices.login(this.userdata).subscribe(response => {
-      console.log(response.message);
-      if (response.message == 'valid') {
-        localStorage.setItem('token', response.token);
-        this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: 'row' } });
+      console.log(response);
+      if (response.access_token) {
+        localStorage.setItem('token', response.access_token);
+      //   this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: 'row' } });
+      // }
+      // else {
+        console.log(response.access_token);
       }
-      else {
-        console.log("invalid user credentials");
-      }
-    })
+      else console.log("unauthorized error");
+      
+    });
   }
-
-
 }

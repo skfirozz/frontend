@@ -8,13 +8,15 @@
             <div *ngFor="let note of allNotes" class="space">
                 <div *ngFor="let labels of labelNotes">
                     <div *ngIf="labels.labelname==param&&note.id==labels.noteid">
-                        <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"></app-display-data>
+                        <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
+                            (output)=getUpdatedNotes($event)></app-display-data>
                         <br>
                     </div>
                 </div>
-               <div *ngIf="note.labelname==param">
-                <app-display-data [param]="gridView"  [notes]="note"></app-display-data>
-               </div>
+                <div *ngIf="note.labelname==param">
+                    <app-display-data [param]="gridView" [notes]="note" (output)=getUpdatedNotes($event)>
+                    </app-display-data>
+                </div>
             </div>
         </div>
     </div>

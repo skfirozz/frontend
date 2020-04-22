@@ -30,6 +30,11 @@ export class DisplaynotesComponent implements OnInit {
       this.param = params['page'];
       this.gridView = params['view'];
     });
+    this.reverseOfNotes();
+  }
+
+  reverseOfNotes(){
+    console.log(this.allnotes.reverse());
   }
 
   getLabelNote() {
