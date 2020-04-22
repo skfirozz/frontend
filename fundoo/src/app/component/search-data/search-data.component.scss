@@ -1,5 +1,13 @@
-.space {
-    margin: 0 10px;
-   
-    flex-wrap: wrap;
-}
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    margin-left: 0.5cm;
+    margin-bottom: auto;
+    height: auto; 
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
