@@ -100,9 +100,9 @@ export class CreatenoteComponent implements OnInit {
   }
 
   addLabels(label){
-    // console.log(label);
-    // this.label=label;
-    // console.log(this.label);
+    console.log(label);
+    this.label=label;
+    console.log(this.label);
   }
 
   arrayofColors = [
