@@ -45,6 +45,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SearchDataComponent } from './component/search-data/search-data.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { TestingComponent } from './component/testing/testing.component';
 // import {MatChipsModule} from '@angular/material/chips';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -68,6 +69,7 @@ import { ResetPasswordComponent } from './component/reset-password/reset-passwor
     EditlabelsComponent,
     SearchDataComponent,
     ResetPasswordComponent,
+    TestingComponent,
   ],
  
   imports: [

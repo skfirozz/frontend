@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Note } from '../model/note.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ export class NoteservicesService {
 
   private _autoRefresh$ = new Subject();
 
+  token: Note = new Note();
   constructor(private httpclient: HttpClient) { }
 
   get autoRefresh$() {
@@ -19,8 +21,10 @@ export class NoteservicesService {
 
   userValues(){
     let token=localStorage.token;
-    return this.httpclient.get<any>(environment.baseUrl + environment.info + "?token=" + token )
+    this.token.token=token;
+    return this.httpclient.post<any>(environment.baseUrl + environment.info ,this.token );
   }
+
   updateProfile(arr){
     return this.httpclient.post<any>(environment.baseUrl + environment.updateProfile ,arr);
     
@@ -44,17 +48,20 @@ export class NoteservicesService {
 
   getAllNotes(){
     let token= localStorage.token;
-    return this.httpclient.get<any>(environment.baseUrl + environment.getAllNotes + "?token=" + token);
+    this.token.token=token;
+    return this.httpclient.post<any>(environment.baseUrl + environment.getAllNotes,this.token );
   }
 
   getPinNotes() {
     let token= localStorage.token;
-    return this.httpclient.get<any>(environment.baseUrl + environment.getPinNotes +"?token=" + token);
+    this.token.token=token;
+    return this.httpclient.post<any>(environment.baseUrl + environment.getPinNotes ,this.token );
   }
 
   getUnPinNotes(){
     let token= localStorage.token;
-    return this.httpclient.get<any>(environment.baseUrl + environment.getUnPinNote +"?token=" + token);   
+    this.token.token=token;
+    return this.httpclient.post<any>(environment.baseUrl + environment.getUnPinNote ,this.token);   
   }
 
   getTrashNotes() {
@@ -69,12 +76,14 @@ export class NoteservicesService {
 
   getallLabels(){
     let token= localStorage.token;
-    return this.httpclient.get<any>(environment.baseUrl + environment.getLabels  +"?token=" + token);
+    this.token.token=token;
+    return this.httpclient.post<any>(environment.baseUrl + environment.getLabels ,this.token);
   }
 
   getLabelNotes(){
     let token= localStorage.token;
-    return this.httpclient.get<any>(environment.baseUrl + environment.getLabelNotes +"?token=" + token);
+    this.token.token=token;
+    return this.httpclient.post<any>(environment.baseUrl + environment.getLabelNotes ,this.token);
   }
   
   updatePin(arr) {
@@ -99,12 +108,8 @@ export class NoteservicesService {
   deleteLabel(arr){
     return this.httpclient.post<any>(environment.baseUrl + environment.deleteLabel, arr);
   }
-  updateColor() {
-    let token = localStorage.getItem('token');
-    return this.httpclient.put<any>(environment.baseUrl + environment.delete, { headers: localStorage.token });
-  }
+
   setColor(arr) {
-    console.log(arr);
     return this.httpclient.post<any>(environment.baseUrl + environment.setcolor, arr);
 
   }

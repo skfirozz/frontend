@@ -19,22 +19,7 @@
                 </div>
 
                 <div class="appBarLastIcon">
-                    <div class="settings">
-                        <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="settings">
-                            <mat-icon>settings</mat-icon>
-                        </button>
-                        <mat-menu #menu="matMenu">
-                            <button mat-menu-item>Settings</button>
-                            <button mat-menu-item>Send feedback</button>
-                            <button mat-menu-item>Help</button>
-                            <button mat-menu-item>App downloads</button>
-                            <button mat-menu-item>Keyboard Shaortcuts</button>
-                        </mat-menu>
-                    </div>
                     <div class="refresh">
-                        <button id="refreshbutton" mat-icon-button>
-                            <mat-icon>refresh</mat-icon>
-                        </button>
                         <button mat-icon-button *ngIf="view" matTooltip="View Grid" (click)="gridView()">
                             <mat-icon>view_module</mat-icon>
                         </button>

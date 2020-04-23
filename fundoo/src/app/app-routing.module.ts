@@ -8,9 +8,11 @@ import { DisplaynotesComponent } from './component/displaynotes/displaynotes.com
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
 import { SearchDataComponent } from './component/search-data/search-data.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
+import { TestingComponent } from './component/testing/testing.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'test', component: TestingComponent },
   { path: '', component: RegisterComponent },
   { path: 'resetPassword/:id', component: ResetPasswordComponent },
   { path: 'forgot', component: ForgotComponent },
