@@ -11,10 +11,37 @@ export class TestingComponent implements OnInit {
 
   userDataValues:any;
   notes: Note = new Note();
+  popup:boolean=false;
   constructor(private services:NoteservicesService) { }
 
   ngOnInit(): void {
   }
+
+
+
+
+click(){
+  this.popup=true;
+  
+}
+
+save(title,description){
+  console.log(title)
+  console.log(description);
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
   userValues(){
     this.notes.token=localStorage.token;

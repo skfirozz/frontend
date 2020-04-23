@@ -19,6 +19,7 @@ export class DisplaynotesComponent implements OnInit {
   gridView: any;
   reminder: any;
 
+  col:any;
   constructor(private noteservice: NoteservicesService, private route: ActivatedRoute, private router: Router) {
   }
 
@@ -29,6 +30,9 @@ export class DisplaynotesComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.param = params['page'];
       this.gridView = params['view'];
+      if(this.gridView=='column')
+      this.col=this.gridView;
+      else this.col=null;
     });  
   }
 

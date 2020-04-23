@@ -1,14 +1,33 @@
-.image-cropper {
-    width: 0.7cm;
-    height: 0.7cm;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
+// .image-cropper {
+//     width: 0.7cm;
+//     height: 0.7cm;
+//     position: relative;
+//     overflow: hidden;
+//     border-radius: 50%;
+// }
+// .profile-pic {
+//   display: inline;
+//   margin: 0 auto;
+//   margin-left: -25%;
+//   height: 0.7cm;
+//   width: auto;
+// }
+
+
+
+.inputu{
+  outline: none;
+  
 }
-.profile-pic {
-  display: inline;
-  margin: 0 auto;
-  margin-left: -25%;
-  height: 0.7cm;
-  width: auto;
+.matcard{
+  margin-left: 25%;
+  width: 15cm;
+  height:4cm;
+}
+
+.smallmatcard{
+  margin-left: 25%;
+  width: 15cm;
+  height:1cm;
+
 }
