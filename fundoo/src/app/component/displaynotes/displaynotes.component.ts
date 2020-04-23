@@ -29,18 +29,13 @@ export class DisplaynotesComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.param = params['page'];
       this.gridView = params['view'];
-    });
-    this.reverseOfNotes();
-  }
-
-  reverseOfNotes(){
-    console.log(this.allnotes.reverse());
+    });  
   }
 
   getLabelNote() {
     this.noteservice.getLabelNotes().subscribe(Response => {
-      this.labelNotes = Response.data;
-    })
+    this.labelNotes = Response.data;
+  });
   }
 
   

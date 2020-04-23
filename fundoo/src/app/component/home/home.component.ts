@@ -87,6 +87,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['fundoo/notes'], { queryParams: { page: 'notes', view: this.grid } });
   }
   showArchive() {
+    debugger;
     this.router.navigate(['fundoo/notes'], { queryParams: { page: 'archive', view: this.grid } });
   }
 

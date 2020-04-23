@@ -28,36 +28,41 @@
                         </button>
                     </div>
                     <div class="profile">
-                        <button mat-icon-button *ngIf="userValues.profileImage==null" matTooltip="PROFILE"
-                            (click)="OpenSignout(userValues)">
+                        <button mat-icon-button *ngIf="userValues.profileImage==null" matTooltip="PROFILE" class="pro"
+                            [matMenuTriggerFor]="SignOutMenu">
                             <mat-icon> account_circle</mat-icon>
                         </button>
-                        <button mat-icon-button [matMenuTriggerFor]="SignOutMenu">
-                            <img *ngIf="userValues.profileImage!=null" src="assets/{{userValues.profileImage}}"
-                            class="image">
+                        <button mat-icon-button [matMenuTriggerFor]="SignOutMenu" *ngIf="userValues.profileImage!=null">
+                            <img src="assets/{{userValues.profileImage}}" class="image">
                         </button>
-                        <mat-menu #SignOutMenu="matMenu" class="matCard">
-                                <mat-card>
-                                    <div fxLayout="column" >
-                                        <div>
+                        <mat-menu #SignOutMenu="matMenu">
+                            <mat-card>
+                                <div fxLayout="column">
+                                    <div>
+                                        <button mat-icon-button matTooltip="PROFILE" class="pro">
+                                            <mat-icon> account_circle</mat-icon>
+                                        </button>
+                                        <!-- <button mat-icon-button *ngIf="userValues.profileImage!=null">
                                             <img src="assets/{{userValues.profileImage}}" class="image">
-                                
-                                            <div class="container row">
-                                                <div class="col-md-6">
-                                                    <input type="file" (change)="onFileChanged($event)" class="input">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <input type="button" (click)="onUpload()" value="upload">
-                                                </div>
+                                        </button> -->
+
+                                        <div class="container row">
+                                            <div class="col-md-6">
+                                                <input type="file" (change)="onFileChanged($event)" class="input">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="button" (click)="onUpload()" value="upload">
                                             </div>
                                         </div>
-                                        <strong>{{userValues.name}}</strong>
                                     </div>
-                                    {{userValues.email}}
-                                    <br>
-                                    <mat-divider class="divider"></mat-divider>
-                                    <button mat-dialog-close mat-raised-button  class="button" (click)="SignOut()">SignOut</button>
-                                </mat-card>
+                                    <strong>{{userValues.name}}</strong>
+                                </div>
+                                {{userValues.email}}
+                                <br>
+                                <mat-divider class="divider"></mat-divider>
+                                <button mat-dialog-close mat-raised-button class="button"
+                                    (click)="SignOut()">SignOut</button>
+                            </mat-card>
                         </mat-menu>
                     </div>
                 </div>
