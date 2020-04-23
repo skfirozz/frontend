@@ -31,7 +31,7 @@
       </div>
       <div fxLayout="row">
         <a>
-          <button mat-icon-button   [matMenuTriggerFor]="remind" matTooltip="Remind Me" >
+          <button mat-icon-button [matMenuTriggerFor]="remind" matTooltip="Remind Me" >
             <mat-icon>add_alert</mat-icon>
         </button>
           <button mat-icon-button matTooltip="collaborator" (click)="setCollaborator()">
@@ -104,7 +104,7 @@
             </mat-form-field>
             <br>
             <mat-form-field appearance="fill" class="color">
-                <mat-label>Does not repeat</mat-label>
+                <mat-label>Repeat</mat-label>
                 <mat-select>
                     <mat-option value="not" (click)="setRepitation(f.value)" #f>Does not repeat</mat-option>
                     <mat-option value="daily" (click)="setRepitation(g.value)" #g>Daily</mat-option>
