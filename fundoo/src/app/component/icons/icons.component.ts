@@ -4,7 +4,6 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';
 import { Label } from 'src/app/model/label.model';
-import { ReminderComponent } from '../reminder/reminder.component';
 import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
@@ -91,20 +90,6 @@ export class IconsComponent implements OnInit {
       this.getOutput();
     })
   }
-
-  // addLabel(labels) {
-  //   console.log(labels);
-  //   this.value.noteid = labels;
-  //   const dialogRef = this.dialog.open(EditlabelsComponent, {
-  //     data: { labels: labels },
-  //     panelClass: 'custom-dialog-container'
-  //   });
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     this.noteservice.createLabel(result.editLabel).subscribe(Response => {
-  //       this.getOutput();
-  //     })
-  //   });
-  // }
 
   setTime(value){
     this.time=value;

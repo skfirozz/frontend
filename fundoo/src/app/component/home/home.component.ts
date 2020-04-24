@@ -6,7 +6,6 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditlabelsComponent } from '../editlabels/editlabels.component';
 import { Label } from 'src/app/model/label.model';
-import { SignoutComponent } from '../signout/signout.component';
 import { Note } from 'src/app/model/note.model';
 
 @Component({
@@ -33,8 +32,7 @@ export class HomeComponent implements OnInit {
   constructor(public dialog: MatDialog,
      private serviceobj: NoteservicesService,
      private router: Router, 
-     private activateRoute: ActivatedRoute,
-    private serviceObject: FundooAccountServiceService) { }
+     private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.selectedFile;
@@ -138,17 +136,6 @@ export class HomeComponent implements OnInit {
     this.activateRoute.queryParams.subscribe(params => {
       let page = params['page'] || '';
       this.router.navigate(['fundoo/notes'], { queryParams: { page: page, view: this.grid } });
-    });
-  }
-
-
-  OpenSignout(userValues) {
-    const dialogRef = this.dialog.open(SignoutComponent, {
-      data: { userValues: userValues },
-      panelClass: 'custom-dialog-container'
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      userValues = result;
     });
   }
 

@@ -27,7 +27,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CreatenoteComponent } from './component/createnote/createnote.component';
 import { HomeComponent } from './component/home/home.component';
 import { DisplaynotesComponent } from './component/displaynotes/displaynotes.component';
-import { ReminderComponent } from './component/reminder/reminder.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
@@ -35,7 +34,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { IconsComponent } from './component/icons/icons.component';
 import { DisplayDataComponent } from './component/display-data/display-data.component';
 import { LabelnotesComponent } from './component/labelnotes/labelnotes.component';
-import { SignoutComponent } from './component/signout/signout.component';
 import { CollaboratorComponent } from './component/collaborator/collaborator.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import { DialogueComponent } from './component/dialogue/dialogue.component';
@@ -45,7 +43,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { SearchDataComponent } from './component/search-data/search-data.component';
 import { ResetPasswordComponent } from './component/reset-password/reset-password.component';
-import { TestingComponent } from './component/testing/testing.component';
 // import {MatChipsModule} from '@angular/material/chips';
 // import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -58,18 +55,15 @@ import { TestingComponent } from './component/testing/testing.component';
     CreatenoteComponent,
     HomeComponent,
     DisplaynotesComponent,
-    ReminderComponent,
     IconsComponent,
     DialogueComponent,
     DisplayDataComponent,
     LabelnotesComponent,
-    SignoutComponent,
     CollaboratorComponent,
     PinnedComponent,
     EditlabelsComponent,
     SearchDataComponent,
     ResetPasswordComponent,
-    TestingComponent,
   ],
  
   imports: [
@@ -105,7 +99,7 @@ import { TestingComponent } from './component/testing/testing.component';
     RouterModule.forRoot([])
 
   ],
-  entryComponents: [DialogueComponent,CollaboratorComponent,ReminderComponent,SignoutComponent],
+  entryComponents: [DialogueComponent,CollaboratorComponent ],
   providers: [FundooAccountServiceService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
