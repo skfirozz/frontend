@@ -1,10 +1,20 @@
 <div *ngIf="param=='notes'">
     <br>
     <app-createnote (output)=getUpdatedNotes($event)></app-createnote>
+    <br>
     <div style="padding-left: 255px;">
         <h5>PINNED</h5>
     </div>
-    <div  class="row" style="margin-left: 10%;">
+
+    <div *ngIf="col" class="row" style="margin-left: 10%;">
+        <div *ngFor="let note of allnotes">
+            <div *ngIf="!note.istrash&&!note.isarchived&&note.ispinned==1" class="column">
+                <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
+                    (output)=getUpdatedNotes($event)></app-display-data>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!col" fxLayout="column" style="margin-left: 15%;">
         <div *ngFor="let note of allnotes">
             <div *ngIf="!note.istrash&&!note.isarchived&&note.ispinned==1" class="column">
                 <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
@@ -15,7 +25,7 @@
 
     <h5 style="padding-left: 255px;">OTHERS</h5>
 
-    <div class="row" style="margin-left: 10%;">
+    <div *ngIf="col" class="row" style="margin-left: 10%;">
         <div *ngFor="let note of allnotes">
             <div *ngIf="!note.istrash&&!note.isarchived&&note.ispinned==0" class="column">
                 <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
@@ -23,11 +33,30 @@
             </div>
         </div>
     </div>
+
+    <div *ngIf="!col" fxLayout="column" style="margin-left: 15%;">
+        <div *ngFor="let note of allnotes">
+            <div *ngIf="!note.istrash&&!note.isarchived&&note.ispinned==0" class="column">
+                <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
+                    (output)=getUpdatedNotes($event)></app-display-data>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div *ngIf="param=='archive'">
     <br><br>
-    <div class="row" style="margin-left: 10%;">
+    <div *ngIf="col"  class="row" style="margin-left: 10%;">
+        <div *ngFor="let note of allnotes">
+            <div *ngIf="!note.istrash&&note.isarchived" class="column">
+                <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
+                    (output)=getUpdatedNotes($event)></app-display-data>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!col" fxLayout="column" style="margin-left: 15%;">
         <div *ngFor="let note of allnotes">
             <div *ngIf="!note.istrash&&note.isarchived" class="column">
                 <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
@@ -39,7 +68,16 @@
 
 <div *ngIf="param=='trash'">
     <br><br>
-    <div class="row" style="margin-left: 10%;">
+    <div *ngIf="col"  class="row" style="margin-left: 10%;">
+        <div *ngFor="let note of allnotes">
+            <div *ngIf="note.istrash==1" class="column">
+                <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
+                    (output)=getUpdatedNotes($event)></app-display-data>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!col" fxLayout="column" style="margin-left: 15%;">
         <div *ngFor="let note of allnotes">
             <div *ngIf="note.istrash==1" class="column">
                 <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
@@ -55,7 +93,16 @@
     <br>
     <app-createnote [reminder]="reminder" (output)=getUpdatedNotes($event)></app-createnote>
     <br>
-    <div class="row" style="margin-left: 10%;">
+    <div  *ngIf="col"  class="row" style="margin-left: 10%;">
+        <div *ngFor="let note of allnotes">
+            <div *ngIf="!note.istrash&&!note.isarchived&&note.reminder!=null" class="column">
+                <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"
+                    (output)=getUpdatedNotes($event)></app-display-data>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="!col" fxLayout="column" style="margin-left: 15%;">
         <div *ngFor="let note of allnotes">
             <div *ngIf="!note.istrash&&!note.isarchived&&note.reminder!=null" class="column">
                 <app-display-data [param]="gridView" [labels]="labelNotes" [notes]="note"

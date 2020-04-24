@@ -119,9 +119,11 @@
 
     <mat-menu #addLabel="matMenu">
       <mat-card>
-          Label Note
-         
-      </mat-card>
+        Label Note
+        <input matInput class="inputs" placeholder="new Label" value="" #newLabelName> <br>
+        <mat-divider class="divider"></mat-divider>
+        <button  mat-button (click)="addLabels(newLabelName.value)">+ Create {{newLabelName.value}}</button>
+    </mat-card>
   </mat-menu>
     </form>
   </mat-card>

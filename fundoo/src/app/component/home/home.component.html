@@ -37,21 +37,23 @@
                         </button>
                         <mat-menu #SignOutMenu="matMenu">
                             <mat-card>
-                                <div fxLayout="column">
+                                <div fxLayout="column" >
                                     <div>
-                                        <button mat-icon-button matTooltip="PROFILE" class="pro">
+                                        
+                                        <button mat-icon-button matTooltip="PROFILE" *ngIf="userValues.profileImage==null" class="pro">
                                             <mat-icon> account_circle</mat-icon>
                                         </button>
-                                        <!-- <button mat-icon-button *ngIf="userValues.profileImage!=null">
+
+                                        <button mat-icon-button *ngIf="userValues.profileImage!=null">
                                             <img src="assets/{{userValues.profileImage}}" class="image">
-                                        </button> -->
+                                        </button>
 
                                         <div class="container row">
                                             <div class="col-md-6">
-                                                <input type="file" (change)="onFileChanged($event)" class="input">
+                                                <input type="file" (change)="onFileChanged($event)" class="inputImg">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="button" (click)="onUpload()" value="upload">
+                                                <input type="button" (click)="onUpload()" value="upload" class="inputImg">
                                             </div>
                                         </div>
                                     </div>

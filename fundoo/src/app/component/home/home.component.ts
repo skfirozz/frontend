@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
 
   findData(findValue) {
     if (findValue != '') {
-      debugger;
       this.router.navigate(['fundoo/search'], { queryParams: { data: findValue } });
     }
   }

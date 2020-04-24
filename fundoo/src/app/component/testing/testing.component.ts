@@ -9,10 +9,10 @@ import { NoteservicesService } from 'src/app/services/noteservices.service';
 })
 export class TestingComponent implements OnInit {
 
-  userDataValues:any;
+  userDataValues: any;
   notes: Note = new Note();
-  popup:boolean=false;
-  constructor(private services:NoteservicesService) { }
+  popup: boolean = false;
+  constructor(private services: NoteservicesService) { }
 
   ngOnInit(): void {
   }
@@ -20,18 +20,16 @@ export class TestingComponent implements OnInit {
 
 
 
-click(){
-  this.popup=true;
-  
-}
+  click() {
+    this.popup = true;
 
-save(title,description){
-  console.log(title)
-  console.log(description);
-  
-}
+  }
 
+  save(title, description) {
+    console.log(title)
+    console.log(description);
 
+  }
 
 
 
@@ -43,14 +41,16 @@ save(title,description){
 
 
 
-  userValues(){
-    this.notes.token=localStorage.token;
+
+
+  userValues() {
+    this.notes.token = localStorage.token;
     // console.log(this.notes);
     // this.services.getAllNotes().subscribe( Response => {
     //   console.log(Response);
     // })
 
-    this.services.getAllNotes().subscribe( Response => {
+    this.services.getAllNotes().subscribe(Response => {
       console.log(Response);
     })
 

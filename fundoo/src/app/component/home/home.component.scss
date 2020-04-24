@@ -101,3 +101,21 @@ img {
             font-size: 50px;
           }
 }
+// .inputImg{
+//     width:2cm ;
+// }
+
+.image-cropper {
+    width: 0.7cm;
+    height: 0.7cm;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.profile-pic {
+  display: inline;
+  margin: 0 auto;
+  margin-left: -25%;
+  height: 0.7cm;
+  width: auto;
+}
