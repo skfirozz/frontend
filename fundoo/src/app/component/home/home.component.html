@@ -32,28 +32,33 @@
                             [matMenuTriggerFor]="SignOutMenu">
                             <mat-icon> account_circle</mat-icon>
                         </button>
-                        <button mat-icon-button [matMenuTriggerFor]="SignOutMenu" *ngIf="userValues.profileImage!=null">
-                            <img src="assets/{{userValues.profileImage}}" class="image">
-                        </button>
+                        
+                        <div class="image-cropper" [matMenuTriggerFor]="SignOutMenu"
+                            *ngIf="userValues.profileImage!=null">
+                            <img src="assets/{{userValues.profileImage}}" alt="avatar" class="profile-pic">
+                        </div>
                         <mat-menu #SignOutMenu="matMenu">
                             <mat-card>
-                                <div fxLayout="column" >
+                                <div fxLayout="column">
                                     <div>
-                                        
-                                        <button mat-icon-button matTooltip="PROFILE" *ngIf="userValues.profileImage==null" class="pro">
+
+                                        <button mat-icon-button matTooltip="PROFILE"
+                                            *ngIf="userValues.profileImage==null" class="pro">
                                             <mat-icon> account_circle</mat-icon>
                                         </button>
 
-                                        <button mat-icon-button *ngIf="userValues.profileImage!=null">
-                                            <img src="assets/{{userValues.profileImage}}" class="image">
-                                        </button>
+                                        <div class="image-cropper" *ngIf="userValues.profileImage!=null">
+                                            <img src="assets/{{userValues.profileImage}}" alt="avatar"
+                                                class="profile-pic">
+                                        </div>
 
                                         <div class="container row">
                                             <div class="col-md-6">
                                                 <input type="file" (change)="onFileChanged($event)" class="inputImg">
                                             </div>
                                             <div class="col-md-6">
-                                                <input type="button" (click)="onUpload()" value="upload" class="inputImg">
+                                                <input type="button" (click)="onUpload()" value="upload"
+                                                    class="inputImg">
                                             </div>
                                         </div>
                                     </div>
