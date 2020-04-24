@@ -15,21 +15,22 @@
 
 
 
-.inputu{
-  outline: none;
-  border: none;
-  outline: none;
-  
-}
-.matcard{
-  margin-left: 25%;
-  width: 15cm;
-  height:4cm;
+input#file {
+  display: inline-block;
+  width: 2cm;
+  padding: 120px 0 0 0;
+  height: 2cm;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #e4e4e4;
+  border-radius: 20px;
+  background-size: 2cm;
 }
 
-.smallmatcard{
-  margin-left: 25%;
-  width: 15cm;
-  height:1cm;
+#real {
+  display: none;
+}
 
+#fake-button {
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Mozilla_Firefox_logo_2013.svg/40px-Mozilla_Firefox_logo_2013.svg.png");
 }

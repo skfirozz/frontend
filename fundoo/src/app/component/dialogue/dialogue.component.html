@@ -2,9 +2,9 @@
 
     <div fxLayout="row">
         <div>
-            <strong> <input style="border: none; outline: none;font-size:x-large ;"
+             <input style="border: none; outline: none;font-size:x-large ;"
                     [ngStyle]="{'background-color' : data.note.color}" matInput type="text" class="ntitle"
-                    value="{{data.note.title}}" #title> </strong>
+                    value="{{data.note.title}}" #title> 
         </div>
         <app-pinned [notes]="data.note"></app-pinned>
     </div>
